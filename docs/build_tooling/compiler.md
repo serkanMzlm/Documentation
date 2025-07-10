@@ -30,15 +30,31 @@ g++ -o main.o main.cpp -std=c++11 -I/source/includes
 
 ## 💻 VS Code Derleyici Ayarları
 
-```json title="tasks.json" linenums="1" hl_lines="2-4"
-"-Wall",
-"-Weffc++",
-"-Wextra",
-"-Wconversion",
-"-Wsign-conversion",
-"-Werror", // Tüm uyarılar hata olarak değerlendirilir.
-
-"C_Cpp.default.cppStandard": "c++20" // C++20 standardı kullanılır.
+```json title="tasks.json" linenums="1" hl_lines="9-16"
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++ Build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-Wconversion",
+        "-Wsign-conversion",
+        "-Werror",
+        "-o", "main",
+        "main.cpp"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
 ```
 
 ## ⚙️ Derleme Süreci
@@ -53,3 +69,35 @@ graph LR
   D --> |Assembler| E[main.o];
   E --> |Linker| F[main];
 ```
+
+1️⃣ **Preprocessor (Ön İşlemci):** Yorum satırları kaldırılır, `#define` ve `#include` gibi direktifler işlenir.
+
+```bash
+gcc -E main.c -o main.i
+```
+
+2️⃣ **Compiler (Derleyici):** Kod, assembly diline çevrilir (donanıma daha yakın bir dil).
+
+```bash
+gcc -S main.i -o main.s
+```
+
+3️⃣ **Assembler (Çevirici):** Assembly kodu makine koduna dönüştürülür (binary).
+
+```
+gcc -c main.s -o main.o
+```
+
+4️⃣ **Linker (Bağlayıcı):** Object dosyalar birleştirilerek çalıştırılabilir program üretilir.
+
+```
+gcc main.o -o main
+```
+
+!!! note "Not"
+
+    Tüm bu adımları tek komutla gerçekleştirmek ve ara dosyaları (.i, .s, .o) da görmek isterseniz:
+    ```bash 
+    gcc -save-temps main.c -o main
+    ```
+    Bu komut, derleme sırasında oluşturulan tüm geçici dosyaları da kaydeder.
