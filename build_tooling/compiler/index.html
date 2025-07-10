@@ -59,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#derleyici-secenekleri-ve-derleme-sureci" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -394,6 +399,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Compiler
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -406,6 +426,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gcc-gnu-compiler-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ GCC (GNU Compiler Collection)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-gnu-c-compiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 G++ (GNU C++ Compiler)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs-code-derleyici-ayarlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 VS Code Derleyici Ayarları
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derleme-sureci" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Derleme Süreci
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1299,9 +1374,62 @@
 
 
 
-  <h1>Compiler</h1>
-
-
+<h1 id="derleyici-secenekleri-ve-derleme-sureci">Derleyici Seçenekleri ve Derleme Süreci</h1>
+<p>Bu dökümantasyon, GCC ve G++ derleyicilerinin temel kullanımını, VS Code ayarlarını ve C/C++ derleme sürecinin adımlarını açıklar.</p>
+<hr />
+<h2 id="gcc-gnu-compiler-collection">🛠️ GCC (GNU Compiler Collection)</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gcc<span class="w"> </span>-o<span class="w"> </span>main.o<span class="w"> </span>main.c<span class="w"> </span>-Wall<span class="w"> </span>-Wextra<span class="w"> </span>-Wconversion<span class="w"> </span>-Wsign-conversion
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Wall:</strong> Temel uyarıların tamamını aktif eder.</p>
+</li>
+<li>
+<p><strong>Wextra:</strong> Daha fazla (detaylı) uyarı mesajı gösterir.</p>
+</li>
+<li>
+<p><strong>Wconversion:</strong> Tür dönüşümleriyle ilgili uyarıları gösterir.</p>
+</li>
+<li>
+<p><strong>Wsign-conversion:</strong> İşaretli (signed) ve işaretsiz (unsigned) türler arasındaki dönüşümlerde uyarı verir.</p>
+</li>
+</ul>
+<h2 id="g-gnu-c-compiler">🧠 G++ (GNU C++ Compiler)</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>g++<span class="w"> </span>-o<span class="w"> </span>main.o<span class="w"> </span>main.cpp<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span>-I/source/includes
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>std=c++11:</strong> Derleme sırasında C++11 standardı kullanılır.</p>
+</li>
+<li>
+<p><strong>I:</strong> Başlık dosyalarının bulunduğu dizin belirtilir (include path).</p>
+</li>
+</ul>
+<h2 id="vs-code-derleyici-ayarlar">💻 VS Code Derleyici Ayarları</h2>
+<div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tasks.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="s2">&quot;-Wall&quot;</span><span class="p">,</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="hll"><span class="s2">&quot;-Weffc++&quot;</span><span class="p">,</span>
+</span></span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="hll"><span class="s2">&quot;-Wextra&quot;</span><span class="p">,</span>
+</span></span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="hll"><span class="s2">&quot;-Wconversion&quot;</span><span class="p">,</span>
+</span></span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="s2">&quot;-Wsign-conversion&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="s2">&quot;-Werror&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Tüm uyarılar hata olarak değerlendirilir.</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nt">&quot;C_Cpp.default.cppStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c++20&quot;</span><span class="w"> </span><span class="c1">// C++20 standardı kullanılır.</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="derleme-sureci">⚙️ Derleme Süreci</h2>
+<p>Derleme süreci 4 temel adımdan oluşur:</p>
+<pre class="mermaid"><code>graph LR
+  A[main.c] --&gt; |Preprocessor| B{main.i};
+  B --&gt; |Compiler| C[main.s];
+  C --&gt; |Assembler| D[main.s];
+  D --&gt; |Assembler| E[main.o];
+  E --&gt; |Linker| F[main];</code></pre>
 
 
 
