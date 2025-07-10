@@ -1,0 +1,82 @@
+site_name: Dokümantasyon
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.expand       
+    - navigation.instant
+    - navigation.sections     
+    - toc.integrate
+    - content.tabs.linked     
+    - header.autohide         
+    - announce.dismiss   
+  font:
+    text: Roboto               # Okunabilir font
+    code: Fira Code   
+
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/robot-industrial  # Robotik temasına uygun 
+
+nav:
+  - Build & Tooling:
+      - Compiler: build_tooling/compiler.md
+      - CMake: build_tooling/cmake.md
+      - Doxygen: build_tooling/doxygen.md
+      - Make: build_tooling/make.md
+      - Menuconfig: build_tooling/menuconfig.md
+
+  - Programming & Languages:
+      - C / C++: programming/c_cpp.md
+      - Python: programming/python.md
+      - Qt: programming/qt.md
+      - QML: programming/qml.md
+      - XML: programming/xml.md
+
+  - Embedded Systems & Low-Level:
+      - Embedded Programming: embedded/embedded_programming.md
+      - AVR Programming: embedded/avr.md
+      - IPC: embedded/ipc.md
+      - GStreamer: embedded/gstreamer.md
+      - MAVLink: embedded/mavlink.md
+
+  - Robotics & Autonomy:
+      - PX4: robotics/px4.md
+      - ROS2: robotics/ros2.md
+      - Gazebo: robotics/gazebo.md
+
+  - Operating Systems & DevOps:
+      - Linux: devops/linux.md
+      - Git & GitHub: devops/git.md
+      - Docker & Containers: devops/docker.md
+
+  - Hardware Platforms:
+      - Raspberry Pi: hardware/raspberry.md
+      - NVIDIA Jetson: hardware/jetson.md
+
+  - Perception & AI:
+      - AI & Machine Learning: perception_ai/ai.md
+      - OpenCV & Image Processing: perception_ai/opencv.md
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+     
