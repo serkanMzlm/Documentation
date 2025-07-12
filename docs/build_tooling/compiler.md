@@ -4,7 +4,7 @@ Bu dökümantasyon, GCC ve G++ derleyicilerinin temel kullanımını, VS Code ay
 
 ---
 
-## 🛠️ GCC (GNU Compiler Collection)
+## GCC (GNU Compiler Collection)
 
 ```bash
 gcc -o main.o main.c -Wall -Wextra -Wconversion -Wsign-conversion
@@ -18,7 +18,7 @@ gcc -o main.o main.c -Wall -Wextra -Wconversion -Wsign-conversion
  
 - **Wsign-conversion:** İşaretli (signed) ve işaretsiz (unsigned) türler arasındaki dönüşümlerde uyarı verir.
 
-## 🧠 G++ (GNU C++ Compiler)
+## G++ (GNU C++ Compiler)
 
 ```bash
 g++ -o main.o main.cpp -std=c++11 -I/source/includes
@@ -28,7 +28,7 @@ g++ -o main.o main.cpp -std=c++11 -I/source/includes
 
 - **I:** Başlık dosyalarının bulunduğu dizin belirtilir (include path).
 
-## 💻 VS Code Derleyici Ayarları
+## VS Code Derleyici Ayarları
 
 ```json title="tasks.json" linenums="1" hl_lines="9-16"
 {
@@ -57,7 +57,7 @@ g++ -o main.o main.cpp -std=c++11 -I/source/includes
 }
 ```
 
-## ⚙️ Derleme Süreci
+## Derleme Süreci
 
 Derleme süreci 4 temel adımdan oluşur:
 

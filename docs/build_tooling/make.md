@@ -2,11 +2,10 @@
 
 Make, yazılım projelerinde kaynak kodların derlenmesi ve yapı adımlarının otomatikleştirilmesi için kullanılan güçlü bir araçtır. Özellikle büyük projelerde zamandan tasarruf sağlar ve yapı sürecini standardize eder.
 
-> 🔥 Not: Makefile’da girintiler **TAB karakteriyle** yapılmalıdır. Boşluk (space) kullanmak hata ile sonuçlanır!
+!!! note "Not"
+    Makefile’da girintiler **TAB karakteriyle** yapılmalıdır. Boşluk (space) kullanmak hata ile sonuçlanır!
 
----
-
-## 🧩 Temel Sözdizimi ve Semboller
+## Temel Sözdizimi ve Semboller
 
 | Sembol | Anlamı |
 |--------|--------|
@@ -41,7 +40,7 @@ Bu kullanım tüm .c dosyalarını .o uzantılı versiyonlara çevirir.
 ---
 
 
-## 🧱 Basit Makefile Örnekleri
+## Basit Makefile Örnekleri
 
 ### Örnek 1: Temel Hedef
 
@@ -78,7 +77,7 @@ blah: blah.c
     2. yöntem tercih edilmelidir. Böylece sadece blah.c dosyası değiştiğinde hedef yeniden derlenir. Bu yöntem zamandan ve kaynaklardan tasarruf sağlar.
 
 
-## 📦 Değişkenler ve Otomatik Değişkenler
+## Değişkenler ve Otomatik Değişkenler
 ```make title="Tanımlama"
 CC = gcc
 CFLAGS = -Wall -O2
@@ -86,7 +85,7 @@ TARGET = my_program
 OBJ = main.o utils.o
 ```
 
-## 🧹 Kapsamlı Makefile Örneği
+## Kapsamlı Makefile Örneği
 
 ```make 
 # Değişkenler
@@ -115,7 +114,7 @@ clean:
 
 ```
 
-## 🧠 wildcard ve pattern matching
+## wildcard ve pattern matching
 
 `wildcard`, belirli dosya desenlerini eşleştirip listeleyen bir fonksiyondur. `wildcard` fonksiyonu mutlaka `:=` ile birlikte kullanılmalıdır. Aksi halde genişletilmez.
 

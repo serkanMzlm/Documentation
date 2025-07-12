@@ -26,14 +26,14 @@ nav:
       - Make: build_tooling/make.md
       - Menuconfig: build_tooling/menuconfig.md
 
-  - Programming & Languages:
-      - C / C++: programming/c_cpp.md
+  - Programming:
+      - C: programming/c.md
+      - C++: programming/cpp.md
       - Python: programming/python.md
-      - Qt: programming/qt.md
       - QML: programming/qml.md
       - XML: programming/xml.md
 
-  - Embedded Systems & Low-Level:
+  - Embedded:
       - Embedded Programming: embedded/embedded_programming.md
       - AVR Programming: embedded/avr.md
       - IPC: embedded/ipc.md
@@ -45,12 +45,10 @@ nav:
       - ROS2: robotics/ros2.md
       - Gazebo: robotics/gazebo.md
 
-  - Operating Systems & DevOps:
+  - OS & Hardware:
       - Linux: devops/linux.md
       - Git & GitHub: devops/git.md
       - Docker & Containers: devops/docker.md
-
-  - Hardware Platforms:
       - Raspberry Pi: hardware/raspberry.md
       - NVIDIA Jetson: hardware/jetson.md
 
