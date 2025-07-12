@@ -23,7 +23,6 @@ nav:
   - Build & Tooling:
       - Compiler: build_tooling/compiler.md
       - CMake: build_tooling/cmake.md
-      - Doxygen: build_tooling/doxygen.md
       - Make: build_tooling/make.md
       - Menuconfig: build_tooling/menuconfig.md
 
