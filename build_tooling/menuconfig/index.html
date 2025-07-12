@@ -12,7 +12,7 @@
         <link rel="prev" href="../make/">
       
       
-        <link rel="next" href="../../programming/c_cpp/">
+        <link rel="next" href="../../programming/c/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#kconfig-ve-menuconfig-kullanm" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -188,11 +193,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../programming/c_cpp/" class="md-tabs__link">
+        <a href="../../programming/c/" class="md-tabs__link">
           
   
   
-  Programming & Languages
+  Programming
 
         </a>
       </li>
@@ -212,7 +217,7 @@
           
   
   
-  Embedded Systems & Low-Level
+  Embedded
 
         </a>
       </li>
@@ -252,27 +257,7 @@
           
   
   
-  Operating Systems & DevOps
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../hardware/raspberry/" class="md-tabs__link">
-          
-  
-  
-  Hardware Platforms
+  OS & Hardware
 
         </a>
       </li>
@@ -436,29 +421,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../doxygen/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Doxygen
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../make/" class="md-nav__link">
         
   
@@ -488,6 +450,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Menuconfig
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -500,6 +477,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#temel-komutlar-ve-yaplar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Komutlar ve Yapılar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temel-elemanlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Elemanlar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degisken-turleri-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Değişken Türleri (config)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ornek-yaplar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Örnek Yapılar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sartl-menuler-ve-secimler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Şartlı Menüler ve Seçimler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secime-bagl-otomatik-aktiflestirme-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seçime Bağlı Otomatik Aktifleştirme (select)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#komutlar-hakknda-ksa-bilgiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komutlar Hakkında Kısa Bilgiler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kullanm-tavsiyeleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kullanım Tavsiyeleri
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -543,7 +611,7 @@
   
   
   <span class="md-ellipsis">
-    Programming & Languages
+    Programming
     
   </span>
   
@@ -554,7 +622,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Programming & Languages
+            Programming
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -565,12 +633,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../programming/c_cpp/" class="md-nav__link">
+      <a href="../../programming/c/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    C / C++
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++
     
   </span>
   
@@ -594,29 +685,6 @@
   
   <span class="md-ellipsis">
     Python
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../programming/qt/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Qt
     
   </span>
   
@@ -710,7 +778,7 @@
   
   
   <span class="md-ellipsis">
-    Embedded Systems & Low-Level
+    Embedded
     
   </span>
   
@@ -721,7 +789,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Embedded Systems & Low-Level
+            Embedded
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -998,7 +1066,7 @@
   
   
   <span class="md-ellipsis">
-    Operating Systems & DevOps
+    OS & Hardware
     
   </span>
   
@@ -1009,7 +1077,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Operating Systems & DevOps
+            OS & Hardware
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1081,58 +1149,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Hardware Platforms
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Hardware Platforms
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1209,10 +1225,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1225,8 +1241,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Perception & AI
           </label>
@@ -1301,9 +1317,178 @@
 
 
 
-  <h1>Menuconfig</h1>
-
-
+<h1 id="kconfig-ve-menuconfig-kullanm">Kconfig ve Menuconfig Kullanım</h1>
+<p>Kconfig/Menuconfig, yazılım projelerinde kullanıcı tarafından ayarlanabilir yapılandırma seçenekleri oluşturmak için kullanılan bir sistemdir. Linux çekirdeği başta olmak üzere birçok projede yaygın olarak kullanılır.</p>
+<h2 id="temel-komutlar-ve-yaplar">Temel Komutlar ve Yapılar</h2>
+<div class="language-kconfig highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">mainmenu</span><span class="w"> </span><span class="s2">&quot;Ana Menü Başlığı&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">comment</span><span class="w"> </span><span class="s2">&quot;Bilgi veya Açıklama: $(VARIABLE)&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">menu</span><span class="w"> </span><span class="s2">&quot;Alt Menü Başlığı&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">config</span><span class="w"> </span>CONFIG_NAME
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;Görünecek İsim&quot;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span>y
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="k">help</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="sd">            Bu ayarın ne işe yaradığını açıklar.</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">endmenu</span>
+</span></code></pre></div>
+<h2 id="temel-elemanlar">Temel Elemanlar</h2>
+<ul>
+<li><code>mainmenu</code>: Ana başlığı belirler.</li>
+<li><code>comment</code>: Bilgilendirme amacıyla kullanılır.</li>
+<li><code>menu / endmenu</code>: Alt menü oluşturur.</li>
+<li><code>choice / endchoice</code>: Kullanıcıya seçim grubu oluşturur.</li>
+</ul>
+<h2 id="degisken-turleri-config">Değişken Türleri (config)</h2>
+<ul>
+<li><code>bool</code>: Açık veya kapalı (y/n)</li>
+<li><code>tristate</code>: Üç seçenekli; kapalı (n), açık (y) veya modül (m)</li>
+<li><code>string</code>: Metin verisi</li>
+<li><code>int</code>: Tam sayı</li>
+<li><code>hex</code>: Hexadecimal sayı</li>
+</ul>
+<h2 id="ornek-yaplar">Örnek Yapılar</h2>
+<div class="language-kconfig highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">menu</span><span class="w"> </span><span class="s2">&quot;Toolchain&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="k">choice</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="k">prompt</span><span class="w"> </span><span class="s2">&quot;Platform&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span>PLATFORM_NUTTX
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">config</span><span class="w"> </span>PLATFORM_NUTTX
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;nuttx&quot;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">config</span><span class="w"> </span>PLATFORM_POSIX
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;posix&quot;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">endchoice</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">config</span><span class="w"> </span>USER_NAME
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="nb">string</span><span class="w"> </span><span class="s2">&quot;Username&quot;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="s2">&quot;serkan&quot;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="k">help</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="sd">            Enter your username.</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">config</span><span class="w"> </span>USER_AGE
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="nb">int</span><span class="w"> </span><span class="s2">&quot;User Age&quot;</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="mi">5</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="k">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">8</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">        </span><span class="k">help</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="sd">            Enter your age (1-8).</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="k">config</span><span class="w"> </span>BOARD_PLATFORM
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="nb">string</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="s2">&quot;nuttx&quot;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>PLATFORM_NUTTX
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="s2">&quot;posix&quot;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>PLATFORM_POSIX
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="k">config</span><span class="w"> </span>CLOCK_PLL_N
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">        </span><span class="nb">int</span><span class="w"> </span><span class="s2">&quot;PLL Clock&quot;</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="k">depends on</span><span class="w"> </span>USE_CLOCK_PLL
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="mi">20</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">        </span><span class="k">range</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">86</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="k">endmenu</span>
+</span></code></pre></div>
+<h2 id="sartl-menuler-ve-secimler">Şartlı Menüler ve Seçimler</h2>
+<p>Menülerin ve seçeneklerin görünürlüğü koşullara bağlı olabilir.</p>
+<div class="language-kconfig highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">menu</span><span class="w"> </span><span class="s2">&quot;Drivers&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="k">depends on</span><span class="w"> </span>PLATFORM_QURT<span class="w"> </span><span class="o">||</span><span class="w"> </span>PLATFORM_POSIX
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">source</span><span class="w"> </span><span class="s2">&quot;src/Kconfig&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">endmenu</span>
+</span></code></pre></div>
+<h2 id="secime-bagl-otomatik-aktiflestirme-select">Seçime Bağlı Otomatik Aktifleştirme (select)</h2>
+<p>Bir yapılandırma seçeneği seçildiğinde başka seçenekleri otomatik olarak etkinleştirmek için kullanılır.
+<div class="language-kconfig highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">config</span><span class="w"> </span>MODULE_PERIPH_ADC
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nb">bool</span><span class="w"> </span><span class="s2">&quot;ADC peripheral driver&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">depends on</span><span class="w"> </span>PLATFORM_NUTTX
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">select</span><span class="w"> </span>MODULE_PERIPH_COMMON
+</span></code></pre></div></p>
+<ul>
+<li><code>tristate</code> tipinde yapılandırmalar üç duruma sahiptir:<ul>
+<li><strong>n:</strong> Kapatılmış (seçim yok)</li>
+<li><strong>y:</strong> Sabit olarak açık</li>
+<li><strong>m:</strong> Modül olarak derlenir, çalışma zamanında yüklenebilir veya kaldırılabilir.</li>
+</ul>
+</li>
+</ul>
+<div class="language-kconfig highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">menu</span><span class="w"> </span><span class="s2">&quot;Advanced Features&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">choice</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Enable advanced features&quot;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">config</span><span class="w"> </span>ADV_FEATURE_1
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">            </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Feature 1&quot;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">config</span><span class="w"> </span>ADV_FEATURE_2
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Feature 2&quot;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span>ADV_FEATURE_2
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="k">choice</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">                </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Sub Features&quot;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">                </span><span class="k">config</span><span class="w"> </span>SUB_FEATURE_1
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">                    </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Sub Feature 1&quot;</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">                </span><span class="k">config</span><span class="w"> </span>SUB_FEATURE_2
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">                    </span><span class="nb">tristate</span><span class="w"> </span><span class="s2">&quot;Sub Feature 2&quot;</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="k">endchoice</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="k">endif</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">    </span><span class="k">endchoice</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="k">endmenu</span>
+</span></code></pre></div>
+<h2 id="komutlar-hakknda-ksa-bilgiler">Komutlar Hakkında Kısa Bilgiler</h2>
+<table>
+<thead>
+<tr>
+<th>Komut</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mainmenu</code></td>
+<td>Menü ana başlığını oluşturur.</td>
+</tr>
+<tr>
+<td><code>menu/endmenu</code></td>
+<td>Menü oluşturur ve sonlandırır.</td>
+</tr>
+<tr>
+<td><code>choice/endchoice</code></td>
+<td>Seçim grupları oluşturur.</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td>Yapılandırma seçeneklerini tanımlar.</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>Varsayılan değeri belirler.</td>
+</tr>
+<tr>
+<td><code>depends on</code></td>
+<td>Şarta bağlı görünürlük sağlar.</td>
+</tr>
+<tr>
+<td><code>select</code></td>
+<td>Seçenekleri otomatik etkinleştirir.</td>
+</tr>
+<tr>
+<td><code>range</code></td>
+<td>Sayısal değer aralığını sınırlar.</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>Kullanıcıya açıklama sunar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kullanm-tavsiyeleri">Kullanım Tavsiyeleri</h2>
+<ul>
+<li>Yapılandırma seçeneklerini anlamlı ve açıklayıcı isimlerle belirtin.</li>
+<li><code>help</code> kısımlarını açıklayıcı yazın.</li>
+<li>Menüleri mantıklı ve kullanıcı dostu bir hiyerarşide tutun.</li>
+<li>Şarta bağlı görünebilirlik ile karmaşıklığı azaltın.</li>
+</ul>
+<p>Bu rehber, Kconfig ve Menuconfig dosyalarını etkili kullanmanız için temel ve ileri düzey bilgileri içerir.</p>
 
 
 
