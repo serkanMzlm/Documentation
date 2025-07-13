@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#qml-programlama" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -588,6 +593,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -1206,9 +1213,28 @@
 
 
 
-  <h1>QML</h1>
-
-
+<h1 id="qml-programlama">QML Programlama</h1>
+<ul>
+<li><code>import</code> QML modülünü projeye dahil eder. Versiyon parametresi (örn. 2.0), modülün sürümünü belirtir.</li>
+<li><code>Item</code> Genel kapsayıcıdır. Diğer tüm görselleri içine ekleyebilirsiniz.</li>
+<li><code>Text</code> Sabit metin gösterimi.</li>
+<li><code>TextInput</code> Kullanıcıdan metin girişi almak için.</li>
+<li><code>Image</code> resim eklenmesini sağlar.</li>
+<li><code>Rectangle</code> Dörtgen alan oluşturur. <code>clip</code> İçerik sınırları dışında kalan bölgeleri keser.</li>
+<li><code>id</code> Ögeye özgün bir ad atar; başka yerden bu adla erişim sağlar.</li>
+<li><code>width/height</code> Genişlik ve yükseklik değerlerini belirler.</li>
+<li><code>x/y</code> Ögenin konumunu belirler; iç içe yapıda üst kapsayıcı köşesini referans alır.</li>
+<li><code>color</code> Renk ayarlaması yapar; isim, hex (#aarrggbb) veya Qt.rgba() ile belirtilebilir.</li>
+<li><code>opacity</code> Ögenin saydamlığını (0–1) ayarlar; iç içe geçiyorsa üst elemanla birleşir.</li>
+<li><code>scale</code> Ögenin ekrandaki ölçeğini değiştirir; gerçek width/height sabit kalır.</li>
+<li><code>rotation</code> Ögeyi derece cinsinden döndürür; transformOrigin ile dönüş merkezini belirleyebilirsiniz.</li>
+<li><code>anchors</code> Ögelerin konum ve boyutunu başka ögelere sabitlemek için kullanılır (örn. anchors.left, anchors.verticalCenter).</li>
+<li><code>MouseArea</code> Fare veya dokunmatik etkileşimleri algılar (onClicked, onPressed, onPositionChanged vb.).</li>
+<li><code>preventStealing</code> MouseArea içindeyken diğer MouseArea’ların olayı “çalmasını” engeller.</li>
+<li>Keys Klavye tuşu olaylarını dinler (Keys.onPressed, Qt.Key_Up vb.).</li>
+<li><code>property</code> Ögeye dinamik özellik eklemek için kullanılır; tip ve isteğe bağlı başlangıç değeriyle tanımlanır (örn. property int count: 0).</li>
+<li><code>NumberAnimation</code> Belirli bir özellik üzerinde animasyon sağlar; from, to, duration ve <code>on &lt;property&gt;</code> ile ayarlanır.</li>
+</ul>
 
 
 
