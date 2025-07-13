@@ -1,0 +1,20 @@
+# QML Programlama
+- `import` QML modülünü projeye dahil eder. Versiyon parametresi (örn. 2.0), modülün sürümünü belirtir.
+- `Item` Genel kapsayıcıdır. Diğer tüm görselleri içine ekleyebilirsiniz.
+- `Text` Sabit metin gösterimi.
+- `TextInput` Kullanıcıdan metin girişi almak için.
+- `Image` resim eklenmesini sağlar.
+- `Rectangle` Dörtgen alan oluşturur. `clip` İçerik sınırları dışında kalan bölgeleri keser.
+- `id` Ögeye özgün bir ad atar; başka yerden bu adla erişim sağlar.
+- `width/height` Genişlik ve yükseklik değerlerini belirler.
+- `x/y` Ögenin konumunu belirler; iç içe yapıda üst kapsayıcı köşesini referans alır.
+- `color` Renk ayarlaması yapar; isim, hex (#aarrggbb) veya Qt.rgba() ile belirtilebilir.
+- `opacity` Ögenin saydamlığını (0–1) ayarlar; iç içe geçiyorsa üst elemanla birleşir.
+- `scale` Ögenin ekrandaki ölçeğini değiştirir; gerçek width/height sabit kalır.
+- `rotation` Ögeyi derece cinsinden döndürür; transformOrigin ile dönüş merkezini belirleyebilirsiniz.
+- `anchors` Ögelerin konum ve boyutunu başka ögelere sabitlemek için kullanılır (örn. anchors.left, anchors.verticalCenter).
+- `MouseArea` Fare veya dokunmatik etkileşimleri algılar (onClicked, onPressed, onPositionChanged vb.).
+- `preventStealing` MouseArea içindeyken diğer MouseArea’ların olayı “çalmasını” engeller.
+- Keys Klavye tuşu olaylarını dinler (Keys.onPressed, Qt.Key_Up vb.).
+- `property` Ögeye dinamik özellik eklemek için kullanılır; tip ve isteğe bağlı başlangıç değeriyle tanımlanır (örn. property int count: 0).
+- `NumberAnimation` Belirli bir özellik üzerinde animasyon sağlar; from, to, duration ve `on <property>` ile ayarlanır.

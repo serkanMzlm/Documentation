@@ -532,3 +532,271 @@ public:
     virtual ~IShape() = default;
 };
 ```
+## QT
+
+### Mesaj Yapısı (Event Loop)
+- Her Qt uygulamasının veya thread’in bir mesaj kuyruğu (event queue) vardır.
+- GUI, sisteme gelen olayları (tıklama, klavye girişi vb.) mesaj formunda kuyruğa iletir.
+- Uygulama, `app.exec()` çağrısıyla mesaj döngüsünü başlatır ve mesaj yoksa bekler, mesaj geldikçe ilgili widget’a iletir.
+
+```cpp
+#include <QApplication>
+#include <QWidget>
+
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+
+    QWidget window;
+    window.show();      // Pencereyi gösterir
+
+    return app.exec();  // Mesaj döngüsünü başlatır
+}
+```
+
+### Log Mesajları
+```cpp
+#include <QDebug>
+
+qInfo()    << "Bilgi mesajı";
+qDebug()   << "Debug mesajı" << 123;
+qWarning() << "Uyarı mesajı";
+qCritical()<< "Hata mesajı";
+qFatal("Kritik hata, program sonlanacak"); // Çıkışı *abnormal* yapar
+```
+### Kod Tarzı ve İsaretleme
+- Qt kodlama stilinde sınıf üye değişkenleri için genellikle m_ öneki kullanılır (Hungarian Notation’ın hafif bir uyarlaması):
+```cpp
+class Person {
+private:
+    int m_age;
+
+public:
+    void setAge(int age) { m_age = age; }
+    int age() const      { return m_age; }
+};
+```
+
+```cpp title="temel_fonksiyonlar.cpp"
+connect(sender,   SIGNAL(valueChanged(int)),
+        receiver, SLOT(onValueChanged(int)));
+
+disconnect(...);
+```
+
+```cpp title="sinyal.cpp"
+emit valueChanged(42);
+```
+
+### Temel Qt Sınıfları
+- `QPushButton` Buton oluşturur. Konum ve boyut ayarı için move(x,y) ve resize(w,h) kullanılır.
+- `QLabel` Metin veya HTML biçimlendirmeli içerik gösterir
+- `QMessageBox` Bilgi, uyarı veya hata kutuları
+- `QString` Unicode destekli metin sınıfı. Metotlar: `insert()`, `remove()`, `split()`, `toInt()`, `toDouble()` vb.
+```cpp
+QString s1("deneme");
+QString s2(10, QChar('A'));      // "AAAAAAAAAA"
+bool empty = s1.isEmpty();       // "" ise true
+bool isNull = s1.isNull();       // null ise true
+```
+- `QChar` Tek bir Unicode karakter. **Kontroller:** `isLower()`, `isUpper()`, `isDigit()` **dönüşümler:** `toLower()`,` toUpper()`.
+- `QVector<T>` / `QList<T>` / `QStringList` / `QSet<T>` / `QMap<Key,Val>`
+```cpp
+QVector<QString> vec(10, "deneme");
+QList<int>       list;
+list << 1 << 2 << 3;
+QStringList sl = {"a","b","c"};
+QSet<int>    set = {1,2,3};
+QMap<QString,int> ages;
+ages.insert("Ali", 30);
+```
+- `qDeleteAll(container)` İşaretçi içeren konteynerlerde içindeki işaretçileri siler.
+- `QIODevice` Temel giriş/çıkış arabirimi.
+- `QFile` Dosya işlemleri. open(), readAll(), write().
+- `QFileInfo` Dosya/dizin bilgisi: fileName(), filePath(), isFile(), size(), suffix().
+- `QDir` Dizin yönetimi: cd(), cdUp(), mkdir(), exists().
+- `QTextStream` Metin akışları için; Unicode destekli << / >>.
+- `QDataStream` Seri (binary) akışlar için, platformlar arası uyumlu.
+- `QStorageInfo` Dosya sistemindeki disk/partition bilgileri.
+- `QLockFile` Dosya kilidi; çoklu işlemde güvenlik sağlar.
+- `QSysInfo` Sistem bilgisi (OS tipi, mimari).
+- `QFileSystemWatcher` Dizin/dosya değişikliklerini izler.
+- `QProcess` Harici süreçleri başlatır ve iletişim kurar.
+- `QSettings` Ayarları anahtar-değer olarak saklar (Windows registry veya ini/plist dosyaları).
+- `QByteArrayView` Salt okunur QByteArray görünümü; kopya olmadan erişim.
+- `QScopedPointer<T>` Tek sahipli işaretçi. Kapsam sonlandığında nesneyi siler.
+- `QSharedPointer<T>` Paylaşımlı işaretçi, referans sayımlı. Son kullanıcı silindiğinde nesneyi serbest bırakır.
+- `QHBoxLayout`, `QVBoxLayout`, `QGridLayout` Widget’ları yatay, dikey veya ızgara düzeninde yerleştirir.
+- `QTimer` Belirli aralıklarla sinyal (timeout()) yayar:
+```cpp
+QTimer *t = new QTimer(this);
+connect(t, &QTimer::timeout, this, &MyClass::onTimeout);
+t->start(1000); // 1 saniye
+```
+- `QThread` Arka plan iş parçacığı oluşturur.
+- Öncelik `HighestPriority`, `LowestPriority` vb.
+- `QMutex` Paylaşılan veri erişiminde kilitleme için lock(), unlock().
+
+### Qt Veri Tipleri
+```cpp
+qint8,  quint8,  
+qint16, quint16,  
+qint32, quint32,  
+qint64, quint64,  
+qintptr, uintptr_t 
+```
+
+### C++ & QML Haberleşmesi
+
+1. Meta-Object System (MOC)
+    - Qt’nin sinyal-slot, `Q_PROPERTY`, dinamik tür bilgisi (RTTI) gibi uzantılarını sağlayan araçtır.
+    - Her QObject türevi sınıfa `Q_OBJECT` makrosu eklenmeli; ardından moc (Meta-Object Compiler) bu sınıf için ek kod üretir.
+    - MOC çıktısı derleyiciye eklenerek sinyal-slot bağlama, öz nitelik (property) kaydı vb. işler otomatik hale gelir.
+    - Qt’nin sinyal-slot ve dinamik özelliğini sağlayan aracı.
+    - Her QObject türevindeki sınıfa `Q_OBJECT` makrosunu ekleyerek MOC’un işlevselliğini aktifleştirirsiniz.
+    - Qt’nin sinyal-slot, Q_PROPERTY, dinamik meta-veri gibi özellikleri formlar
+    - Q_OBJECT makrosunu eklediğiniz sınıflar için otomatik olarak ek kod üretir.
+    - Sınıfınıza sinyal, slot, property tanımları eklediğinizde, MOC bunları yürütebilecek C++ kaynaklarını oluşturur.
+    - Derleyiciye eklenen bu MOC çıktısı, Qt’nin meta-object altyapısının temelidir.
+    - MOC olmasaydı, connect(), emit, Q_PROPERTY gibi üst seviye mekanizmalar çalışmazdı.
+    - Kaynak dosyanızı derlerken, Qt’nin build sistemi otomatik olarak moc_MyClass.cpp gibi ek dosyalar üretir ve bu dosyalar da derlemeye dahil edilir.
+```cpp
+class MyClass : public QObject {
+    Q_OBJECT
+    // ...
+};
+```
+
+2. Signals & Slots
+    - **Signal:** Nesnede bir olay gerçekleştiğinde duyurulan bildiridir; parametre taşıyabilir.
+    - **Slot:** Bir sinyal tetiklendiğinde çağrılan normal C++ üye fonksiyonu veya lambda.
+    - Bu mekanizma, nesnelerin birbirinden habersiz çalışmasını (“loosely coupled”) sağlar
+```cpp
+connect(sender, &Sender::valueChanged, receiver, &Receiver::onValueChanged);        // Function pointers (C++11+)
+
+//Derleme zamanında değil, çalışma zamanında çözülür; yazım hatası ancak runtime’da fark edilir.
+connect(sender, SIGNAL(valueChanged(int)), receiver, SLOT(onValueChanged(int)));    // SIGNAL/SLOT makroları (eski stil)
+connect(button, &QPushButton::clicked, this, [this]{ doSomething(); }); // Lambda / Functor
+
+emit valueChanged(m_value); // Signal tetiklemek için
+```
+
+3. `Q_PROPERTY`
+    - C++ tarafında tanımladığınız bir üye değişkeni, getter/setter ve notifikasyon sinyaliyle QML’e “property” olarak sunar
+    - **READ:** getter fonksiyonu
+    - **WRITE:** setter fonksiyonu
+    - **NOTIFY:** değer değiştiğinde yayınlanacak sinyal
+```cpp linenums="1"
+class Model : public QObject {
+    Q_OBJECT
+    Q_PROPERTY(int value
+               READ  value
+               WRITE setValue
+               NOTIFY valueChanged)
+public:
+    int  value() const { return m_value; }
+    void setValue(int v) {
+        if (m_value == v) return;
+        m_value = v;
+        emit valueChanged(m_value);
+    }
+signals:
+    void valueChanged(int newValue);
+private:
+    int m_value{0};
+};
+```
+
+4. QQmlContext & Context Properties
+    - `setContextProperty(name, obj)` QML kök bağlamına (root context) name adıyla obj’i yerleştirir.
+    - C++ nesnelerini doğrudan QML’de isimle kullanmak için:
+```cpp title="main.cpp" linenums="1"
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+
+QQmlApplicationEngine engine;
+Model *model = new Model(&engine);
+
+engine.rootContext()->setContextProperty("appModel", model);
+engine.load(QUrl("qrc:/main.qml"));
+```
+```qml title="main.qml" linenums="1"
+Text { text: appModel.value }
+```
+```cpp
+QQuickViev view;
+QQmlContext* context = view.engine()->rootContext();
+context->setContextProperty("_aSize", QSize(100,200));
+context->setContextProperty("_background", QColor(Qt::red));
+```
+```qml
+import QtQuick 2.0
+Rectangle{
+	width: _aSize.width
+	height: _aSize.height
+	color: _background
+}
+```
+
+5. qmlRegisterType & Singleton
+    - `qmlRegisterSingletonInstance(uri, ver, name, instance)` Önceden oluşturduğunuz tekil C++ nesnesini QML global singleton olarak sunar.
+    - `qmlRegisterType<T>(uri, ver, name)` QML kodunda doğrudan import uri ver → name { } ile kullanılmasını sağlar.
+    - `qmlRegisterUncreatableType` QML’den yeni örneği oluşturulamayan, yalnızca sabit tanımlı özelliklerine erişilen C++ tipleri için kullanılır.
+    - `qRegisterMetaType` Signal-slot ve QVariant aracılığıyla aktarılacak custom tipler için çalışma zamanı tipi kaydı yapar.
+```cpp
+qmlRegisterType<Model>("MyApp", 1, 0, "Model");
+
+auto settings = new Settings(&engine);
+qmlRegisterSingletonInstance<Settings>("MyApp",1,0,"Settings", settings);
+qmlRegisterUncreatableType<Constants>("MyApp.Utils", 1, 0, "Constants", QStringLiteral("Only static enums/constants available"));
+```
+```qml
+import MyApp 1.0
+Model { id: model; value: 10 }
+```
+
+6. `QVariant` ve Metatype Sistemi
+    - `QVariant` Her türü `(int, QString, QObject*, custom type…)` saklayabilen kapsayıcı. QML-C++ arası veri taşımada kritik.
+    - Custom C++ tiplerini QVariant içinde kullanmak için:
+```cpp
+Q_DECLARE_METATYPE(MyClass)
+qRegisterMetaType<MyClass>("MyClass");
+```
+    - `Q_GADGET` QObject mirası gerektirmeyen, yine de `Q_PROPERTY` + QMetaType desteği sağlayan sınıflar için:
+```cpp
+class Point {
+    Q_GADGET
+    Q_PROPERTY(int x MEMBER m_x)
+    Q_PROPERTY(int y MEMBER m_y)
+public:
+    int m_x{}, m_y{};
+};
+Q_DECLARE_METATYPE(Point)
+```
+
+7. `Q_INVOKABLE`
+    - QObject tabanlı sınıfta, C++ fonksiyonunu QML’den doğrudan çağırmak için:
+```cpp
+class Helper : public QObject {
+    Q_OBJECT
+public:
+    Q_INVOKABLE QString greet(const QString &name) {
+        return "Hello, " + name;
+    }
+};
+```
+```qml
+Text { text: Helper.greet("World") }
+```
+
+8. `QVariantList`, Model-View, `ListModel`
+    - `QVariantList`: QML’de dizi (`ListModel`) olarak kolay kullanılabilir.
+    - MVC mimarisi: `QAbstractListModel` türeterek veri modelinizi tanımlayıp QML’de ListView/Repeater ile bağlayabilirsiniz.
+
+9. Event Loop & Mesaj Döngüsü
+    - `QCoreApplication::exec()` veya `QQmlApplicationEngine::exec()` ile başlatılır; GUI ve sinyal-slot etkileşimini besleyen ana döngüdür.
+
+10. `qt_add_qml_module`
+    - Qt 6+ projelerinde, QML kaynaklarını ve bileşenlerini modül halinde derlemek için kullanılır:
+    - **URI:** QML’de import MyApp.Components 1.0 ile erişilen ad.
+    - **QML_FILES:** Modülün içindeki .qml dosyaları.
+    - **RESOURCE_PREFIX:** QML’den çağırırken kullanılacak yol.
