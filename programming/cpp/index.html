@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#c-programlama" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -543,6 +548,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -555,6 +575,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bitset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dinamik-bellek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dinamik Bellek
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart Pointers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#casting-turleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casting Türleri
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1206,9 +1281,149 @@
 
 
 
-  <h1>C++</h1>
-
-
+<h1 id="c-programlama">C++ Programlama</h1>
+<ul>
+<li>Bir değişkeni başlatmanın (initialization) üç yolu vardır:<ul>
+<li>Copy initialization (örneğin <code>int a = 5;</code>)</li>
+<li>Direct initialization (örneğin <code>int b(5);</code>)</li>
+<li>List initialization (örneğin <code>int c{5};</code>)</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>En güvenilir olanı list initialization’dır; çünkü daraltıcı (narrowing) dönüşümlere örneğin bir float değeri doğrudan int’e izin vermez.</p>
+</div>
+<ul>
+<li>
+<p>Tanımlanıp hiç kullanılmayan değişkenler için derleyici uyarı verir. Bu uyarıyı bastırmak için C++17’den itibaren <code>[[maybe_unused]]</code> özniteliğini kullanabiliriz.</p>
+</li>
+<li>
+<p><code>::</code> operatörü, önünde bir isim (örneğin bir namespace veya sınıf adı) yoksa “global” ad alanını ifade eder.</p>
+</li>
+</ul>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">   // Standart giriş-çıkış kütüphanesi</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tüm std isimlerini doğrudan kullanmamıza izin verir</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Sadece belli bir ögeyi dahil etmek istersek:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1">// using std::cout;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// copy initialization</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">                   </span><span class="c1">// direct initialization</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">{</span><span class="mi">5</span><span class="p">};</span><span class="w">                   </span><span class="c1">// list initialization — narrowing’a izin vermez</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><code>std::cin &gt;&gt;</code> operatörü boşluk karakterine kadar okurken,</p>
+</li>
+<li>
+<p><code>std::getline(cin, str)</code> satır sonuna (veya belirlediğiniz başka bir sınırlayıcıya) kadar tüm girdi satırını alır. Bu sayede kullanıcıdan boşluk içeren satırlar veya tüm satırı almamız gerektiğinde <strong>getline</strong> tercih edilir.</p>
+</li>
+<li>
+<p><code>namespace</code>, aynı isimli tanımlamaların çakışmasını önlemek için kullanılır.</p>
+<ul>
+<li>Hem değişken, hem fonksiyon, hem de sınıf ve diğer tanımları ayrı gruplarda toplayabiliriz.</li>
+<li>İç içe namespace’ler tanımlamak da mümkündür.</li>
+</ul>
+</li>
+</ul>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">B</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li><code>constexpr</code>, derleme zamanında hesaplanabilen ve kesinlikle sabit (compile-time constant) olan değerler için;</li>
+<li><code>const</code> ise derlendikten sonra değiştirilemeyen, ama derleme zamanında mutlaka hesaplanamayabilecek değerler için kullanılır</li>
+<li>C++20 ile aggregate tipler için “designated initializer” desteği eklendi. Böylece yapıdaki sadece istediğiniz üyeyi atayabilirsiniz:
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Foo</span><span class="w"> </span><span class="n">f0</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w">                   </span><span class="c1">// Tüm üyeleri sırayla atar</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Foo</span><span class="w"> </span><span class="n">f1</span><span class="w"> </span><span class="p">{.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w">            </span><span class="c1">// Sadece a ve c’yi atar; b = 0</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// C++20’de üye sırası önemli değil:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Foo</span><span class="w"> </span><span class="n">f2</span><span class="w"> </span><span class="p">{.</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span><span class="w">            </span><span class="c1">// Geçerli</span>
+</span></code></pre></div></li>
+<li><code>typedef</code> Eski C/C++ tarzı tip takma adı (alias) oluşturma.</li>
+<li>
+<p><code>using</code> C++11 ile gelen, daha okunur ve şablonlarla da çalışabilen modern alias tanımı.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// Eski stil
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>typedef unsigned long long ULLI1;
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>// Yeni, daha okunur stil
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>using ULLI2 = unsigned long long;
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Öne sıfır koymak:</strong> oktalık (ör. 012); ekrana oktal gösterimi için std::oct.</p>
+</li>
+<li><strong>Öne 0x koymak:</strong> onaltılık (ör. 0x12); ekrana onaltılık için std::hex.</li>
+<li><strong>Öne 0b koymak:</strong> ikilik (ör. 0b10).</li>
+<li>C++14+’te büyük sayılarda okuryazılığını artırmak için tırnak: <code>100'000'000</code>.</li>
+</ul>
+<h2 id="bitset">Bitset</h2>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bitset&gt;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">bitset</span><span class="o">&lt;</span><span class="mi">5</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bits</span><span class="p">;</span><span class="w">    </span><span class="c1">// 5 bitlik bir dizi</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// 00000</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// 01010</span>
+</span></code></pre></div>
+<h2 id="dinamik-bellek">Dinamik Bellek</h2>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w">   </span><span class="c1">// Bellekten dizi ayırma</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span><span class="w">              </span><span class="c1">// Dizi silme</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr1</span><span class="p">;</span><span class="w"> </span><span class="c1">// İşaret ettiği değer sabit, adres değişebilir</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ptr2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adres sabit, işaret ettiği değer değişebilir</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">array</span><span class="p">)[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">5</span><span class="p">];</span><span class="w">  </span><span class="c1">// x×5’lik matris</span>
+</span></code></pre></div>
+<h2 id="smart-pointers">Smart Pointers</h2>
+<ul>
+<li><code>std::make_unique&lt;T&gt;(...) → std::unique_ptr&lt;T&gt;</code></li>
+<li><code>std::make_shared&lt;T&gt;(...) → std::shared_ptr&lt;T&gt;</code></li>
+</ul>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">uptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w">    </span><span class="c1">// tek sahipli</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">sptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w">    </span><span class="c1">// paylaşımlı</span>
+</span></code></pre></div>
+<ul>
+<li><strong>unique_ptr:</strong> Tek sahiplik, scope’dan çıktığında otomatik silinir.</li>
+<li><strong>shared_ptr:</strong> Referans sayımı; son kullanım silindiğinde serbest bırakılır.</li>
+</ul>
+<h2 id="casting-turleri">Casting Türleri</h2>
+<ol>
+<li>
+<p>static_cast<T>(x)
+Derleme zamanında güvenli dönüşümler (örneğin sayı türleri arası).</p>
+</li>
+<li>
+<p>dynamic_cast<T*>(p): 
+Çalışma zamanında polimorfik sınıflar arasında güvenli downcast/upcast.</p>
+</li>
+<li>
+<p>const_cast<T&>(x)
+const niteliğini kaldırmak için.</p>
+</li>
+<li>
+<p>reinterpret_cast<T*>(p)
+İki iş parçacığı arasındaki bellek gösterimini yeniden yorumlamak için (çok dikkatli kullanılmalı).</p>
+</li>
+</ol>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">float</span><span class="w">  </span><span class="n">f</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14f</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">int</span><span class="w">    </span><span class="n">i1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">Base</span><span class="o">*</span><span class="w">       </span><span class="n">bp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Derived</span><span class="p">();</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">Derived</span><span class="o">*</span><span class="w">    </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">bp</span><span class="p">);</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w">   </span><span class="n">x</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="kt">int</span><span class="o">&amp;</span><span class="w">        </span><span class="n">y</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kt">int</span><span class="o">*</span><span class="w">        </span><span class="n">p</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="mh">0x1234</span><span class="p">);</span>
+</span></code></pre></div>
 
 
 
