@@ -1,4 +1,4 @@
-# QML Programlama
+# XML Programlama
 
 XML (Extensible Markup Language), veri depolama ve taşınmasını kolaylaştıran, hem insan hem de makine tarafından okunabilir bir işaretleme dilidir. Aşağıda XML’in temel kavramlarını ve ek bilgileri bulabilirsiniz:
 
