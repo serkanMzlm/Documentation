@@ -1331,6 +1331,15 @@
 
 
 <h1 id="git">Git</h1>
+<pre class="mermaid"><code>graph LR
+  A[Working Directory] --&gt;|git add| B{Staging Area};
+  B --&gt;|git commit| C[Local Repo];
+  C --&gt; |git push| D[Remote Repo];
+  D --&gt; |git pull| C;
+  D --&gt; |git fetch| C;
+  D --&gt; |git clone| C;
+  C --&gt;|git checout| A;
+  C --&gt;|git merge| A;</code></pre>
 <h2 id="git-yaplandrma-config">Git Yapılandırma (Config)</h2>
 <ul>
 <li><code>--local</code>→ Mevcut repo içindeki <strong>.git/config</strong></li>
