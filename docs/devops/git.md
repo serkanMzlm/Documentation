@@ -1,4 +1,17 @@
 # Git 
+
+```mermaid
+graph LR
+  A[Working Directory] -->|git add| B{Staging Area};
+  B -->|git commit| C[Local Repo];
+  C --> |git push| D[Remote Repo];
+  D --> |git pull| C;
+  D --> |git fetch| C;
+  D --> |git clone| C;
+  C -->|git checout| A;
+  C -->|git merge| A;
+```
+
 ## Git Yapılandırma (Config)
 - `--local`→ Mevcut repo içindeki **.git/config**
 - `--global` → Kullanıcının **~/.gitconfig**
