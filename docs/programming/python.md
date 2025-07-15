@@ -1392,6 +1392,24 @@ class Nokta:
 p1, p2 = Nokta(1,2), Nokta(3,4)
 print(p1 + p2)  # Nokta(4, 6)
 ```
+## Pip 
+
+```bash linenums="1"
+pip show numpy
+pip3 show numpy
+
+pip install numpy
+pip3 install numpy
+pip install numpy==1.25.0
+pip3 install numpy==1.25.0
+
+pip install --upgrade scikit-learn
+pip3 install --upgrade scikit-learn
+
+pip list
+pip3 list
+```
+
 
 ## Standart Kütüphanaler
 
