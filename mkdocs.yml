@@ -38,7 +38,6 @@ nav:
       - AVR Programming: embedded/avr.md
       - IPC: embedded/ipc.md
       - GStreamer: embedded/gstreamer.md
-      - MAVLink: embedded/mavlink.md
 
   - Robotics & Autonomy:
       - PX4: robotics/px4.md
