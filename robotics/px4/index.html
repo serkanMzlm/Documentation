@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../embedded/mavlink/">
+        <link rel="prev" href="../../embedded/gstreamer/">
       
       
         <link rel="next" href="../ros2/">
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#px4" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -763,29 +768,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../embedded/mavlink/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    MAVLink
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -854,6 +836,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    PX4
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -866,6 +863,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#komut-satr-kullanm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komut Satırı Kullanımı
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1206,9 +1231,150 @@
 
 
 
-  <h1>PX4</h1>
-
-
+<h1 id="px4">PX4</h1>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Kurulum ve Ön Ayarlar</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># --recursive alt modüllerinin (submodules) de otomatik olarak klonlanmasını sağlar.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PX4/PX4-Autopilot.git<span class="w"> </span>--recursive
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># `--no-nuttx` nuttx yüklemesi kapatılmış olur</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># `--no-sim-tools` simülasyon ortamı kapatılmış olur.</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>bash<span class="w"> </span>./PX4-Autopilot/Tools/setup/ubuntu.sh
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>bash<span class="w"> </span>./PX4-Autopilot/Tools/setup/ubuntu.sh<span class="w"> </span>--no-sim-tools<span class="w"> </span>--no-nuttx
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Ek bağımlılıklar</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>protobuf-compiler<span class="w"> </span>libeigen3-dev<span class="w"> </span>libopencv-dev<span class="w"> </span>-y
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Oluşabilicek hata durumunda </span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--recursive
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>make<span class="w"> </span>distclean
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="c1"># region &#39;flash&#39; overflowed by XXXX bytes yüklenen dosyanın </span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># boyutu büyük olması durumunda karşılanır.</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>make<span class="w"> </span><span class="o">[</span>VENDOR_<span class="o">][</span>MODEL<span class="o">][</span>_VARIANT<span class="o">]</span><span class="w"> </span><span class="o">[</span>VIEWER_MODEL_DEBUGGER_WORLD<span class="o">]</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>VENDOR:</strong> Kartın donanım üreticisini belirtir.</li>
+<li><strong>HARDWARE_MODEL:</strong> Gerçek donanım kartı modelini seçer.</li>
+<li><strong>VARIANT:</strong> Kartın belirli yapılandırmasını (bootloader, firmware çeşidi vb.) belirtir.</li>
+<li><strong>VIEWER:</strong> Simülasyonu görsel olarak hangi simülatörde izleyeceğinizi seçer.</li>
+<li><strong>VEHICLE_MODEL:</strong> Simülatör içinde kullanılacak araç tipini belirler.</li>
+<li><strong>DEBUGGER:</strong> Hata ayıklama aracı tercihini yapar.</li>
+<li><strong>WORLD:</strong> Simülasyonun geçirileceği çevre (dünya) dosyasını seçer.</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Simülasyon</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Simülasyon ortamı GUI açılmaz</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nv">HEADLESS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500<span class="w"> </span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># ROS2 ile harbeleşmesini sağlar</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>MicroXRCEAgent<span class="w"> </span>udp4<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Kart üzerinden gelen verileri ROS2 olarak yayınlanması sağlanır.</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>sudo<span class="w"> </span>MicroXRCEAgent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/AMA0<span class="w"> </span>-b<span class="w"> </span><span class="m">921600</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>sudo<span class="w"> </span>MicroXRCEAgent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span>-b<span class="w"> </span><span class="m">921600</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>make<span class="w"> </span>px4_sitl<span class="w"> </span>list_vmd_make_targets<span class="w">  </span><span class="c1"># Tüm seçenekleri listeler.</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="c1"># Varsayılan değerler olduğu için bazı kısımlar _ ile boş bırakılabilir.</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>gazebo-classic___gdb<span class="w"> </span><span class="o">=</span><span class="w"> </span>gazebo-classic_iris_gdb
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a>make<span class="w"> </span>px4_fmu-v5_default<span class="w">               </span><span class="c1"># Kodu derlenmesini sağlar.</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a>make<span class="w"> </span>px4_fmu-v5_default<span class="w"> </span>upload<span class="w">        </span><span class="c1"># Kodun karta yüklenmesini sağlar.</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>make<span class="w"> </span>list_config_targets<span class="w">             </span><span class="c1"># Kartların listelenmesini sağlar.</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a>make<span class="w"> </span>px4_fmu-v5_default<span class="w"> </span>boardconfig<span class="w">  </span><span class="c1"># Paketlerde ayarlama yapılmasını sağlar.</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="nv">CONFIG_EXAMPLES_PX4_SIMPLE_APP</span><span class="o">=</span>y<span class="w">     </span><span class="c1"># Manuel ayarlamaların yapılması</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><code>_default</code> kavramı isteğe bağlıdır. Bu kavram belirli özelliklerin desteklenmesi veya atlanması gibi bir ürün yazılımı yapılandırmasını belirtir.</li>
+</ul>
+<h2 id="komut-satr-kullanm">Komut Satırı Kullanımı</h2>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Tüm parametreleri listeler</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>param<span class="w"> </span>show<span class="w"> </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Varsayılan değerlerini gösterir.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>param<span class="w"> </span>show<span class="w"> </span>-c
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Belirli parametreyin değerini gösterir</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>param<span class="w"> </span>show<span class="w"> </span>RC_MAP_A*
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Parametrelerini kaydeder</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>param<span class="w"> </span>save
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># Belirli bir konuma kaydeder</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>param<span class="w"> </span>save<span class="w"> </span>/fs/microsd/vtol_param_backup
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>param<span class="w"> </span>load
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a>param<span class="w"> </span>import
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="c1"># Parametreleri dosyanın kaydedildiği zamana sıfırla</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20"></a>param<span class="w"> </span>load<span class="w"> </span>/fs/microsd/vtol_param_backup
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="c1"># İsteğe bağlı olarak parametreleri kaydedin (yükle birlikte otomatik olarak yapılmaz)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22"></a>param<span class="w"> </span>save
+</span></code></pre></div></td></tr></table></div>
 
 
 
