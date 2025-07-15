@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#xml-programlama" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -612,6 +617,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    XML
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -624,6 +644,115 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prolog-ve-temel-kurallar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prolog ve Temel Kurallar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etiketler-ve-icerik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Etiketler ve İçerik
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogelerin-elements-adlandrma-stilleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Öğelerin (Elements) Adlandırma Stilleri
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oznitelikler-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Öznitelikler (Attributes)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ozel-karakterler-ve-escaping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Özel Karakterler ve Escaping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yorumlar-ve-cdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yorumlar ve CDATA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyaz-alan-whitespace-ve-bicimlendirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyaz Alan (Whitespace) ve Biçimlendirme
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace-ad-alan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Namespace (Ad Alanı)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sema-ve-dtd-doctype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Şema ve DTD (Doctype)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipuclar-ve-en-iyi-uygulamalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      İpuçları ve En İyi Uygulamalar
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1206,9 +1335,177 @@
 
 
 
-  <h1>XML</h1>
-
-
+<h1 id="xml-programlama">XML Programlama</h1>
+<p>XML (Extensible Markup Language), veri depolama ve taşınmasını kolaylaştıran, hem insan hem de makine tarafından okunabilir bir işaretleme dilidir. Aşağıda XML’in temel kavramlarını ve ek bilgileri bulabilirsiniz:</p>
+<h2 id="prolog-ve-temel-kurallar">Prolog ve Temel Kurallar</h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&lt;root&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>…<span class="w"> </span>içerik<span class="w"> </span>…
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">&lt;/root&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>Prolog (<code>&lt;?xml …?&gt;</code>):<ul>
+<li><strong>version:</strong> XML sürümü (çoğunlukla <code>"1.0"</code>).</li>
+<li><strong>encoding:</strong> Karakter kodlaması (örn. <code>"UTF-8"</code>, <code>"ISO-8859-1"</code>).</li>
+</ul>
+</li>
+<li><strong>Tek bir root (kök)</strong> eleman zorunludur; tüm diğer etiketler bu kökün içinde tanımlanır.</li>
+<li><strong>Etiket adları</strong> rakamla veya <code>xml</code> ile <strong>başlayamaz</strong>; büyük/küçük harf duyarlıdır.</li>
+</ul>
+<h2 id="etiketler-ve-icerik">Etiketler ve İçerik</h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;parent&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;child&gt;</span>Metin<span class="w"> </span>içeriği<span class="nt">&lt;/child&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;emptyTag/&gt;</span><span class="w">           </span><span class="cm">&lt;!-- Kendini kapatan boş etiket --&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">&lt;/parent&gt;</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Açılış/kapama:</strong> <code>&lt;tag&gt; … &lt;/tag&gt;</code></li>
+<li><strong>Boş eleman:</strong> <code>&lt;tag/&gt;</code></li>
+<li><strong>İçerik:</strong> Metin, başka etiketler veya her ikisi birden olabilir.</li>
+<li><strong>Sır:</strong> XML’de iç içe etiketler, doğru açılış/kapama sırasıyla tanımlanmalıdır.</li>
+</ul>
+<h2 id="ogelerin-elements-adlandrma-stilleri">Öğelerin (Elements) Adlandırma Stilleri</h2>
+<table>
+<thead>
+<tr>
+<th>Stil</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lower case</td>
+<td>firstname</td>
+</tr>
+<tr>
+<td>Upper case</td>
+<td>FIRSTNAME</td>
+</tr>
+<tr>
+<td>Underscore</td>
+<td>first_name</td>
+</tr>
+<tr>
+<td>PascalCase</td>
+<td>FirstName</td>
+</tr>
+<tr>
+<td>camelCase</td>
+<td>firstName</td>
+</tr>
+</tbody>
+</table>
+<h2 id="oznitelikler-attributes">Öznitelikler (Attributes)</h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;person</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;123&quot;</span><span class="w"> </span><span class="na">role=</span><span class="s">&quot;admin&quot;</span><span class="nt">&gt;</span>Ali<span class="nt">&lt;/person&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>Etiket içinde ad="değer" biçiminde tanımlanır.</li>
+<li>Aynı öğe içinde birden fazla öznitelik kullanılabilir.</li>
+<li>Öznitelik değerleri her zaman tırnak ("…" veya '…') içinde olmalıdır.</li>
+</ul>
+<h2 id="ozel-karakterler-ve-escaping">Özel Karakterler ve Escaping</h2>
+<p>Bazı karakterler doğrudan yazılamaz, yerlerine entity referansları kullanılır:</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Karakter</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;lt;</code></td>
+<td><code>&lt;</code></td>
+<td>küçüktür</td>
+</tr>
+<tr>
+<td><code>&amp;gt;</code></td>
+<td><code>&gt;</code></td>
+<td>büyüktür</td>
+</tr>
+<tr>
+<td><code>&amp;amp;</code></td>
+<td><code>&amp;</code></td>
+<td>ampersand</td>
+</tr>
+<tr>
+<td><code>&amp;quot;</code></td>
+<td><code>"</code></td>
+<td>çift tırnak</td>
+</tr>
+<tr>
+<td><code>&amp;apos;</code></td>
+<td><code>'</code></td>
+<td>tek tırnak</td>
+</tr>
+</tbody>
+</table>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;note&gt;</span>Use<span class="w"> </span><span class="ni">&amp;lt;</span>tag<span class="ni">&amp;gt;</span><span class="w"> </span>to<span class="w"> </span>define<span class="w"> </span>elements<span class="w"> </span><span class="ni">&amp;amp;</span><span class="w"> </span>entities.<span class="nt">&lt;/note&gt;</span>
+</span></code></pre></div>
+<h2 id="yorumlar-ve-cdata">Yorumlar ve CDATA</h2>
+<ul>
+<li>Yorum Satırı <code>&lt;!-- Bu bir yorum satırıdır --&gt;</code></li>
+<li><strong>CDATA bölgesi:</strong> Özel karakterlerin kaçış gerektirmeden yer aldığı ham metin. 
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;script&gt;</span><span class="cp">&lt;![CDATA[</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">    if (a &lt; b &amp;&amp; b &gt; c) { /* kod */ }</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">]]&gt;</span><span class="nt">&lt;/script&gt;</span>
+</span></code></pre></div></li>
+</ul>
+<h2 id="beyaz-alan-whitespace-ve-bicimlendirme">Beyaz Alan (Whitespace) ve Biçimlendirme</h2>
+<ul>
+<li>XML boşlukları korur; <code>&lt;a&gt; &lt;/a&gt;</code> içinde iki boşluk gerçek içerik olur.</li>
+<li>Dosyayı küçültmek için tüm satır sonu ve gereksiz boşlukları kaldırabilirsiniz (“minify”).</li>
+</ul>
+<h2 id="namespace-ad-alan">Namespace (Ad Alanı)</h2>
+<ul>
+<li>İsim çakışmalarını engellemek için kullanılır. Kök öğede tanımlanır:
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;root</span><span class="w"> </span><span class="na">xmlns:h=</span><span class="s">&quot;http://www.w3.org/TR/html4&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">      </span><span class="na">xmlns:f=</span><span class="s">&quot;https://www.w3schools.com/furniture&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&lt;h:table&gt;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&lt;h:tr&gt;&lt;h:td&gt;</span>Apples<span class="nt">&lt;/h:td&gt;&lt;/h:tr&gt;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&lt;/h:table&gt;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&lt;f:table&gt;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&lt;f:name&gt;</span>African<span class="w"> </span>Coffee<span class="w"> </span>Table<span class="nt">&lt;/f:name&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&lt;/f:table&gt;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nt">&lt;/root&gt;</span>
+</span></code></pre></div></li>
+<li><code>xmlns:prefix="URI": prefix:</code> ile başlayan öğeler bu URI kapsamında tanımlanır.</li>
+<li>URI gerçek bir web adresi olmak zorunda değil; tanımlama amacıdır.</li>
+</ul>
+<h2 id="sema-ve-dtd-doctype">Şema ve DTD (Doctype)</h2>
+<ul>
+<li>XML belgelerinin yapısını tanımlayan mekanizmalardır:<ul>
+<li>DTD (Document Type Definition):
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">&lt;!DOCTYPE note [</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">  &lt;!ELEMENT note (to,from,heading,body)&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="cp">&lt;!ELEMENT to (#PCDATA)&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>…
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>]&gt;
+</span></code></pre></div></li>
+<li>XSD (XML Schema Definition):
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;xs:schema</span><span class="w"> </span><span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;note&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&lt;xs:complexType&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">&lt;xs:sequence&gt;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="nt">&lt;xs:element</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;to&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span>…
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="nt">&lt;/xs:sequence&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&lt;/xs:complexType&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">&lt;/xs:element&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nt">&lt;/xs:schema&gt;</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="ipuclar-ve-en-iyi-uygulamalar">İpuçları ve En İyi Uygulamalar</h2>
+<ul>
+<li>Tek bir root öğe kullanın.</li>
+<li>Gereksiz derin iç içe geçişlerden kaçının; okunabilirliği bozar.</li>
+<li>Boyutsal verileri (tarih, saat) parçalara ayırmak yerine kısa string formatı tercih edin.</li>
+<li>Belgeleri minify ederek küçültün, aktarımı hızlandırın.</li>
+<li>Karmaşık veri yapıları için <code>JSON</code> veya <code>YAML</code> değerlendirilebilir.</li>
+</ul>
 
 
 
