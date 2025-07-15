@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gstreamer" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -756,6 +761,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    GStreamer
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -768,6 +788,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gstreamer-nedir" class="md-nav__link">
+    <span class="md-ellipsis">
+      GStreamer Nedir?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mimari-ozellikler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mimari Özellikler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-element-ve-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline, Element ve Pad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hata-ayklama-sorgulama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hata Ayıklama &amp; Sorgulama
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1183,9 +1258,82 @@
 
 
 
-  <h1>GStreamer</h1>
-
-
+<h1 id="gstreamer">GStreamer</h1>
+<h2 id="gstreamer-nedir">GStreamer Nedir?</h2>
+<p>GStreamer, ses, video ve diğer multimedya verilerinin işlenmesi, kodlanması, dönüştürülmesi ve akış oluşturulması için kullanılan açık kaynaklı bir çerçevedir. Temel çalışma modeli:</p>
+<pre class="mermaid"><code>graph LR
+  A[Source] --&gt; B[Filter];
+  B --&gt; C[Sink];</code></pre>
+<pre class="mermaid"><code>graph LR
+  A[Element 1] --&gt; |sink| B[Element 2];
+  B --&gt; |source| C[Element 3];</code></pre>
+<h2 id="mimari-ozellikler">Mimari Özellikler</h2>
+<ul>
+<li><strong>Modüler &amp; Esnek:</strong> Her işlev <code>“element”</code> adı verilen bileşenlerle sağlanır.</li>
+<li><strong>Geniş Codec Desteği:</strong> Çok sayıda format ve codec plug‑in olarak sunulur.</li>
+<li><strong>Gerçek Zamanlı İşleme:</strong> Düşük gecikmeyle canlı akışları işleyebilir.</li>
+<li><strong>Düşük Seviye Kontrol:</strong> Pipeline’ı elle kurup detaylı yönetim imkânı.</li>
+<li><strong>Açık Kaynak:</strong> İstediğiniz gibi genişletip özelleştirebilirsiniz.</li>
+</ul>
+<h2 id="pipeline-element-ve-pad">Pipeline, Element ve Pad</h2>
+<ul>
+<li><strong>Pipeline:</strong> Boru hattı (pipeline), elementlerin zincirlenmesidir. </li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>autovideosink
+</span></code></pre></div>
+<ul>
+<li><code>videotestsrc</code>→ Test kaynağı</li>
+<li><code>videoconvert</code>→ Renk formatı dönüştürücü</li>
+<li>
+<p><code>autovideosink</code> → Ekrana çizici sink</p>
+</li>
+<li>
+<p><strong>Element:</strong> Pipeline’ın yapı taşıdır; her biri tek bir görevi üstlenir (kaynak, dönüştürücü, sink…).</p>
+</li>
+<li>
+<p><strong>Pad:</strong> Elementler arası veri akış noktalarıdır:</p>
+<ul>
+<li>Source Pad: Elementten dışarı veri gönderir.</li>
+<li>Sink Pad: Elemente veri alır.</li>
+</ul>
+</li>
+<li>Uyumlu pad türleri eşleşmeli; aksi takdirde bağlantı kurulamaz.</li>
+</ul>
+<h2 id="hata-ayklama-sorgulama">Hata Ayıklama &amp; Sorgulama</h2>
+<ul>
+<li><strong>GST_DEBUG:</strong> Log seviyesini ayarlar (<code>0–5</code>). </li>
+<li><code>gst-launch-1.0 --gst-debug-help</code></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GST_DEBUG</span><span class="o">=</span><span class="m">3</span>
+</span></code></pre></div>
+<ul>
+<li><code>gst-inspect-1.0 [element]</code> Element veya plugin’in özelliklerini, pad’lerini ve ayarlarını gösterir.</li>
+<li><code>gst-discoverer-1.0 [uri]</code> Medya dosyasının codec, çözünürlük, bit hızı vb. teknik detaylarını çıkarır.</li>
+</ul>
+<div class="language-bash highlight"><span class="filename">Yararlı CLI Komutları</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Basit test pipeline’ı</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gst-launch-1.0<span class="w"> </span>videotestsrc<span class="w"> </span>!<span class="w"> </span>ximagesink
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># GStreamer versiyon ve kurulu plugin’ler</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>gst-launch-1.0<span class="w"> </span>--version
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>gst-inspect-1.0<span class="w"> </span>--plugins
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># Kamera servisini yeniden başlat (Jetson örneği)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>sudo<span class="w"> </span>service<span class="w"> </span>nvargus-daemon<span class="w"> </span>restart
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Video4Linux cihazları</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>v4l2-ctl<span class="w"> </span>--list-devices
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>v4l2-ctl<span class="w"> </span>-d<span class="w"> </span>/dev/video0<span class="w"> </span>--all
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>v4l2-ctl<span class="w"> </span>-d<span class="w"> </span>/dev/video0<span class="w"> </span>--list-formats-ext
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># Ayrıntılı çıktı</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>gst-launch-1.0<span class="w"> </span>-v<span class="w"> </span>videotestsrc<span class="w"> </span>!<span class="w"> </span>videoconvert<span class="w"> </span>!<span class="w"> </span>autovideosink
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>GUI tabanlı uygulamaları uzaktan kullanırken ekran yönlendirmesi için:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:0
+</span></code></pre></div></p>
+</div>
 
 
 

@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#inter-process-communication-ipc" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -733,6 +738,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    IPC
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -745,6 +765,94 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uygulama-turleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uygulama Türleri
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uygulama Türleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-pipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pipes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sockets" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sockets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-message-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Message Queues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-shared-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Shared Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-semaphores" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Semaphores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Signals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1183,9 +1291,97 @@
 
 
 
-  <h1>IPC</h1>
-
-
+<h1 id="inter-process-communication-ipc">Inter-Process Communication (IPC)</h1>
+<p>Farklı süreçler (process) arasında veri, bilgi ve komut alışverişi yapmayı sağlayan mekanizmalardır. İşletim sisteminde paralel veya dağıtık çalışan uygulamaların birbirleriyle etkileşim kurmasını mümkün kılar.</p>
+<h2 id="uygulama-turleri">Uygulama Türleri</h2>
+<ul>
+<li>
+<p><strong>Multi-Process Application:</strong> Birden fazla sürecin aynı anda bağımsız biçimde çalışıp birbirleriyle etkileşimde bulunduğu yazılımlardır.</p>
+</li>
+<li>
+<p><strong>Parallel Programming:</strong> Karmaşık problemleri daha küçük alt görevlere bölüp birden fazla işlemci veya çekirdekte eş zamanlı çalıştırarak performansı artırma tekniğidir.</p>
+</li>
+<li>
+<p><strong>Client‑Server Applications:</strong> İstemciler (client) sunucuya (server) istek gönderir, sunucu bu istekleri işler ve yanıt döner. Dağıtık iş yükü paylaşımı sağlar.</p>
+</li>
+</ul>
+<h3 id="1-pipes">1. Pipes</h3>
+<ul>
+<li>Tek yönlü (unidirectional) veri kanalıdır; bir ucu yazma, diğer ucu okuma içindir.</li>
+<li>Unnamed Pipes<ul>
+<li>Ebeveyn ve alt süreç (child) arasında geçici, adsız kanal oluşturur.</li>
+<li>Genellikle <code>pipe()</code> sistem çağrısıyla yaratılır.</li>
+</ul>
+</li>
+<li>Named Pipes (FIFOs)<ul>
+<li>Dosya sisteminde özel dosya (<code>/tmp/mypipe</code>) olarak var olur.</li>
+<li>Farklı süreçler ve oturumlar arasında kullanılabilir.</li>
+<li>mkfifo <code>/tmp/mypipe</code> ile oluşturulur.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-sockets">2. Sockets</h3>
+<ul>
+<li>Hem aynı makine içi hem de ağ tabanlı iki yönlü (bidirectional) iletişim sağlar.<ul>
+<li><strong>Unix Domain Sockets:</strong> Aynı sistemde süreçler arası düşük gecikmeli iletişim.</li>
+<li><strong>TCP/IP Sockets:</strong> Farklı makineler arasında güvenilir bağlantı.</li>
+<li><strong>UDP Sockets</strong>: Bağlantısız, düşük gecikmeli iletişim.</li>
+</ul>
+</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Tipik TCP server pseudo-kodu</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">read</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">write</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">rlen</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="3-message-queues">3. Message Queues</h3>
+<ul>
+<li>Mesajları FIFO kuyruğu içinde saklar; süreçler arasında sıralı mesajlaşma sağlar.<ul>
+<li>Adlandırılmış (POSIX): mq_open, mq_send, mq_receive.</li>
+<li>Unamed (System V): msgget, msgsnd, msgrcv.</li>
+<li>Mesaj boyutu ve izinleri tanımlanabilir; bir kuyruğu birden çok süreç kullanabilir.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-shared-memory">4. Shared Memory</h3>
+<ul>
+<li>Birden çok sürecin aynı fiziksel bellek bölgesine erişmesini sağlar; en hızlı IPC yöntemlerinden biridir.<ul>
+<li>POSIX IPC: shm_open, mmap, shm_unlink.</li>
+<li>System V IPC: shmget, shmat, shmdt, shmctl.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Dikkat</p>
+<p>Mutlak senkronizasyon (mutex, semafor) kullanılmalı, yoksa yarış durumları (race condition) oluşur.</p>
+</div>
+<h3 id="5-semaphores">5. Semaphores</h3>
+<ul>
+<li>Bir veya daha fazla sürecin paylaşılan kaynaklara erişimini senkronize etmek için kullanılır.<ul>
+<li><strong>POSIX:</strong> sem_open, sem_wait, sem_post, sem_close</li>
+<li><strong>System V:</strong> semget, semop, semctl.</li>
+<li>Shared memory ile birlikte sıkça tercih edilir.</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-signals">6. Signals</h3>
+<ul>
+<li>Süreçlere asenkron bildirim (interrupt) göndermek için kullanılır.</li>
+<li>Standart sinyaller: <code>kill(pid, SIGTERM);</code><ul>
+<li><strong>SIGINT</strong>  → Ctrl+C</li>
+<li><strong>SIGTERM</strong> → Nazik sonlandırma</li>
+<li><strong>SIGKILL</strong> → Zorla sonlandırma</li>
+</ul>
+</li>
+<li>Bir süreç, signal(SIGINT, handler) ile sinyal alındığında çalıştırılacak fonksiyonu tanımlayabilir.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Bu IPC mekanizmaları, gereksinimlerinize göre performans, güvenilirlik ve karmaşıklık açısından farklı avantajlar sunar. En hızlısı shared memory, en yaygın kullanılanı ise sockets’tir; pipes ve message queue’lar ise basit veri akışlarında idealdir.</p>
+</div>
 
 
 
