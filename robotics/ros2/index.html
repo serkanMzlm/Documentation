@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ros2" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -854,6 +859,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ROS2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -866,6 +886,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#logging-gunlukleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging (Günlükleme)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dds-ve-domain-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDS ve DOMAIN ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derleme-zamannda-hata-ayklama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Derleme Zamanında Hata Ayıklama
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dds-katmann-secme" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDS Katmanını Seçme
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1183,9 +1258,210 @@
 
 
 
-  <h1>ROS2</h1>
-
-
+<h1 id="ros2">ROS2</h1>
+<ul>
+<li><strong>ROS (Robot Operating System):</strong> Robot uygulamaları geliştirmek için sunduğu mesajlaşma altyapısı ve araç setiyle, farklı yazılım bileşenlerinin (düğüm, node) birbirleriyle kolayca iletişim kurmasını sağlar.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Özellik</th>
+<th>ROS 1</th>
+<th>ROS 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mimari</td>
+<td>Merkezi (master node)</td>
+<td>Merkeziyetsiz (no master)</td>
+</tr>
+<tr>
+<td>Gerçek Zaman Desteği</td>
+<td>Sınırlı</td>
+<td>DDS tabanlı, gerçek zaman yetenekli</td>
+</tr>
+<tr>
+<td>Çoklu Dil Desteği</td>
+<td>C++, Python</td>
+<td>C++, Python, Java, Rust, …</td>
+</tr>
+<tr>
+<td>Ağ Desteği</td>
+<td>Aynı ağda (multicast)</td>
+<td>Farklı ağlarda firewall dostu</td>
+</tr>
+<tr>
+<td>Güvenlik</td>
+<td>Ek eklentiler gerekir</td>
+<td>DDS Security eklentisi</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Yeni bir paket oluşturduğunuzda, <code>src/</code> altında dil fark etmeksizin (C++, Python vb.) <code>ros2 pkg create</code> ile paket iskeletleri oluşturulur.</li>
+<li>Bir ROS/ROS 2 çalışma alanı (workspace), genellikle şu dizinleri içerir:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;workspace&gt;/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ src/        # Paket kaynak kodları
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─ build/      # Derleme dosyaları
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├─ install/    # Kurulum (derlenmiş paketler)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└─ log/        # Derleyici ve runtime logları
+</span></code></pre></div>
+<ul>
+<li><strong>RCL:</strong> “ROS Client Library”</li>
+<li><strong>RCLCPP / RCLPY:</strong> C++ ve Python için üst katman kütüphaneleri.</li>
+<li>
+<p>Mesajlaşma, parametre, zamanlayıcı, servis ve aksiyon gibi temel API’leri sunar.</p>
+</li>
+<li>
+<p><strong>RQT:</strong> Qt tabanlı GUI panelleri; topic’ler, parametreler, servislere erişim ve grafik çizimler yapar.</p>
+</li>
+<li><strong>ros2 doctor --report:</strong> Sistem yapılandırmanızı analiz eder, eksik bağımlılıkları ve uyumsuzlukları raporlar.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>NETWORK<span class="w"> </span>CONFIGURATION
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>PLATFORM<span class="w"> </span>INFORMATION
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>RMW<span class="w"> </span>MIDDLEWARE
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>ROS<span class="w"> </span><span class="m">2</span><span class="w"> </span>INFORMATION
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>TOPIC<span class="w"> </span>LIST
+</span></code></pre></div>
+<h3 id="logging-gunlukleme">Logging (Günlükleme)</h3>
+<ul>
+<li><strong>Log seviyeleri:</strong> <code>DEBUG, INFO, WARN, ERROR, FATAL</code>.
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Bilgi mesajı&quot;</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">RCLCPP_WARN</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Uyarı mesajı&quot;</span><span class="p">);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">RCLCPP_ERROR</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Hata mesajı&quot;</span><span class="p">);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">RCLCPP_DEBUG_STREAM</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Detay: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">variable</span><span class="p">);</span>
+</span></code></pre></div></li>
+</ul>
+<div class="language-bash highlight"><span class="filename">Komut Satırları</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>&lt;pkg&gt;<span class="w"> </span>&lt;exe&gt;<span class="w"> </span>--ros-args<span class="w"> </span>--log-level<span class="w"> </span>debug
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ros2<span class="w"> </span>run<span class="w"> </span>&lt;pkg&gt;<span class="w"> </span>&lt;exe&gt;<span class="w"> </span>--ros-args<span class="w"> </span>--log-level<span class="w"> </span>&lt;node_name&gt;:<span class="o">=</span>warn
+</span></code></pre></div>
+<ul>
+<li>Log dosyaları <code>~/.ros/log/</code> altında saklanır <code>rqt_logging</code> ile de izleyebilirsiniz.</li>
+</ul>
+<h3 id="dds-ve-domain-id">DDS ve DOMAIN ID</h3>
+<ul>
+<li>ROS 2, <strong>DDS</strong> (Data Distribution Service) protokolünü kullanır.</li>
+<li>
+<p><strong>Domain ID:</strong> Aynı DDS domain’inde olan düğümler birbirini görür.</p>
+<ul>
+<li>Varsayılan: <code>0</code></li>
+<li>Güvenli aralık: <code>0–101</code> (Linux port çakışmalarından kaçınmak için).</li>
+<li>DD S UDP port aralığı: <code>0–65535</code> → Domain ID <code>0–232</code> önerilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span><span class="m">42</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Geçerli aralığı kontrol</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>cat<span class="w"> </span>/proc/sys/net/ipv4/ip_local_port_range
+</span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><code>export ROS_LOCALHOST_ONLY=1</code> Düğümler yalnızca localhost üzerinden iletişim kurar; diğer cihazlardan erişim engellenir.</p>
+</li>
+</ul>
+<h3 id="derleme-zamannda-hata-ayklama">Derleme Zamanında Hata Ayıklama</h3>
+<ul>
+<li><code>colcon build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo</code> <ul>
+<li><strong>RelWithDebInfo:</strong> Optimize edilmiş kodda hata ayıklama sembollerini tutar.</li>
+</ul>
+</li>
+<li>
+<p><code>ros2 run --prefix "gdbserver localhost:3000" &lt;pkg_name&gt; &lt;node_executable&gt;</code></p>
+<ul>
+<li><strong>gdbserver:</strong> Kodunuzu dinleyen bir sunucu gibi çalışır.</li>
+<li><strong>localhost:3000:</strong> VS Code veya başka bir istemci bu port üzerinden hata ayıklamayı üstlenir.</li>
+</ul>
+</li>
+<li>
+<p>vs code launch.json  dosyası:
+<div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">launch.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ROS2 C++ Remote Debug&quot;</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="nt">&quot;miDebuggerServerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:3000&quot;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">      </span><span class="nt">&quot;miDebuggerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/gdb&quot;</span><span class="p">,</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="hll"><span class="w">      </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/install/&lt;pkg_name&gt;/lib/&lt;pkg_name&gt;/&lt;node_executable&gt;&quot;</span><span class="p">,</span>
+</span></span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">      </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">      </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">      </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">      </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="p">}</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>program:</strong> Hata ayıklamak istediğiniz executable’ın tam yolu (colcon install sonrası).</p>
+</li>
+<li><strong>miDebuggerServerAddress:</strong> gdbserver’ın dinlediği adres ve port.</li>
+<li>
+<p>Diğer ayarlar (stopAtEntry, environment) tercihinize göre düzenlenebilir.</p>
+</li>
+<li>
+<p>VS Code’da <code>Run &amp; Debug</code> panelinden bu konfigürasyonu seçip başlatın. Kod, gdbserver üzerinden bağlanacak ve breakpoint’lerinizde duracaktır.</p>
+</li>
+<li>
+<p>Menüden Terminal → Run Build Task ya da <code>Ctrl+Shift+P</code>
+<div class="language-json highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tasks.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build Release&quot;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/${command:rosdistro}/setup.bash &amp;&amp; colcon build --symlink-install&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build Debug&quot;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/${command:rosdistro}/setup.bash &amp;&amp; colcon build --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --symlink-install&quot;</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="p">}</span><span class="w"> </span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+</ul>
+<h3 id="dds-katmann-secme">DDS Katmanını Seçme</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># veya</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_fastrtps_cpp
+</span></code></pre></div>
 
 
 
