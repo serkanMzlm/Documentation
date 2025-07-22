@@ -12,7 +12,7 @@
         <link rel="prev" href="../ros2/">
       
       
-        <link rel="next" href="../../devops/linux/">
+        <link rel="next" href="../../devops/git/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#gazebo" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -248,7 +253,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../devops/linux/" class="md-tabs__link">
+        <a href="../../devops/git/" class="md-tabs__link">
           
   
   
@@ -877,6 +882,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Gazebo
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -889,6 +909,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ros_gz_bridge-gazebo-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ros_gz_bridge (Gazebo ↔ ROS 2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#video-kayd-ve-scene-broadcaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Video Kaydı ve Scene Broadcaster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-link-ve-joint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model, Link ve Joint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pozisyon-ve-yon-pose-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pozisyon ve Yön (Pose &amp; Origin)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -954,29 +1044,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../devops/linux/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Linux
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../devops/git/" class="md-nav__link">
         
   
@@ -1023,35 +1090,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hardware/raspberry/" class="md-nav__link">
+      <a href="../../devops/linux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Raspberry Pi
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../hardware/jetson/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    NVIDIA Jetson
+    Linux
     
   </span>
   
@@ -1183,9 +1227,300 @@
 
 
 
-  <h1>Gazebo</h1>
-
-
+<h1 id="gazebo">Gazebo</h1>
+<ul>
+<li><code>ign gazebo</code> → <code>gz sim</code></li>
+<li><code>ign topic</code> → <code>gz topic</code></li>
+<li><code>ign model</code> → <code>gz model</code></li>
+<li><strong>Yükleme Dizini:</strong> GZ_SIM_SYSTEM_PLUGIN_PATH ortam değişkenine kendi plugin klasörünüzü ekleyin.</li>
+<li><strong>GUI Plugin’leri:</strong> GZ_GUI_PLUGIN_PATH içinde aranır.</li>
+<li><strong>Resource Path:</strong> GZ_SIM_RESOURCE_PATH tüm model, texture, plugin vb. yollarını içerir.</li>
+<li><strong>World:</strong> Sahnedeki tüm öğeleri, GUI ayarlarını, plugin’leri ve fiziksel ortamı tanımlar.</li>
+<li><strong>Entity:</strong> Her nesneye (model, link, joint, ışık, kamera vb.) atanan benzersiz sayı (ID).</li>
+<li><strong>Component:</strong> Entity’ye işlevsellik ekler. Örneğin:<ul>
+<li>Pose (konum/orientasyon)</li>
+<li>Name (görünürlük, seçme)</li>
+<li>Material (görselleştirme)</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Config dosyaları: <code>~/.gz/sim/&lt;VERSION&gt;/</code> altında. Varsayılan world ayarı için <strong>GZ_SIM_SERVER_CONFIG_PATH</strong> kullanın.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gz<span class="w"> </span>sim<span class="w">     </span><span class="c1"># GUI’li/GUI’siz simülasyonu başlatır</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>gz<span class="w"> </span>topic<span class="w">   </span><span class="c1"># Topic yönetimi</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>gz<span class="w"> </span>model<span class="w">   </span><span class="c1"># Model sorgu ve kontrol</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>gz<span class="w"> </span>service<span class="w"> </span><span class="c1"># Servis çağrıları</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># GUI’siz, sadece fizik sunucusu</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gz<span class="w"> </span>sim<span class="w"> </span>-s
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># GUI’li çalıştırma</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>gz<span class="w"> </span>sim
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Sürüm ve log ayarları</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>gz<span class="w"> </span>sim<span class="w"> </span>-v<span class="w"> </span><span class="m">4</span><span class="w">           </span><span class="c1"># log seviyesi (0–4 arası)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>gz<span class="w"> </span>sim<span class="w"> </span>--iterations<span class="w"> </span><span class="m">50</span><span class="w"> </span>model_photo_shoot.sdf
+</span></code></pre></div>
+<ul>
+<li><code>-s / --server-only</code> → sadece server mod</li>
+<li><code>-r / --run</code> → sahneyi çalışır halde başlatır</li>
+<li><code>-v / --verbose</code> → log seviyesini belirler</li>
+<li><code>--iterations</code> N → SDF modelinden N farklı açıda ekran görüntüsü alır</li>
+</ul>
+<div class="language-bash highlight"><span class="filename">Model Yönetimi</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gz<span class="w"> </span>model<span class="w"> </span>--list<span class="w">                          </span><span class="c1"># Yüklü ve aktif modelleri listeler</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>gz<span class="w"> </span>model<span class="w"> </span>-m<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--pose<span class="w">               </span><span class="c1"># Modelin dünya içindeki pozunu gösterir</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>gz<span class="w"> </span>model<span class="w"> </span>-m<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--link<span class="w">               </span><span class="c1"># Modelin tüm link’lerini listeler</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>gz<span class="w"> </span>model<span class="w"> </span>-m<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--joint<span class="w">              </span><span class="c1"># Modelin tüm joint’lerini listeler</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>gz<span class="w"> </span>model<span class="w"> </span>-m<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--link<span class="w"> </span>&lt;link_name&gt;<span class="w">   </span><span class="c1"># Belirli link’in bileşen bilgisi</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>gz<span class="w"> </span>model<span class="w"> </span>-m<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--joint<span class="w"> </span>&lt;joint_name&gt;<span class="w"> </span><span class="c1"># Belirli joint’in bileşen bilgisi</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><span class="filename">Topic Yönetimi</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gz<span class="w"> </span>topic<span class="w"> </span>-l<span class="w">                         </span><span class="c1"># Tüm topic’leri listeler</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gz<span class="w"> </span>topic<span class="w"> </span>-h<span class="w">                         </span><span class="c1"># Yardım (kullanım detayları)  </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>gz<span class="w"> </span>topic<span class="w"> </span>-i<span class="w"> </span>-t<span class="w"> </span>/stats<span class="w">              </span><span class="c1"># /stats topic meta verisini gösterir</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>gz<span class="w"> </span>topic<span class="w"> </span>-e<span class="w"> </span>-t<span class="w"> </span>/stats<span class="w">              </span><span class="c1"># /stats topic mesajlarını ekrana basar</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>gz<span class="w"> </span>topic<span class="w"> </span>--echo<span class="w"> </span>--topic<span class="w"> </span>/stats<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="c1"># Sadece ilk mesajı gösterir</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>gz<span class="w"> </span>topic<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;/cmd_vel&quot;</span><span class="w"> </span>-m<span class="w"> </span>gz.msgs.Twist<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;linear: {x: 0.5}, angular: {z: 0.05}&quot;</span>
+</span></code></pre></div>
+<ul>
+<li><code>-t / --topic</code> → topic adı</li>
+<li><code>-m / --msg-type</code> → mesaj tipi</li>
+<li><code>-p / --payload</code> → mesaj içeriği (YAML formatı)</li>
+</ul>
+<div class="language-bash highlight"><span class="filename">Topic Yönetimi</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gz<span class="w"> </span>service<span class="w"> </span>-l<span class="w">                          </span><span class="c1"># Tüm servisleri listeler</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Simülasyonu durdurma/başlatma</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>gz<span class="w"> </span>service<span class="w"> </span>-s<span class="w"> </span>/world/&lt;world&gt;/control<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">           </span>--reqtype<span class="w">  </span>gz.msgs.WorldControl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">           </span>--reptype<span class="w"> </span>gz.msgs.Boolean<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">           </span>--timeout<span class="w"> </span><span class="m">3000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">           </span>--req<span class="w"> </span><span class="s1">&#39;pause: false&#39;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Simülasyonu sıfırlama (reset)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>gz<span class="w"> </span>service<span class="w"> </span>-s<span class="w"> </span>/world/&lt;world&gt;/control<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">           </span>--reqtype<span class="w">  </span>gz.msgs.WorldControl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">           </span>--reptype<span class="w"> </span>gz.msgs.Boolean<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">           </span>--timeout<span class="w"> </span><span class="m">3000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">           </span>--req<span class="w"> </span><span class="s1">&#39;reset: {all: true}&#39;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Kamera görünümü kontrolü</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>gz<span class="w"> </span>service<span class="w"> </span>-s<span class="w"> </span>/gui/move_to/pose<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">           </span>--reqtype<span class="w">  </span>gz.msgs.GUICamera<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">           </span>--reptype<span class="w"> </span>gz.msgs.Boolean<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">           </span>--timeout<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">           </span>--req<span class="w"> </span><span class="s1">&#39;name: &quot;box&quot;, pose: {position: {x:1, y:23, z:5}, orientation: {x:0, y:0, z:0, w:1}}, projection_type: &quot;orbit&quot;&#39;</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STL</td>
+<td>Sadece geometri (triangül mesh) tanımlar; renk, doku içermez.</td>
+</tr>
+<tr>
+<td>OBJ</td>
+<td>Geometri + yüzey normalleri + doku koordinatları destekler.</td>
+</tr>
+<tr>
+<td>DAE</td>
+<td>COLLADA; sahne, geometri, ışık, animasyon ve malzeme bilgisi içerir.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ros_gz_bridge-gazebo-ros-2">ros_gz_bridge (Gazebo ↔ ROS 2)</h3>
+<p>ROS 2 ile Gazebo arasında mesaj, servis ve action köprüsü kurar.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ros2<span class="w"> </span>run<span class="w"> </span>ros_gz_bridge<span class="w"> </span>parameter_bridge<span class="w"> </span>/chatter@std_msgs/msg/String@ignition.msgs.StringMsg
+</span></code></pre></div>
+<ul>
+<li><code>/topic@ROS_MSG_TYPE@GZ_MSG_TYPE</code> formatı<ul>
+<li><code>@</code> çift yönlü (publish ve subscribe)</li>
+<li><code>]</code> Gazebo → ROS 2</li>
+<li><code>[</code> ROS 2 → Gazebo</li>
+</ul>
+</li>
+</ul>
+<h3 id="video-kayd-ve-scene-broadcaster">Video Kaydı ve Scene Broadcaster</h3>
+<div class="language-xml highlight"><span class="filename">Scene Broadcaster</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-scene-broadcaster-system&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::SceneBroadcaster&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&lt;state_hertz&gt;</span>25<span class="nt">&lt;/state_hertz&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></div>
+<ul>
+<li><code>state_hertz</code> → 1 saniyede kaç kez sahneyi güncelleyeceği (Hz)</li>
+</ul>
+<div class="language-xml highlight"><span class="filename">Video Recorder GUI Plugin</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;VideoRecorder&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;VideoRecorder&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&lt;gz-gui&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;resizable&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;width&quot;</span><span class="w">     </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="nt">&gt;</span>800<span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;height&quot;</span><span class="w">    </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="nt">&gt;</span>600<span class="nt">&lt;/property&gt;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">&lt;/gz-gui&gt;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="nt">&lt;record_video&gt;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&lt;use_sim_time&gt;</span>true<span class="nt">&lt;/use_sim_time&gt;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">&lt;lockstep&gt;</span>true<span class="nt">&lt;/lockstep&gt;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">&lt;bitrate&gt;</span>4000000<span class="nt">&lt;/bitrate&gt;</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="nt">&lt;/record_video&gt;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></div>
+<div class="language-xml highlight"><span class="filename">Triggered Publisher System</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-triggered-publisher-system&quot;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">        </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Int32&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/keyboard/keypress&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>16777235<span class="nt">&lt;/match&gt;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&lt;/input&gt;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span>linear:<span class="w"> </span>{x:<span class="w"> </span>0.5},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">&lt;/output&gt;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nt">&lt;/plugin&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>input → dinlenecek topic ve mesaj alanı</li>
+<li>match → eşleşme değeri</li>
+<li>output → çıkış topic’i ve mesaj içeriği</li>
+</ul>
+<h2 id="sdf">SDF</h2>
+<ul>
+<li>Köprüleme (Tag) Biçimleri<ul>
+<li><strong>Uzun biçim:</strong> <code>&lt;tag&gt;…&lt;/tag&gt;</code></li>
+<li><strong>Kısa biçim (self‑closing):</strong> <code>&lt;tag/&gt;</code> veya <code>&lt;tag /&gt;</code></li>
+</ul>
+</li>
+</ul>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.8&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>…<span class="w"> </span>içerik<span class="w"> </span>…
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nt">&lt;/sdf&gt;</span>
+</span></code></pre></div>
+<div class="language-xml highlight"><span class="filename">World ve Include</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.8&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;first_world&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="cm">&lt;!-- Başka bir modeli bu dünyaya eklemek için --&gt;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="nt">&lt;include&gt;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">&lt;uri&gt;</span>model://sum<span class="nt">&lt;/uri&gt;</span><span class="w">  </span><span class="cm">&lt;!-- model://&lt;model_adı&gt; biçiminde URI --&gt;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">&lt;/world&gt;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nt">&lt;/sdf&gt;</span>
+</span></code></pre></div>
+<ul>
+<li><code>&lt;world&gt;</code>: Sahnenin tamamını tanımlar (zemin, ışıklar, plugin’ler vb.).</li>
+<li><code>&lt;include&gt;</code>: Önceden tanımlı bir modeli veya başka bir world dosyasını içe aktarır.</li>
+<li><code>&lt;uri&gt;</code>: Yüklenecek modelin yolu (örn. model://sum, model://pioneer2dx).</li>
+</ul>
+<h3 id="model-link-ve-joint">Model, Link ve Joint</h3>
+<ul>
+<li><code>&lt;model&gt;</code> name özelliği ile tanımlanır.<ul>
+<li>İçinde bir veya birden çok <code>&lt;link&gt;, &lt;joint&gt;, &lt;pose&gt;</code> vb. barındırır.</li>
+</ul>
+</li>
+</ul>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;robot_model&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="w">      </span><span class="cm">&lt;!-- Modelin dünya koordinatlarındaki pose’u --&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;link1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;robot_model&quot;</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nt">&lt;/link&gt;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;link2&quot;</span><span class="nt">/&gt;</span><span class="w">          </span><span class="cm">&lt;!-- pose verilmezse varsayılan konumda --&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nt">&lt;/model&gt;</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><code>&lt;link&gt;</code> Modelin fiziksel parçasıdır (kütle, inertia, collision, visual).</p>
+<ul>
+<li>Her link’in kendi <code>&lt;pose&gt;</code>’u olabilir.</li>
+</ul>
+</li>
+<li>
+<p><code>&lt;joint&gt;</code> İki link arasında hareketi sağlar.</p>
+<ul>
+<li>type özelliği ile farklı eklem mekanizmaları seçilir:</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tür</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fixed</code></td>
+<td>Hiç hareket etmez.</td>
+</tr>
+<tr>
+<td><code>revolute</code></td>
+<td>Tek eksende sınırlı dönme.</td>
+</tr>
+<tr>
+<td><code>continuous</code></td>
+<td>Tek eksende sınırsız dönme.</td>
+</tr>
+<tr>
+<td><code>prismatic</code></td>
+<td>Tek eksende sınırsız öteleme.</td>
+</tr>
+<tr>
+<td><code>ball</code></td>
+<td>Üç eksende serbest dönme (küresel).</td>
+</tr>
+<tr>
+<td><code>universal</code></td>
+<td>İki eksende serbest dönme.</td>
+</tr>
+<tr>
+<td><code>screw</code></td>
+<td>Eşzamanlı öteleme ve dönme (vida hareketi).</td>
+</tr>
+</tbody>
+</table>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;joint1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&lt;parent&gt;</span>link1<span class="nt">&lt;/parent&gt;</span><span class="w">       </span><span class="cm">&lt;!-- Sabit parça --&gt;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&lt;child&gt;</span>link2<span class="nt">&lt;/child&gt;</span><span class="w">         </span><span class="cm">&lt;!-- Hareket eden parça --&gt;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">&lt;axis&gt;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">&lt;xyz&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/xyz&gt;</span><span class="w">           </span><span class="cm">&lt;!-- Dönüş ekseni (x,y,z) &lt;axis xyz=&quot;0 0 1&quot;/&gt; --&gt;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">&lt;/axis&gt;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nt">&lt;/joint&gt;</span>
+</span></code></pre></div>
+<h3 id="pozisyon-ve-yon-pose-origin">Pozisyon ve Yön (Pose &amp; Origin)</h3>
+<ul>
+<li><code>&lt;pose&gt;</code>: Altı elemanlı liste—x y z roll pitch yaw (birim metre ve radyan).</li>
+<li><strong>relative_to</strong> ile başka bir frame’e göre tanımlanabilir:</li>
+</ul>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="w">  </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;world&quot;</span><span class="nt">&gt;</span>1<span class="w"> </span>2<span class="w"> </span>0.5<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>1.57<span class="nt">&lt;/pose&gt;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="cm">&lt;!--&lt;origin&gt; (URDF benzeri kısa form, SDF’de de çalışır) --&gt;</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0.5&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;0 0 0.785&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.8&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;example_world&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">&lt;include&gt;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span><span class="nt">&lt;uri&gt;</span>model://house<span class="nt">&lt;/uri&gt;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="nt">&lt;/include&gt;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;robot&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">      </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;base_link&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">        </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;robot&quot;</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nt">&lt;/link&gt;</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wheel_link&quot;</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default pose --&gt;</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">      </span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wheel_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;continuous&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">        </span><span class="nt">&lt;parent&gt;</span>base_link<span class="nt">&lt;/parent&gt;</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">        </span><span class="nt">&lt;child&gt;</span>wheel_link<span class="nt">&lt;/child&gt;</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">        </span><span class="nt">&lt;axis&gt;</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">          </span><span class="nt">&lt;xyz&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">        </span><span class="nt">&lt;/axis&gt;</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="w">      </span><span class="nt">&lt;/joint&gt;</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">    </span><span class="nt">&lt;/model&gt;</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">  </span><span class="nt">&lt;/world&gt;</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="nt">&lt;/sdf&gt;</span>
+</span></code></pre></div>
 
 
 

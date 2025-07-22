@@ -12,7 +12,7 @@
         <link rel="prev" href="../git/">
       
       
-        <link rel="next" href="../../hardware/raspberry/">
+        <link rel="next" href="../linux/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -60,6 +60,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -248,7 +253,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../linux/" class="md-tabs__link">
+        <a href="../git/" class="md-tabs__link">
           
   
   
@@ -946,29 +951,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Linux
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../git/" class="md-nav__link">
         
   
@@ -998,6 +980,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1011,29 +1008,103 @@
 
       </a>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../hardware/raspberry/" class="md-nav__link">
         
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  <span class="md-ellipsis">
-    Raspberry Pi
+  
     
-  </span>
   
-
-      </a>
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#genel-kavramlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Genel Kavramlar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Yönetimi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konteyner-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konteyner Yönetimi
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile &amp; Build
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dockerfile &amp; Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipuclar" class="md-nav__link">
+    <span class="md-ellipsis">
+      İpuçları
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-network-turleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Network Türleri
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kendi-dockerfilenz-yazmak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kendi Dockerfile’ınızı Yazmak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-ile-coklu-servis-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose ile Çoklu Servis Yönetimi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1046,12 +1117,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hardware/jetson/" class="md-nav__link">
+      <a href="../linux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    NVIDIA Jetson
+    Linux
     
   </span>
   
@@ -1183,9 +1254,238 @@
 
 
 
-  <h1>Docker & Containers</h1>
-
-
+<h1 id="docker">Docker</h1>
+<h2 id="genel-kavramlar">Genel Kavramlar</h2>
+<ul>
+<li><strong>Container:</strong> Uygulamanın kodunu, bağımlılıklarını ve çalışması için gereken her şeyi bir araya getiren, işletim sistemi seviyesinde izole edilmiş taşınabilir çalışma ortamıdır.</li>
+<li><strong>Docker:</strong> Konteynerleri kolayca oluşturup yönetmenizi sağlayan platformdur. Linux çekirdeğinin isim alanları (namespaces) ve cgroups özelliklerini kullanarak hafif sanallaştırma sağlar.</li>
+<li><strong>Docker Hub:</strong> Hazır container image’larının paylaşıldığı merkezi kayıt defteridir.</li>
+<li><strong>Volume:</strong> Konteyner yaşam döngüsünden bağımsız veri saklamak için kullanılır. Konteyner silinse bile volume içindeki veriler korunur.</li>
+</ul>
+<h2 id="image-yonetimi">Image Yönetimi</h2>
+<p><div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pull</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>ubuntu:20.04
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>node:16
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>docker<span class="w"> </span>pull<span class="w"> </span>redis
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Listeleme</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker<span class="w"> </span>image<span class="w"> </span>ls<span class="w">    </span><span class="c1"># İndirilen image&#39;ları gösterir</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>docker<span class="w"> </span>image<span class="w"> </span>tag<span class="w"> </span>ubuntu:20.04<span class="w"> </span>my_ubuntu:latest
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>&lt;IMAGE_ID_or_NAME&gt;
+</span></code></pre></div></td></tr></table></div></p>
+<h2 id="konteyner-yonetimi">Konteyner Yönetimi</h2>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>IMAGE<span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span><span class="w"> </span><span class="o">[</span>ARGS...<span class="o">]</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><code>-d</code> Arka planda (detached) çalıştırır.</li>
+<li><code>-it</code> İnteraktif terminal açar (<code>-i</code> stdin açık, <code>-t</code> tty tahsis eder).</li>
+<li><code>--name &lt;name&gt;</code> Konteynere kolay hatırlanır bir isim verir.</li>
+<li><code>-p &lt;hostPort&gt;:&lt;containerPort&gt;</code> Port eşlemesi yapar.</li>
+<li><code>-v &lt;hostPath&gt;:&lt;containerPath&gt;</code> Host–konteyner arasında volume mount eder.</li>
+<li><code>-e KEY=VALUE</code> Ortam değişkeni ayarlar.</li>
+<li><code>--network &lt;net&gt;</code> Belirli Docker ağına bağlar.</li>
+<li><code>--link &lt;other&gt;:&lt;alias&gt;</code> Eski stil bağlantı, yerine kullanıcı tanımlı ağ ve DNS önerilir.</li>
+</ul>
+<p><div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my_mongo<span class="w"> </span>-p<span class="w"> </span><span class="m">27018</span>:27017<span class="w"> </span>-v<span class="w"> </span>~/mongo-data:/data/db<span class="w"> </span>mongo:6.0
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Durdurma</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>docker<span class="w"> </span>start<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Başlatma</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>docker<span class="w"> </span>rm<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Çalıştırma</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>docker<span class="w"> </span>container<span class="w"> </span>prune<span class="w"> </span><span class="c1"># Tüm durdurulmuş konteynerleri temizleme</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>docker<span class="w"> </span>ps<span class="w"> </span><span class="c1"># Çalışan konteynerler listeleme</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span><span class="c1"># Tüm konteynerler listeleme</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>docker<span class="w"> </span>attach<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Bağlanma</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>docker<span class="w"> </span>logs<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Log görüntüleme </span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>docker<span class="w"> </span>inspect<span class="w"> </span>my_mongo<span class="w"> </span><span class="c1"># Detaylı bilgi</span>
+</span></code></pre></div></td></tr></table></div></p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Ağ Yönetimi</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>docker<span class="w"> </span>network<span class="w"> </span>ls<span class="w"> </span><span class="c1"># Listeleme</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>--subnet<span class="w"> </span><span class="m">172</span>.18.0.0/16<span class="w"> </span>my_bridge_net<span class="w"> </span><span class="c1"># Oluşturma</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>docker<span class="w"> </span>network<span class="w"> </span>rm<span class="w"> </span>my_bridge_net<span class="w"> </span><span class="c1"># Silme</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Volume Yönetimi</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>my_volume
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>docker<span class="w"> </span>volume<span class="w"> </span>prune<span class="w"> </span><span class="c1"># Tüm kullanılmayan volümleri temizleme</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="dockerfile-build">Dockerfile &amp; Build</h2>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my_app:1.0<span class="w"> </span>.<span class="w"> </span><span class="c1"># Dockerfile ile image oluşturma (-t : Oluşacak image’a isim ve tag verir.)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>docker-compose<span class="w"> </span>build
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>docker-compose<span class="w"> </span>down
+</span></code></pre></div></td></tr></table></div>
+<h3 id="ipuclar">İpuçları</h3>
+<ul>
+<li>Veri kalıcılığı için her zaman -v veya named volume kullanın.</li>
+<li>Ağ izolasyonu ve container DNS’yi kullanmak için custom network tercih edin, <code>--link</code> artık eskidi.</li>
+<li>Geliştirme aşamasında <code>--rm</code> bayrağıyla otomatik silinmeyi sağlayın:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>my_app:dev
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>Image katmanlarını küçültmek, multi-stage build ile gereksiz dosyaları final image’dan çıkarmak performans ve güvenlik için kritiktir</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="docker-network-turleri">Docker Network Türleri</h3>
+<p>Docker, konteynerler arası ve host ile container arasındaki iletişimi farklı ağ sürücüleri (drivers) ile yönetir:</p>
+<table>
+<thead>
+<tr>
+<th>Ağ Türü</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bridge</code></td>
+<td>Varsayılan ağ. İzole bir köprü ağıdır; her container bu ağda kendi IP’sini alır.</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Hiçbir ağa bağlı olmaz; dış erişime kapalı, tamamen izole konteyner.</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>Container, host’un network yığınıyla paylaşılır; port eşlemesine gerek kalmaz.</td>
+</tr>
+<tr>
+<td><code>custom</code></td>
+<td>Kullanıcı tanımlı ağ: kendi subnet, gateway vb. ayarlarınızı yapabilirsiniz.</td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># none ağına bağlanarak mongo konteyneri çalıştırma</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>none<span class="w"> </span>mongo
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># host ağına bağlanma (Linux&#39;ta geçerli)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span>nginx
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Örnek kullanıcı tanımlı ağ oluşturma</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>--subnet<span class="w"> </span><span class="m">182</span>.18.0.0/16<span class="w"> </span>--gateway<span class="w"> </span><span class="m">182</span>.18.0.1<span class="w"> </span>my_bridge_net
+</span></code></pre></div>
+<h3 id="kendi-dockerfilenz-yazmak">Kendi Dockerfile’ınızı Yazmak</h3>
+<p>Bir uygulamayı konteynerleştirmek için projenizin kök dizininde Dockerfile oluşturun. Aşağıdaki örneklerde adım adım açıklamalar göreceksiniz.</p>
+<div class="language-text highlight"><span class="filename">Ubuntu Tabanlı Örnek</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># 1. Base image
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>FROM ubuntu:18.04
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a># 2. Paket listelerini güncelle ve curl yükle
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>RUN apt-get update &amp;&amp; apt-get install -y curl
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a># 3. Uygulama kodlarını kopyala
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>COPY . /opt/my-app/
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a># 4. Çalışma dizinini ayarla
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>WORKDIR /opt/my-app/
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a># 5. Ortam değişkeni tanımla
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>ENV APP_ENV=production
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a># 6. Uygulamayı başlat
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>CMD [&quot;./start.sh&quot;]
+</span></code></pre></div>
+<ul>
+<li>Her <code>RUN/COPY</code> komutu bir layer (katman) oluşturur.</li>
+<li><code>CMD</code> ile konteyner çalıştığında hangi komutun çalışacağı belirtilir.</li>
+</ul>
+<div class="language-text highlight"><span class="filename">Node.js Tabanlı Örnek</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a># 1. Node.js resmi image’ı (slim versiyonu daha küçük)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>FROM node:14-slim
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a># 2. Çalışma dizinini ayarla
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>WORKDIR /usr/src/app
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a># 3. Bağımlılıkları kopyala ve yükle
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>COPY package*.json ./
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>RUN npm install
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a># 4. Uygulama kodunu kopyala
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>COPY . .
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a># 5. Uygulamanın dinleyeceği portu bildir
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>EXPOSE 3000
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a># 6. Varsayılan komut
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>ENTRYPOINT [&quot;node&quot;, &quot;index.js&quot;]
+</span></code></pre></div>
+<ul>
+<li><code>ENTRYPOINT</code> ile konteyner argument’ları değişse bile sürekli çalışacak komut belirlenir.</li>
+<li><code>CMD</code> override etmek mümkün; <code>ENTRYPOINT</code> ise kalıcıdır.</li>
+</ul>
+<div class="language-text highlight"><span class="filename">.dockerignore</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>node_modules
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>.git
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>*.log
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>.env
+</span></code></pre></div>
+<h3 id="docker-compose-ile-coklu-servis-yonetimi">Docker Compose ile Çoklu Servis Yönetimi</h3>
+<p>Birden fazla konteyneri birlikte tanımlayıp çalıştırmak için docker-compose.yml kullanın. İndent (girinti) YAML’de kritiktir.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">webapp</span><span class="p">:</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_webapp</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./static:/usr/src/app/static</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NODE_ENV=production</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:14</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_db</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/postgresql/data</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pass</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appdb</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">  </span><span class="nt">default</span><span class="p">:</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
+</span></code></pre></div>
+<ul>
+<li><code>services</code> Çalıştırılacak konteyner tanımları.</li>
+<li><code>build</code> Dockerfile’ın bulunduğu dizin (veya context).</li>
+<li><code>image</code> Hazır image kullanımı.</li>
+<li><code>ports</code> <code>&lt;hostPort&gt;:&lt;containerPort&gt;</code> eşlemesi.</li>
+<li><code>volumes</code> Kalıcı veri saklama veya kod mount etme.</li>
+<li><code>environment</code> Ortam değişkenleri.</li>
+<li><code>networks/volumes</code> Kullanıcı tanımlı ağ ve kalıcı volume tanımları.</li>
+</ul>
+<div class="language-text highlight"><span class="filename">Compose Komutları</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker-compose build      # Tüm servisleri derler
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>docker-compose up -d      # Arka planda başlatır
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>docker-compose ps         # Servis durumunu gösterir
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>docker-compose logs -f    # Tüm logları takip eder
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>docker-compose down       # Tüm servisleri durdurur ve ağları siler
+</span></code></pre></div>
 
 
 
