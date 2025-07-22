@@ -280,3 +280,165 @@ __set_CONTROL(__get_CONTROL() | 2); // CONTROL register’da SPSEL bit’i = 1 (
     - Daha küçük kod boyutu, düşük bellek tüketimi.
     - Genellikle Cortex‑M çekirdekleri sadece Thumb modu destekler.
 
+
+## Bit‑Banding
+- Bit‑Banding, belirli bellek bölgesindeki her biti ayrı bir adrese eşler. Böylece tek adımla tek bir biti set/clear edebilirsiniz:
+- Memory Region: 0x20000000–0x200FFFFF
+- Alias Region: 0x22000000–0x23FFFFFF
+- Hesaplama Formülü: `alias_addr = alias_base + (byte_offset × 32) + (bit_number × 4)`
+
+```c
+// Örneğin 0x20000000 adresindeki 3. bit için alias:
+alias = 0x22000000 + (0 × 32) + (3 × 4) = 0x2200000C
+
+// Bit‑banding ile GPIOA pin0’u HIGH yapma (STM32)
+#define BITBAND_SRAM(addr, bit) \
+  (*(volatile uint32_t*)(0x22000000 + (((addr) - 0x20000000) << 5) + ((bit) << 2)))
+
+#define GPIOA_ODR_ADDR  (0x40020000 + 0x14)  // GPIOA ODR offset
+BITBAND_SRAM(GPIOA_ODR_ADDR, 0) = 1;       // PA0 HIGH
+```
+
+| Register |	Açıklama |
+|-----|---------------|
+| ODR	| Output Data Register (çıkış verisi) |
+| IDR	| Input Data Register (giriş verisi) |
+| BSRR	| Bit Set/Reset Register (set ve reset için) |
+| BRR	| Bit Reset Register (sadece reset için) |
+
+
+## HSI (High‑Speed Internal Oscillator)
+- **Dahili osilatör:** MCU içinde entegre edilmiştir.
+- **Frekans:** STM32 modellerine göre genellikle 8 MHz veya 16 MHz.
+- **Avantaj:** Harici kristal gerekmez, hızlı başlar ve düşük güç tüketir.
+- **Dezavantaj:** Doğruluğu `±1 %` civarında; hassas zamanlama gerektiren protokoller için ideal değil.
+
+## HSE (High‑Speed External Oscillator)
+- Harici kristal veya dış saat sinyali kullanır.
+- **Desteklenen frekans:** 4 MHz – 25 MHz
+- **Avantaj:** Çok daha kararlı ve doğru saat kaynağı.
+- **Kullanım:** USB, CAN, SDIO, yüksek hızlı UART gibi hassas zamanlama gerektiren iletişimler.
+
+## Programlama Notları
+- Reference Manual: MCU’nun tüm modülleri, register haritaları ve işleyişi hakkında ayrıntılı doküman.
+- Datasheet:
+    - Alternate Function Mapping: Pinlerin hangi alternatif işlevleri desteklediğini gösterir.
+    - Block Diagram: MCU içindeki birimlerin birbirine fiziksel bağlantılarını görsel olarak sunar.
+
+- **Kod Optimizasyonu (STM32CubeIDE):**
+    - `Project > C/C++ Build > Optimization Level` ile derleyici optimizasyon seviyesini belirler.
+    - Yüksek optimizasyon kod boyutunu azaltır, ancak bazen kritik kod parçalarını kaldırabilir.
+
+- **Otomatik Tamamlama:** STM32CubeIDE içinde `Ctrl+Space`
+
+### volatile Anahtar Kelimesi
+- Derleyicinin optimizasyonu devre dışı bırakır:
+- Belleğe veya donanım register’larına yazılan değişkenlerin her erişimde gerçekten okunmasını sağlar.
+- **Kesme (ISR)** veya **donanım etkileşimleri** sonucu değişebilecek veriler için zorunludur.
+
+```c
+volatile uint32_t timer_ticks;
+```
+
+### Struct Hizalaması ve Padding
+- C’de struct’lar, içindeki en büyük veri tipinin hizalanma gereksinimine göre “padding” ekler.
+- Bellek düzenini sıkı kontrol için:
+
+```c
+#pragma pack(push, 1)
+typedef struct {
+    char a;   // 1 byte
+    int  b;   // 4 byte
+} PackedStruct;
+#pragma pack(pop)
+
+
+typedef struct __attribute__((packed)) {
+    char a;
+    int  b;
+} PackedStruct;
+```
+
+## ARM GCC Inline Assembly
+
+C/C++ kodu içinde doğrudan **ARM assembly** komutları yazmanızı sağlar. Özel donanım komutları veya performans kritik işlemlerde kullanışlıdır.
+
+```c
+int add_numbers(int a, int b) {
+    int result;
+    __asm__ (
+        "ADD %0, %1, %2\n\t"   // ARM ADD komutu
+        : "=r" (result)        // çıktı operandı
+        : "r" (a), "r" (b)     // giriş operandları
+        :                      // tahrip edilen register’lar
+    );
+    return result;
+}
+```
+
+!!! note "Not"
+    Daha fazla bilgi için **“Cortex‑M4 Devices Generic User Guide”** içindeki **“The Cortex‑M4 Instruction Set”** bölümüne bakın.
+
+
+## GPIO Başlatma ve Kullanımı
+- Clock Aktifleştirme İlgili GPIO portunun saatini açın: `RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;`
+- Pin Modu ve Özellikleri GPIOx->MODER, OTYPER, OSPEEDR, PUPDR register’larını kullanarak:
+
+```c
+// PA5’i push‑pull çıkış, yüksek hız, no pull‑up/down olarak ayarlama
+GPIOA->MODER   &= ~(3 << (5*2));
+GPIOA->MODER   |=  (1 << (5*2));       // 01 = output
+GPIOA->OTYPER  &= ~(1 << 5);           // 0 = push‑pull
+GPIOA->OSPEEDR |=  (3 << (5*2));       // 11 = high speed
+GPIOA->PUPDR   &= ~(3 << (5*2));       // 00 = no pull‑up/down
+```
+
+- Çıkış ve Giriş İşlemleri
+
+```c title="output" linenums="1"
+GPIOA->ODR |=  (1 << 5);  // PA5 = HIGH
+GPIOA->ODR &= ~(1 << 5);  // PA5 = LOW
+```
+
+```c title="Input" linenums="1"
+uint8_t state = (GPIOA->IDR & (1 << 5)) ? 1 : 0;
+```
+
+## Bilgisayarda printf ile Debug (ITM Kullanarak)
+- `syscalls.c` içinde `_write` fonksiyonunu **ITM**’e yönlendirin
+
+```c
+#define DEMCR           (*((volatile uint32_t*)0xE000EDFC))
+#define ITM_STIMULUS0   (*((volatile uint32_t*)0xE0000000))
+#define ITM_TCR         (*((volatile uint32_t*)0xE0000E00))
+
+void ITM_SendChar(uint8_t ch) {
+    DEMCR |= (1 << 24);        // TRCENA bit’i
+    ITM_TCR |= 1;              // Port 0 aktif
+    while ((ITM_STIMULUS0 & 1) == 0);
+    ITM_STIMULUS0 = ch;
+}
+
+int _write(int file, char *ptr, int len) {
+    for (int i = 0; i < len; i++) {
+        ITM_SendChar((uint8_t)ptr[i]);
+    }
+    return len;
+}
+```
+
+### Debug Konfigürasyonu
+- Debug Configurations → ST‑Link GDB Server
+- Interface: **SWD**
+- SN: (Cihaz Seri Numarası)
+- **Serial Wire Viewer (SWV):** Enable
+
+### SWV ITM Konsolunu Açın
+- **Window → Show View → SWV → SWV** ITM Data Console
+- **Configure Trace:** Port 0 seçin → Start Trace
+- Artık `printf("Hello %d\n", x);` çağrıları SWV konsolda görünecektir.
+
+
+## STM32CubeIDE Kısayolları
+- `Ctrl + O`    : Açık dosyada fonksiyon ve sembolleri listeler
+- `Ctrl + Space` : Kod tamamlama (auto‑complete)
