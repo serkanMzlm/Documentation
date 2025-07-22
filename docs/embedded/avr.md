@@ -54,7 +54,8 @@ PORTD = 0x00;        // 0b00000000
 ### Tek Bir Pini Kontrol Etmek
 - En temiz yöntem, bit kaydırma (1 << bit_no) ve mantıksal operatörler kullanmaktır:
 - `|=` ve `&=` kullanımı, diğer pin değerlerini koruyarak yalnızca istediğiniz biti değiştirir.
-```c
+
+```c linenums="1"
 #include <stdint.h>
 
 // D0 pinini HIGH yapmak (diğer pinler etkilenmez)
