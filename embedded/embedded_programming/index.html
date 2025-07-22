@@ -921,6 +921,126 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bitbanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bit‑Banding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hsi-highspeed-internal-oscillator" class="md-nav__link">
+    <span class="md-ellipsis">
+      HSI (High‑Speed Internal Oscillator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hse-highspeed-external-oscillator" class="md-nav__link">
+    <span class="md-ellipsis">
+      HSE (High‑Speed External Oscillator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#programlama-notlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programlama Notları
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programlama Notları">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#volatile-anahtar-kelimesi" class="md-nav__link">
+    <span class="md-ellipsis">
+      volatile Anahtar Kelimesi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#struct-hizalamas-ve-padding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Struct Hizalaması ve Padding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arm-gcc-inline-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARM GCC Inline Assembly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpio-baslatma-ve-kullanm" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIO Başlatma ve Kullanımı
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bilgisayarda-printf-ile-debug-itm-kullanarak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bilgisayarda printf ile Debug (ITM Kullanarak)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bilgisayarda printf ile Debug (ITM Kullanarak)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-konfigurasyonu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Konfigürasyonu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swv-itm-konsolunu-acn" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWV ITM Konsolunu Açın
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stm32cubeide-ksayollar" class="md-nav__link">
+    <span class="md-ellipsis">
+      STM32CubeIDE Kısayolları
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1784,6 +1904,188 @@
 <li>Genellikle Cortex‑M çekirdekleri sadece Thumb modu destekler.</li>
 </ul>
 </li>
+</ul>
+<h2 id="bitbanding">Bit‑Banding</h2>
+<ul>
+<li>Bit‑Banding, belirli bellek bölgesindeki her biti ayrı bir adrese eşler. Böylece tek adımla tek bir biti set/clear edebilirsiniz:</li>
+<li>Memory Region: 0x20000000–0x200FFFFF</li>
+<li>Alias Region: 0x22000000–0x23FFFFFF</li>
+<li>Hesaplama Formülü: <code>alias_addr = alias_base + (byte_offset × 32) + (bit_number × 4)</code></li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Örneğin 0x20000000 adresindeki 3. bit için alias:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x22000000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2200000C</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">// Bit‑banding ile GPIOA pin0’u HIGH yapma (STM32)</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="cp">#define BITBAND_SRAM(addr, bit) \</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="cp">  (*(volatile uint32_t*)(0x22000000 + (((addr) - 0x20000000) &lt;&lt; 5) + ((bit) &lt;&lt; 2)))</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="cp">#define GPIOA_ODR_ADDR  (0x40020000 + 0x14)  </span><span class="c1">// GPIOA ODR offset</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">BITBAND_SRAM</span><span class="p">(</span><span class="n">GPIOA_ODR_ADDR</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">       </span><span class="c1">// PA0 HIGH</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ODR</td>
+<td>Output Data Register (çıkış verisi)</td>
+</tr>
+<tr>
+<td>IDR</td>
+<td>Input Data Register (giriş verisi)</td>
+</tr>
+<tr>
+<td>BSRR</td>
+<td>Bit Set/Reset Register (set ve reset için)</td>
+</tr>
+<tr>
+<td>BRR</td>
+<td>Bit Reset Register (sadece reset için)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hsi-highspeed-internal-oscillator">HSI (High‑Speed Internal Oscillator)</h2>
+<ul>
+<li><strong>Dahili osilatör:</strong> MCU içinde entegre edilmiştir.</li>
+<li><strong>Frekans:</strong> STM32 modellerine göre genellikle 8 MHz veya 16 MHz.</li>
+<li><strong>Avantaj:</strong> Harici kristal gerekmez, hızlı başlar ve düşük güç tüketir.</li>
+<li><strong>Dezavantaj:</strong> Doğruluğu <code>±1 %</code> civarında; hassas zamanlama gerektiren protokoller için ideal değil.</li>
+</ul>
+<h2 id="hse-highspeed-external-oscillator">HSE (High‑Speed External Oscillator)</h2>
+<ul>
+<li>Harici kristal veya dış saat sinyali kullanır.</li>
+<li><strong>Desteklenen frekans:</strong> 4 MHz – 25 MHz</li>
+<li><strong>Avantaj:</strong> Çok daha kararlı ve doğru saat kaynağı.</li>
+<li><strong>Kullanım:</strong> USB, CAN, SDIO, yüksek hızlı UART gibi hassas zamanlama gerektiren iletişimler.</li>
+</ul>
+<h2 id="programlama-notlar">Programlama Notları</h2>
+<ul>
+<li>Reference Manual: MCU’nun tüm modülleri, register haritaları ve işleyişi hakkında ayrıntılı doküman.</li>
+<li>
+<p>Datasheet:</p>
+<ul>
+<li>Alternate Function Mapping: Pinlerin hangi alternatif işlevleri desteklediğini gösterir.</li>
+<li>Block Diagram: MCU içindeki birimlerin birbirine fiziksel bağlantılarını görsel olarak sunar.</li>
+</ul>
+</li>
+<li>
+<p><strong>Kod Optimizasyonu (STM32CubeIDE):</strong></p>
+<ul>
+<li><code>Project &gt; C/C++ Build &gt; Optimization Level</code> ile derleyici optimizasyon seviyesini belirler.</li>
+<li>Yüksek optimizasyon kod boyutunu azaltır, ancak bazen kritik kod parçalarını kaldırabilir.</li>
+</ul>
+</li>
+<li>
+<p><strong>Otomatik Tamamlama:</strong> STM32CubeIDE içinde <code>Ctrl+Space</code></p>
+</li>
+</ul>
+<h3 id="volatile-anahtar-kelimesi">volatile Anahtar Kelimesi</h3>
+<ul>
+<li>Derleyicinin optimizasyonu devre dışı bırakır:</li>
+<li>Belleğe veya donanım register’larına yazılan değişkenlerin her erişimde gerçekten okunmasını sağlar.</li>
+<li><strong>Kesme (ISR)</strong> veya <strong>donanım etkileşimleri</strong> sonucu değişebilecek veriler için zorunludur.</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">timer_ticks</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="struct-hizalamas-ve-padding">Struct Hizalaması ve Padding</h3>
+<ul>
+<li>C’de struct’lar, içindeki en büyük veri tipinin hizalanma gereksinimine göre “padding” ekler.</li>
+<li>Bellek düzenini sıkı kontrol için:</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#pragma pack(push, 1)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">   </span><span class="c1">// 1 byte</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">b</span><span class="p">;</span><span class="w">   </span><span class="c1">// 4 byte</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span><span class="w"> </span><span class="n">PackedStruct</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="cp">#pragma pack(pop)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">__attribute__</span><span class="p">((</span><span class="n">packed</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">}</span><span class="w"> </span><span class="n">PackedStruct</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="arm-gcc-inline-assembly">ARM GCC Inline Assembly</h2>
+<p>C/C++ kodu içinde doğrudan <strong>ARM assembly</strong> komutları yazmanızı sağlar. Özel donanım komutları veya performans kritik işlemlerde kullanışlıdır.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">add_numbers</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">__asm__</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="s">&quot;ADD %0, %1, %2</span><span class="se">\n\t</span><span class="s">&quot;</span><span class="w">   </span><span class="c1">// ARM ADD komutu</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w">        </span><span class="c1">// çıktı operandı</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">     </span><span class="c1">// giriş operandları</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="o">:</span><span class="w">                      </span><span class="c1">// tahrip edilen register’lar</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Daha fazla bilgi için <strong>“Cortex‑M4 Devices Generic User Guide”</strong> içindeki <strong>“The Cortex‑M4 Instruction Set”</strong> bölümüne bakın.</p>
+</div>
+<h2 id="gpio-baslatma-ve-kullanm">GPIO Başlatma ve Kullanımı</h2>
+<ul>
+<li>Clock Aktifleştirme İlgili GPIO portunun saatini açın: <code>RCC-&gt;AHB1ENR |= RCC_AHB1ENR_GPIOAEN;</code></li>
+<li>Pin Modu ve Özellikleri GPIOx-&gt;MODER, OTYPER, OSPEEDR, PUPDR register’larını kullanarak:</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1">// PA5’i push‑pull çıkış, yüksek hız, no pull‑up/down olarak ayarlama</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">MODER</span><span class="w">   </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">));</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">MODER</span><span class="w">   </span><span class="o">|=</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">));</span><span class="w">       </span><span class="c1">// 01 = output</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">OTYPER</span><span class="w">  </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">           </span><span class="c1">// 0 = push‑pull</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">OSPEEDR</span><span class="w"> </span><span class="o">|=</span><span class="w">  </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">));</span><span class="w">       </span><span class="c1">// 11 = high speed</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">PUPDR</span><span class="w">   </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">2</span><span class="p">));</span><span class="w">       </span><span class="c1">// 00 = no pull‑up/down</span>
+</span></code></pre></div>
+<ul>
+<li>Çıkış ve Giriş İşlemleri</li>
+</ul>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">ODR</span><span class="w"> </span><span class="o">|=</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// PA5 = HIGH</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">ODR</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// PA5 = LOW</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Input</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">uint8_t</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">GPIOA</span><span class="o">-&gt;</span><span class="n">IDR</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="bilgisayarda-printf-ile-debug-itm-kullanarak">Bilgisayarda printf ile Debug (ITM Kullanarak)</h2>
+<ul>
+<li><code>syscalls.c</code> içinde <code>_write</code> fonksiyonunu <strong>ITM</strong>’e yönlendirin</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cp">#define DEMCR           (*((volatile uint32_t*)0xE000EDFC))</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="cp">#define ITM_STIMULUS0   (*((volatile uint32_t*)0xE0000000))</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="cp">#define ITM_TCR         (*((volatile uint32_t*)0xE0000E00))</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ITM_SendChar</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="n">DEMCR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">);</span><span class="w">        </span><span class="c1">// TRCENA bit’i</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="n">ITM_TCR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">              </span><span class="c1">// Port 0 aktif</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">ITM_STIMULUS0</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">    </span><span class="n">ITM_STIMULUS0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="p">}</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">_write</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="n">ITM_SendChar</span><span class="p">((</span><span class="kt">uint8_t</span><span class="p">)</span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">len</span><span class="p">;</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="debug-konfigurasyonu">Debug Konfigürasyonu</h3>
+<ul>
+<li>Debug Configurations → ST‑Link GDB Server</li>
+<li>Interface: <strong>SWD</strong></li>
+<li>SN: (Cihaz Seri Numarası)</li>
+<li><strong>Serial Wire Viewer (SWV):</strong> Enable</li>
+</ul>
+<h3 id="swv-itm-konsolunu-acn">SWV ITM Konsolunu Açın</h3>
+<ul>
+<li><strong>Window → Show View → SWV → SWV</strong> ITM Data Console</li>
+<li><strong>Configure Trace:</strong> Port 0 seçin → Start Trace</li>
+<li>Artık <code>printf("Hello %d\n", x);</code> çağrıları SWV konsolda görünecektir.</li>
+</ul>
+<h2 id="stm32cubeide-ksayollar">STM32CubeIDE Kısayolları</h2>
+<ul>
+<li><code>Ctrl + O</code>    : Açık dosyada fonksiyon ve sembolleri listeler</li>
+<li><code>Ctrl + Space</code> : Kod tamamlama (auto‑complete)</li>
 </ul>
 
 
