@@ -45,11 +45,11 @@ nav:
       - Gazebo: robotics/gazebo.md
 
   - OS & Hardware:
-      - Linux: devops/linux.md
       - Git & GitHub: devops/git.md
       - Docker & Containers: devops/docker.md
-      - Raspberry Pi: hardware/raspberry.md
-      - NVIDIA Jetson: hardware/jetson.md
+      - Linux: devops/linux.md
+      # - Raspberry Pi: devops/raspberry.md
+      # - NVIDIA Jetson: devops/jetson.md
 
   - Perception & AI:
       - AI & Machine Learning: perception_ai/ai.md
