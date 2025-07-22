@@ -1400,6 +1400,8 @@ pip3 show numpy
 
 pip install numpy
 pip3 install numpy
+
+pip3 install [package_name]==[verion] # Belirli bir version indirilir.
 pip install numpy==1.25.0
 pip3 install numpy==1.25.0
 
@@ -1407,7 +1409,7 @@ pip install --upgrade scikit-learn
 pip3 install --upgrade scikit-learn
 
 pip list
-pip3 list
+pip3 list # Yüklü olan python paketlerini listeler
 ```
 
 
