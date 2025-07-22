@@ -1267,9 +1267,10 @@
 <h3 id="gpio-nedir">GPIO Nedir?</h3>
 <p><strong>GPIO (General Purpose Input/Output):</strong> Mikrodenetleyicinin dijital giriş/çıkış pinlerini kontrol etmenizi sağlar. Bir pin’i <strong>INPUT</strong> (okuma) veya <strong>OUTPUT</strong> (yazma) modu olarak yapılandırabilirsiniz.</p>
 <h3 id="data-direction-register-ddrx">Data Direction Register (DDRx)</h3>
-<p><img alt="pinout" src="../../images/pinout.png" />
-- DDRx register’ı, ilgili port pinlerinin giriş (0) mi yoksa çıkış (1) mi olduğunu belirler.
-- Örneğin AVR’de DDRB, DDRC, DDRD portları vardır.</p>
+<ul>
+<li>DDRx register’ı, ilgili port pinlerinin giriş (0) mi yoksa çıkış (1) mi olduğunu belirler.</li>
+<li>Örneğin AVR’de DDRB, DDRC, DDRD portları vardır.</li>
+</ul>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// PORTD’in 0. pini OUTPUT (çıkış) olarak ayarlanıyor:</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">DDRD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b00000001</span><span class="p">;</span><span class="w">   </span><span class="c1">// aynı: DDRD = 0x01;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1429,7 +1430,6 @@
 <li><code>uint8_t</code> gibi sabit genişlikte tipler kullanmak, platform bağımsızlığı sağlar.</li>
 <li><strong>DDRD</strong> ve <strong>PORTD</strong> bellek adresleri üzerinden doğrudan erişilen <strong>I/O</strong> register’larıdır. olarak <strong>DDRD</strong> bellek alanı <code>0x2A</code> bu kısıma erişip bu kısımda değişiklikler yapıp pinlerin durumları belirlenebilir.</li>
 </ul>
-<p><img alt="data" src="../../images/data.png" /></p>
 <div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">//Bu kısmın anlamı 0x2A bir adrestir ve bu adresin içinde bulunan verinin adı myDDRD dir.</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="cp">#define myDDRD *((uint8_t*)0x2A) </span>
 </span></code></pre></div>
