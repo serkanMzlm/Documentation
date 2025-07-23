@@ -211,9 +211,96 @@ Clean Data -> Transform Data -> Reduce Data
 |----|--------------|------|---------|
 | Kırmızı	| 1 | 	0	| 0 | 
 | Mavi	| 0	| 1 | 	0 | 
-| Yeşil	| 0	| 0|	1 | 
+| Yeşil	| 0	| 0 |	1 | 
 
 - **Avantaj:** Mesafeye dayalı algoritmalarda doğru mesafe ölçümü sağlar.
 - **Dezavantaj:** Çok sayıda kategori varsa boyut patlamasına (high dimensionality) yol açabilir.
 
 ![hesap](../images/color.png)
+
+## Kavramlar
+
+### RandomForestClassifier
+- Birden çok karar ağacının (**decision tree**) ansamble edilmesiyle (**bagging**) oluşturulan, denetimli sınıflandırma algoritmasıdır.
+- **Kullanım Alanı:** Sonucun kategorik olduğu (örneğin; bir kişinin hasta/sağlıklı, e-postanın spam/ham olması) problemlerde tercih edilir.
+- **Özellikler:**
+    - Alt örneklem (**bootstrap**) alma ve rastgele özellik seçimi ile ağaçlar arasında çeşitlilik sağlanır.
+    - Aşırı öğrenme (**overfitting**) riski tek bir karar ağacına göre daha düşüktür.
+- **Başlıca Parametreler:**
+    - n_estimators: Ağaç sayısı (varsayılan 100).
+    - max_depth: Ağaç derinliği sınırlaması.
+    - max_features: Her bölünmede değerlendirilecek rastgele özellik sayısı.
+- **Kütüphane:** `sklearn.ensemble.RandomForestClassifier`
+
+### RandomForestRegressor
+- RandomForestClassifier mantığının regresyon sorunlarına uyarlanmış halidir. Sürekli bir hedef değişkeni (örneğin; ev fiyatı, sıcaklık) tahmin etmek için kullanılır.
+- **Kullanım Alanı:** Tahmin edilecek değerin kesikli değil de sürekli olduğu durumlar.
+- Özellikler:
+    - Ortalama alarak tahmin üretir (her ağacın çıktısının ortalaması).
+    - Gürültüye karşı dayanıklıdır ve genellikle yüksek varyanslı modelleri dengeler.
+    - Başlıca Parametreler: **RandomForestClassifier** ile benzerdir.
+- Kütüphane: `sklearn.ensemble.RandomForestRegressor`
+
+### Decision Tree (Karar Ağacı)
+- Hem sınıflandırma hem de regresyon görevlerinde kullanılan, parametrik olmayan denetimli öğrenme (supervised learning) algoritmasıdır.
+- Nasıl Çalışır?
+    - Veri, her düğümde en iyi ayırımı sağlayan özellik ve eşik değeri (ör. Gini impurity, Entropy) seçilerek ikili dallara ayrılır.
+    - Yaprak düğümlere kadar veya önceden belirlenmiş koşullara (ör. maksimum derinlik) ulaşana dek bölünme devam eder.
+- **Avantajlar:**
+    - Yorumlanabilir ve hızlıdır.
+    - Veri ön işleme (normalizasyon, ölçekleme) genellikle gerekmez.
+- **Dezavantajlar:**
+    - Derin ağaçlar aşırı öğrenmeye meyillidir.
+    - Karar sınırlarını dikdörtgenlere benzer bölgelere böler, dolayısıyla karmaşık sınırlar zor öğrenilir
+
+![hesap](../images/dectree.png)
+
+### Determination Katsayısı (R²)
+- Bir regresyon modelinin verideki toplam varyansın ne kadarını açıkladığını gösteren istatistiksel ölçüdür.
+- Özellikler:
+    - Aralık: Teorik olarak 
+    - **-∞** ile **1** arasında; pratikte modeller iyi çalıştığında `0 - 1` arası.
+    - 1’e yaklaşması, modelin veriye mükemmel uyduğunu; 0’a yakın veya negatif olması ise kötü uyumu işaret eder.
+
+!!! note "Not"
+
+    Not: Yüksek R², modelin kesinlikle doğru olduğunu değil, sadece verideki değişimi iyi açıkladığını gösterir. Örneğin aşırı öğrenme (overfitting) durumu da yüksek R² ile maskelenebilir.
+
+![hesap](../images/coefdeter.png)
+
+### ROC Eğrisi (Receiver Operating Characteristic Curve)
+- İkili sınıflandırmada farklı karar eşiklerinin (**threshold**) performansını, **Gerçek Pozitif Oranı (TPR)** ve **Yanlış Pozitif Oranı (FPR)** eksenine karşı çizerek gösteren grafiktir.
+
+- **Kullanım:**
+    - **Eşik değeri seçimi:** Eğriye en yakın nokta, en iyi dengeyi sağlar.
+    - **İki modelin karşılaştırılması:** Eğrisi üstte kalan model daha iyi ayırt edici güce sahiptir.
+
+![roc](../images/roc_1.png)
+
+![roc](../images/roc_2.png)
+
+
+
+!!! note "Bilgi"
+    [Josh Starmer’dan açık anlatım](https://www.youtube.com/watch?v=4jRBRDbJemM&ab_channel=StatQuestwithJoshStarmer)
+
+### ROC AUC Skoru
+- ROC eğrisinin altındaki alanın (`Area Under Curve`) sayısal değeridir.
+- **Özellikler:**
+    - Aralık: 0.0–1.0
+        - 0.5: Rastgele tahmin (şans)
+        - 1.0: Mükemmel ayırt edici güç
+    - Modelin tüm eşiklerdeki ayırt edici performansını özetler.
+- **Yorum:**
+    - 0.7–0.8: İyi
+    - 0.8–0.9: Çok iyi
+    - 0.9: Mükemmel
+
+![roc](../images/roc_3.png)
+
+
+!!! note "İpuçları ve Ek Bilgiler"
+    - **Model Değerlendirme:** Sadece tek bir metriğe (ör. R²’ye) bağlı kalmayın; MSE, MAE, Precision, Recall, F1-score gibi ek metrikleri de inceleyin.
+    - **Görselleştirme:** Karar ağacını sklearn.tree.export_graphviz veya plot_tree ile görselleştirin, böylece karar kurallarını somut olarak görebilirsiniz.
+    - **Hiperparametre Ayarı:** GridSearchCV veya RandomizedSearchCV kullanarak `n_estimators`, `max_depth`, `min_samples_split` gibi parametreleri optimize edin.
+    - **Genel Bakış:** Ensemble yöntemler (Random Forest, Gradient Boosting) tek ağaçlara kıyasla genellikle daha kararlı ve yüksek performanslı sonuçlar verir. Cesaretli olun, hatalı sonuçlardan ders çıkarın ve modelinizi sürekli iyileştirmeye odaklanın! 
