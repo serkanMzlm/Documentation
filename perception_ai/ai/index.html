@@ -1332,6 +1332,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#determination-katsays-r2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determination Katsayısı (R²)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roc-egrisi-receiver-operating-characteristic-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROC Eğrisi (Receiver Operating Characteristic Curve)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roc-auc-skoru" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROC AUC Skoru
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1734,7 +1761,70 @@ Ağaç tabanlı algoritmalar ise ölçekleme gerektirmez; farklı aralıklardaki
 </ul>
 </li>
 </ul>
-<p><img alt="hesap" src="../../images/tree.png" /></p>
+<p><img alt="hesap" src="../../images/dectree.png" /></p>
+<h3 id="determination-katsays-r2">Determination Katsayısı (R²)</h3>
+<ul>
+<li>Bir regresyon modelinin verideki toplam varyansın ne kadarını açıkladığını gösteren istatistiksel ölçüdür.</li>
+<li>Özellikler:<ul>
+<li>Aralık: Teorik olarak </li>
+<li><strong>-∞</strong> ile <strong>1</strong> arasında; pratikte modeller iyi çalıştığında <code>0 - 1</code> arası.</li>
+<li>1’e yaklaşması, modelin veriye mükemmel uyduğunu; 0’a yakın veya negatif olması ise kötü uyumu işaret eder.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Not: Yüksek R², modelin kesinlikle doğru olduğunu değil, sadece verideki değişimi iyi açıkladığını gösterir. Örneğin aşırı öğrenme (overfitting) durumu da yüksek R² ile maskelenebilir.</p>
+</div>
+<p><img alt="hesap" src="../../images/coefdeter.png" /></p>
+<h3 id="roc-egrisi-receiver-operating-characteristic-curve">ROC Eğrisi (Receiver Operating Characteristic Curve)</h3>
+<ul>
+<li>
+<p>İkili sınıflandırmada farklı karar eşiklerinin (<strong>threshold</strong>) performansını, <strong>Gerçek Pozitif Oranı (TPR)</strong> ve <strong>Yanlış Pozitif Oranı (FPR)</strong> eksenine karşı çizerek gösteren grafiktir.</p>
+</li>
+<li>
+<p><strong>Kullanım:</strong></p>
+<ul>
+<li><strong>Eşik değeri seçimi:</strong> Eğriye en yakın nokta, en iyi dengeyi sağlar.</li>
+<li><strong>İki modelin karşılaştırılması:</strong> Eğrisi üstte kalan model daha iyi ayırt edici güce sahiptir.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="roc" src="../../images/roc_1.png" /></p>
+<p><img alt="roc" src="../../images/roc_2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Bilgi</p>
+<p><a href="https://www.youtube.com/watch?v=4jRBRDbJemM&amp;ab_channel=StatQuestwithJoshStarmer">Josh Starmer’dan açık anlatım</a></p>
+</div>
+<h3 id="roc-auc-skoru">ROC AUC Skoru</h3>
+<ul>
+<li>ROC eğrisinin altındaki alanın (<code>Area Under Curve</code>) sayısal değeridir.</li>
+<li><strong>Özellikler:</strong><ul>
+<li>Aralık: 0.0–1.0<ul>
+<li>0.5: Rastgele tahmin (şans)</li>
+<li>1.0: Mükemmel ayırt edici güç</li>
+</ul>
+</li>
+<li>Modelin tüm eşiklerdeki ayırt edici performansını özetler.</li>
+</ul>
+</li>
+<li><strong>Yorum:</strong><ul>
+<li>0.7–0.8: İyi</li>
+<li>0.8–0.9: Çok iyi</li>
+<li>0.9: Mükemmel</li>
+</ul>
+</li>
+</ul>
+<p><img alt="roc" src="../../images/roc_3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">İpuçları ve Ek Bilgiler</p>
+<ul>
+<li><strong>Model Değerlendirme:</strong> Sadece tek bir metriğe (ör. R²’ye) bağlı kalmayın; MSE, MAE, Precision, Recall, F1-score gibi ek metrikleri de inceleyin.</li>
+<li><strong>Görselleştirme:</strong> Karar ağacını sklearn.tree.export_graphviz veya plot_tree ile görselleştirin, böylece karar kurallarını somut olarak görebilirsiniz.</li>
+<li><strong>Hiperparametre Ayarı:</strong> GridSearchCV veya RandomizedSearchCV kullanarak <code>n_estimators</code>, <code>max_depth</code>, <code>min_samples_split</code> gibi parametreleri optimize edin.</li>
+<li><strong>Genel Bakış:</strong> Ensemble yöntemler (Random Forest, Gradient Boosting) tek ağaçlara kıyasla genellikle daha kararlı ve yüksek performanslı sonuçlar verir. Cesaretli olun, hatalı sonuçlardan ders çıkarın ve modelinizi sürekli iyileştirmeye odaklanın! </li>
+</ul>
+</div>
 
 
 
