@@ -1295,6 +1295,48 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#kavramlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kavramlar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kavramlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#randomforestclassifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomForestClassifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#randomforestregressor" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomForestRegressor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decision-tree-karar-agac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Tree (Karar Ağacı)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1643,6 +1685,56 @@ Ağaç tabanlı algoritmalar ise ölçekleme gerektirmez; farklı aralıklardaki
 <li><strong>Dezavantaj:</strong> Çok sayıda kategori varsa boyut patlamasına (high dimensionality) yol açabilir.</li>
 </ul>
 <p><img alt="hesap" src="../../images/color.png" /></p>
+<h2 id="kavramlar">Kavramlar</h2>
+<h3 id="randomforestclassifier">RandomForestClassifier</h3>
+<ul>
+<li>Birden çok karar ağacının (<strong>decision tree</strong>) ansamble edilmesiyle (<strong>bagging</strong>) oluşturulan, denetimli sınıflandırma algoritmasıdır.</li>
+<li><strong>Kullanım Alanı:</strong> Sonucun kategorik olduğu (örneğin; bir kişinin hasta/sağlıklı, e-postanın spam/ham olması) problemlerde tercih edilir.</li>
+<li><strong>Özellikler:</strong><ul>
+<li>Alt örneklem (<strong>bootstrap</strong>) alma ve rastgele özellik seçimi ile ağaçlar arasında çeşitlilik sağlanır.</li>
+<li>Aşırı öğrenme (<strong>overfitting</strong>) riski tek bir karar ağacına göre daha düşüktür.</li>
+</ul>
+</li>
+<li><strong>Başlıca Parametreler:</strong><ul>
+<li>n_estimators: Ağaç sayısı (varsayılan 100).</li>
+<li>max_depth: Ağaç derinliği sınırlaması.</li>
+<li>max_features: Her bölünmede değerlendirilecek rastgele özellik sayısı.</li>
+</ul>
+</li>
+<li><strong>Kütüphane:</strong> <code>sklearn.ensemble.RandomForestClassifier</code></li>
+</ul>
+<h3 id="randomforestregressor">RandomForestRegressor</h3>
+<ul>
+<li>RandomForestClassifier mantığının regresyon sorunlarına uyarlanmış halidir. Sürekli bir hedef değişkeni (örneğin; ev fiyatı, sıcaklık) tahmin etmek için kullanılır.</li>
+<li><strong>Kullanım Alanı:</strong> Tahmin edilecek değerin kesikli değil de sürekli olduğu durumlar.</li>
+<li>Özellikler:<ul>
+<li>Ortalama alarak tahmin üretir (her ağacın çıktısının ortalaması).</li>
+<li>Gürültüye karşı dayanıklıdır ve genellikle yüksek varyanslı modelleri dengeler.</li>
+<li>Başlıca Parametreler: <strong>RandomForestClassifier</strong> ile benzerdir.</li>
+</ul>
+</li>
+<li>Kütüphane: <code>sklearn.ensemble.RandomForestRegressor</code></li>
+</ul>
+<h3 id="decision-tree-karar-agac">Decision Tree (Karar Ağacı)</h3>
+<ul>
+<li>Hem sınıflandırma hem de regresyon görevlerinde kullanılan, parametrik olmayan denetimli öğrenme (supervised learning) algoritmasıdır.</li>
+<li>Nasıl Çalışır?<ul>
+<li>Veri, her düğümde en iyi ayırımı sağlayan özellik ve eşik değeri (ör. Gini impurity, Entropy) seçilerek ikili dallara ayrılır.</li>
+<li>Yaprak düğümlere kadar veya önceden belirlenmiş koşullara (ör. maksimum derinlik) ulaşana dek bölünme devam eder.</li>
+</ul>
+</li>
+<li><strong>Avantajlar:</strong><ul>
+<li>Yorumlanabilir ve hızlıdır.</li>
+<li>Veri ön işleme (normalizasyon, ölçekleme) genellikle gerekmez.</li>
+</ul>
+</li>
+<li><strong>Dezavantajlar:</strong><ul>
+<li>Derin ağaçlar aşırı öğrenmeye meyillidir.</li>
+<li>Karar sınırlarını dikdörtgenlere benzer bölgelere böler, dolayısıyla karmaşık sınırlar zor öğrenilir</li>
+</ul>
+</li>
+</ul>
+<p><img alt="hesap" src="../../images/tree.png" /></p>
 
 
 
