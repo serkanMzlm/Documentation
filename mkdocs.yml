@@ -1,7 +1,28 @@
 site_name: Dokümantasyon
 
+# theme:
+#   name: material
+#   features:
+#     - navigation.tabs
+#     - navigation.expand       
+#     - navigation.instant
+#     - navigation.sections     
+#     - toc.integrate
+#     - content.tabs.linked     
+#     - header.autohide         
+#     - announce.dismiss   
+#   font:
+#     text: Roboto               # Okunabilir font
+#     code: Fira Code   
+
+#   icon:
+#     repo: fontawesome/brands/github
+#     logo: material/robot-industrial  # Robotik temasına uygun 
+
+
 theme:
   name: material
+  language: tr                     # Türkçe dil desteği
   features:
     - navigation.tabs
     - navigation.expand       
@@ -11,14 +32,26 @@ theme:
     - content.tabs.linked     
     - header.autohide         
     - announce.dismiss   
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Koyu moda geç
+    - scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Açık moda geç
   font:
-    text: Roboto               # Okunabilir font
+    text: Roboto
     code: Fira Code   
-
   icon:
     repo: fontawesome/brands/github
-    logo: material/robot-industrial  # Robotik temasına uygun 
-
+    logo: material/robot-industrial
+  
 nav:
   - Build & Tooling:
       - Compiler: build_tooling/compiler.md
