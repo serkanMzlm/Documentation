@@ -16,7 +16,7 @@
     
     
       
-        <title>Raspberry - Dokümantasyon</title>
+        <title>Raspberry Pi - Dokümantasyon</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#raspberry-pi" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Raspberry
+              Raspberry Pi
             
           </span>
         </div>
@@ -1156,9 +1161,20 @@
 
 
 
-  <h1>Raspberry</h1>
-
-
+<h1 id="raspberry-pi">Raspberry Pi</h1>
+<ul>
+<li>GPIO numaralarının karşılıklarını görmek için <code>/sys/kernel/debug/gpio</code> dosyasına bakılabilir</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>cat<span class="w"> </span>/sys/kernel/debug/gpio
+</span></code></pre></div>
+<ul>
+<li><code>/etc/udev/rules.d</code> dosyasının altına belirli kurallar eklenebilir bu kısımda eklenen dosyanın başında yazan sayı öncelik durumunu belirtir ne kadar büyük bir sayıyısa o kadar sonra olucagını ayarlar. </li>
+</ul>
+<h3 id="gpio-erisilebilir-yapmak-rules">GPIO Erişilebilir Yapmak (rules)</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/udev/rules.d/99-gpio-permissions.rules
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;gpio*&quot;</span>,<span class="w"> </span><span class="nv">PROGRAM</span><span class="o">=</span><span class="s2">&quot;/bin/sh -c &#39;chown -R root:gpio /sys/class/gpio &amp;&amp; chmod -R 770 /sys/clas&gt;</span>
+</span></code></pre></div>
 
 
 
