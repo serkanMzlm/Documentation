@@ -1,4 +1,6 @@
-# PX4 
+# PX4 & MAVLink
+
+![px4_state](../images/px4_state.png)
 
 ```bash title="Kurulum ve Ön Ayarlar" linenums="1"             
 # --recursive alt modüllerinin (submodules) de otomatik olarak klonlanmasını sağlar.
