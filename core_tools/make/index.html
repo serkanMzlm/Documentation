@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../avr/">
+        <link rel="prev" href="../cmake/">
       
       
-        <link rel="next" href="../gstreamer/">
+        <link rel="next" href="../menuconfig/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>IPC - Dokümantasyon</title>
+        <title>Make - Dokümantasyon</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inter-process-communication-ipc" class="md-skip">
+        <a href="#make-ve-makefile-kullanm" class="md-skip">
           Ana içeriğe geç
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IPC
+              Make
             
           </span>
         </div>
@@ -203,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../core_tools/compiler/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../compiler/" class="md-tabs__link">
           
   
   
@@ -243,13 +245,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../stm/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../embedded/stm/" class="md-tabs__link">
           
   
   
@@ -340,28 +340,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -374,7 +377,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Core Tools
@@ -388,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/compiler/" class="md-nav__link">
+      <a href="../compiler/" class="md-nav__link">
         
   
   
@@ -411,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/cmake/" class="md-nav__link">
+      <a href="../cmake/" class="md-nav__link">
         
   
   
@@ -431,10 +434,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../core_tools/make/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Make
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -445,6 +470,104 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#temel-sozdizimi-ve-semboller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Sözdizimi ve Semboller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basit-makefile-ornekleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basit Makefile Örnekleri
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basit Makefile Örnekleri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ornek-1-temel-hedef" class="md-nav__link">
+    <span class="md-ellipsis">
+      Örnek 1: Temel Hedef
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ornek-2-ayn-hedefe-sahip-birden-fazla-blok" class="md-nav__link">
+    <span class="md-ellipsis">
+      Örnek 2: Aynı Hedefe Sahip Birden Fazla Blok
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ornek-3-bagmllk-fark" class="md-nav__link">
+    <span class="md-ellipsis">
+      Örnek 3: Bağımlılık Farkı
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degiskenler-ve-otomatik-degiskenler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Değişkenler ve Otomatik Değişkenler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kapsaml-makefile-ornegi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kapsamlı Makefile Örneği
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wildcard-ve-pattern-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      wildcard ve pattern matching
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -457,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/menuconfig/" class="md-nav__link">
+      <a href="../menuconfig/" class="md-nav__link">
         
   
   
@@ -480,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/git/" class="md-nav__link">
+      <a href="../git/" class="md-nav__link">
         
   
   
@@ -503,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   
@@ -697,31 +820,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -734,7 +854,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Embedded & Hardware
@@ -748,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stm/" class="md-nav__link">
+      <a href="../../embedded/stm/" class="md-nav__link">
         
   
   
@@ -771,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../avr/" class="md-nav__link">
+      <a href="../../embedded/avr/" class="md-nav__link">
         
   
   
@@ -791,32 +911,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    IPC
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../embedded/ipc/" class="md-nav__link">
         
   
   
@@ -827,95 +925,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      İçindekiler
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#uygulama-turleri" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uygulama Türleri
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Uygulama Türleri">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-pipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Pipes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-message-queues" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Message Queues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-shared-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Shared Memory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-semaphores" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Semaphores
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Signals
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -928,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gstreamer/" class="md-nav__link">
+      <a href="../../embedded/gstreamer/" class="md-nav__link">
         
   
   
@@ -951,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../px4_mavlink/" class="md-nav__link">
+      <a href="../../embedded/px4_mavlink/" class="md-nav__link">
         
   
   
@@ -1255,97 +1264,161 @@
 
 
 
-<h1 id="inter-process-communication-ipc">Inter-Process Communication (IPC)</h1>
-<p>Farklı süreçler (process) arasında veri, bilgi ve komut alışverişi yapmayı sağlayan mekanizmalardır. İşletim sisteminde paralel veya dağıtık çalışan uygulamaların birbirleriyle etkileşim kurmasını mümkün kılar.</p>
-<h2 id="uygulama-turleri">Uygulama Türleri</h2>
-<ul>
-<li>
-<p><strong>Multi-Process Application:</strong> Birden fazla sürecin aynı anda bağımsız biçimde çalışıp birbirleriyle etkileşimde bulunduğu yazılımlardır.</p>
-</li>
-<li>
-<p><strong>Parallel Programming:</strong> Karmaşık problemleri daha küçük alt görevlere bölüp birden fazla işlemci veya çekirdekte eş zamanlı çalıştırarak performansı artırma tekniğidir.</p>
-</li>
-<li>
-<p><strong>Client‑Server Applications:</strong> İstemciler (client) sunucuya (server) istek gönderir, sunucu bu istekleri işler ve yanıt döner. Dağıtık iş yükü paylaşımı sağlar.</p>
-</li>
-</ul>
-<h3 id="1-pipes">1. Pipes</h3>
-<ul>
-<li>Tek yönlü (unidirectional) veri kanalıdır; bir ucu yazma, diğer ucu okuma içindir.</li>
-<li>Unnamed Pipes<ul>
-<li>Ebeveyn ve alt süreç (child) arasında geçici, adsız kanal oluşturur.</li>
-<li>Genellikle <code>pipe()</code> sistem çağrısıyla yaratılır.</li>
-</ul>
-</li>
-<li>Named Pipes (FIFOs)<ul>
-<li>Dosya sisteminde özel dosya (<code>/tmp/mypipe</code>) olarak var olur.</li>
-<li>Farklı süreçler ve oturumlar arasında kullanılabilir.</li>
-<li>mkfifo <code>/tmp/mypipe</code> ile oluşturulur.</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-sockets">2. Sockets</h3>
-<ul>
-<li>Hem aynı makine içi hem de ağ tabanlı iki yönlü (bidirectional) iletişim sağlar.<ul>
-<li><strong>Unix Domain Sockets:</strong> Aynı sistemde süreçler arası düşük gecikmeli iletişim.</li>
-<li><strong>TCP/IP Sockets:</strong> Farklı makineler arasında güvenilir bağlantı.</li>
-<li><strong>UDP Sockets</strong>: Bağlantısız, düşük gecikmeli iletişim.</li>
-</ul>
-</li>
-</ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Tipik TCP server pseudo-kodu</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">read</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">write</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">rlen</span><span class="p">);</span>
-</span></code></pre></div>
-<h3 id="3-message-queues">3. Message Queues</h3>
-<ul>
-<li>Mesajları FIFO kuyruğu içinde saklar; süreçler arasında sıralı mesajlaşma sağlar.<ul>
-<li>Adlandırılmış (POSIX): mq_open, mq_send, mq_receive.</li>
-<li>Unamed (System V): msgget, msgsnd, msgrcv.</li>
-<li>Mesaj boyutu ve izinleri tanımlanabilir; bir kuyruğu birden çok süreç kullanabilir.</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-shared-memory">4. Shared Memory</h3>
-<ul>
-<li>Birden çok sürecin aynı fiziksel bellek bölgesine erişmesini sağlar; en hızlı IPC yöntemlerinden biridir.<ul>
-<li>POSIX IPC: shm_open, mmap, shm_unlink.</li>
-<li>System V IPC: shmget, shmat, shmdt, shmctl.</li>
-</ul>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Dikkat</p>
-<p>Mutlak senkronizasyon (mutex, semafor) kullanılmalı, yoksa yarış durumları (race condition) oluşur.</p>
-</div>
-<h3 id="5-semaphores">5. Semaphores</h3>
-<ul>
-<li>Bir veya daha fazla sürecin paylaşılan kaynaklara erişimini senkronize etmek için kullanılır.<ul>
-<li><strong>POSIX:</strong> sem_open, sem_wait, sem_post, sem_close</li>
-<li><strong>System V:</strong> semget, semop, semctl.</li>
-<li>Shared memory ile birlikte sıkça tercih edilir.</li>
-</ul>
-</li>
-</ul>
-<h3 id="6-signals">6. Signals</h3>
-<ul>
-<li>Süreçlere asenkron bildirim (interrupt) göndermek için kullanılır.</li>
-<li>Standart sinyaller: <code>kill(pid, SIGTERM);</code><ul>
-<li><strong>SIGINT</strong>  → Ctrl+C</li>
-<li><strong>SIGTERM</strong> → Nazik sonlandırma</li>
-<li><strong>SIGKILL</strong> → Zorla sonlandırma</li>
-</ul>
-</li>
-<li>Bir süreç, signal(SIGINT, handler) ile sinyal alındığında çalıştırılacak fonksiyonu tanımlayabilir.</li>
-</ul>
+<h1 id="make-ve-makefile-kullanm">Make ve Makefile Kullanımı</h1>
+<p>Make, yazılım projelerinde kaynak kodların derlenmesi ve yapı adımlarının otomatikleştirilmesi için kullanılan güçlü bir araçtır. Özellikle büyük projelerde zamandan tasarruf sağlar ve yapı sürecini standardize eder.</p>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p>Bu IPC mekanizmaları, gereksinimlerinize göre performans, güvenilirlik ve karmaşıklık açısından farklı avantajlar sunar. En hızlısı shared memory, en yaygın kullanılanı ise sockets’tir; pipes ve message queue’lar ise basit veri akışlarında idealdir.</p>
+<p>Makefile’da girintiler <strong>TAB karakteriyle</strong> yapılmalıdır. Boşluk (space) kullanmak hata ile sonuçlanır!</p>
 </div>
+<h2 id="temel-sozdizimi-ve-semboller">Temel Sözdizimi ve Semboller</h2>
+<table>
+<thead>
+<tr>
+<th>Sembol</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#</code></td>
+<td>Yorum satırı. Satırın en başında kullanılmalıdır.</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td>Satırı bir sonrakine taşımak için kullanılır (satır devamı).</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td>Komutun çıktısı ekrana yazılmaz. <code>make -s</code> ile aynı etki yaratır.</td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td>Bir hedef (target) tanımlar.</td>
+</tr>
+<tr>
+<td><code>::</code></td>
+<td>Aynı isme sahip birden fazla hedef tanımına izin verir.</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Değişken referanslarında kullanılır.</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>Normal değişken ataması.</td>
+</tr>
+<tr>
+<td><code>?=</code></td>
+<td>Değişken önceden tanımlanmamışsa değer atar.</td>
+</tr>
+<tr>
+<td><code>:=</code></td>
+<td>Anında değerlendirme (immediate evaluation).</td>
+</tr>
+<tr>
+<td><code>$@</code></td>
+<td>Hedef (target) ismi</td>
+</tr>
+<tr>
+<td><code>$&lt;</code></td>
+<td>İlk bağımlılık (prerequisite)</td>
+</tr>
+<tr>
+<td><code>$^</code></td>
+<td>Tüm bağımlılıklar</td>
+</tr>
+<tr>
+<td><code>$?</code></td>
+<td>Hedeften daha yeni bağımlılıklar</td>
+</tr>
+<tr>
+<td><code>make -s</code></td>
+<td>Komutları bastırır (sessiz çalışır).</td>
+</tr>
+<tr>
+<td><code>make -k</code></td>
+<td>Hata alınsa bile mümkün olduğunca devam eder.</td>
+</tr>
+<tr>
+<td><code>make -i</code></td>
+<td>Hataları yoksayarak devam eder.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*:</strong> Shell tarzı tüm dosyalarla eşleşir. Örn: <code>*.c</code></p>
+<p><strong>%:</strong> Pattern (desen) eşleştirme için kullanılır. Örn: <code>%.o: %.c</code></p>
+<div class="language-make highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nv">SRC</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>*.c<span class="k">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">OBJ</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>SRC:.c<span class="o">=</span>.o<span class="k">)</span>
+</span></code></pre></div>
+<p>Bu kullanım tüm .c dosyalarını .o uzantılı versiyonlara çevirir.</p>
+<hr />
+<h2 id="basit-makefile-ornekleri">Basit Makefile Örnekleri</h2>
+<h3 id="ornek-1-temel-hedef">Örnek 1: Temel Hedef</h3>
+<div class="language-make highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nf">hello</span><span class="o">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello, world&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nf">all</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span>
+</span></code></pre></div>
+<h3 id="ornek-2-ayn-hedefe-sahip-birden-fazla-blok">Örnek 2: Aynı Hedefe Sahip Birden Fazla Blok</h3>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>blah hedefi ilk kez çalıştırıldığında komutlar çalışır ve dosya oluşturulursa, tekrar make çalıştırıldığında blah is up to date mesajı alınır. Bu durumda dosyada değişiklik yapılmadıkça hedef yeniden derlenmez.</p>
+</div>
+<div class="language-make highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nf">blah</span><span class="o">::</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nf">blah</span><span class="o">::</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello again&quot;</span>
+</span></code></pre></div>
+<h3 id="ornek-3-bagmllk-fark">Örnek 3: Bağımlılık Farkı</h3>
+<p><div class="language-make highlight"><span class="filename">1. Yöntem</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nf">blah</span><span class="o">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span>cc<span class="w"> </span>blah.c<span class="w"> </span>-o<span class="w"> </span>blah
+</span></code></pre></div>
+<div class="language-make highlight"><span class="filename">2. Yöntem</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nf">blah</span><span class="o">:</span><span class="w"> </span><span class="n">blah</span>.<span class="n">c</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>cc<span class="w"> </span>blah.c<span class="w"> </span>-o<span class="w"> </span>blah
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<ol>
+<li>yöntem tercih edilmelidir. Böylece sadece blah.c dosyası değiştiğinde hedef yeniden derlenir. Bu yöntem zamandan ve kaynaklardan tasarruf sağlar.</li>
+</ol>
+</div>
+<h2 id="degiskenler-ve-otomatik-degiskenler">Değişkenler ve Otomatik Değişkenler</h2>
+<div class="language-make highlight"><span class="filename">Tanımlama</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gcc
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-Wall<span class="w"> </span>-O2
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">TARGET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>my_program
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nv">OBJ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>main.o<span class="w"> </span>utils.o
+</span></code></pre></div>
+<h2 id="kapsaml-makefile-ornegi">Kapsamlı Makefile Örneği</h2>
+<div class="language-make highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c"># Değişkenler</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">CC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>gcc
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">CFLAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-Wall<span class="w"> </span>-O2
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">TARGET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>my_program
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">OBJ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>main.o<span class="w"> </span>utils.o
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c"># Varsayılan hedef</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nf">all</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">TARGET</span><span class="k">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c"># Hedef dosya</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nf">$(TARGET)</span><span class="o">:</span><span class="w"> </span><span class="k">$(</span><span class="nv">OBJ</span><span class="k">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span><span class="w"> </span>$^
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c"># .o dosyalarının nasıl üretileceği</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nf">%.o</span><span class="o">:</span><span class="w"> </span>%.<span class="n">c</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="k">$(</span>CC<span class="k">)</span><span class="w"> </span><span class="k">$(</span>CFLAGS<span class="k">)</span><span class="w"> </span>-c<span class="w"> </span>$&lt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">$@</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c"># Temizlik</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nf">clean</span><span class="o">:</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>TARGET<span class="k">)</span><span class="w"> </span><span class="k">$(</span>OBJ<span class="k">)</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="c"># Gerçek dosya olmayan hedefler</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="nf">.PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">all</span> <span class="n">clean</span>
+</span></code></pre></div>
+<h2 id="wildcard-ve-pattern-matching">wildcard ve pattern matching</h2>
+<p><code>wildcard</code>, belirli dosya desenlerini eşleştirip listeleyen bir fonksiyondur. <code>wildcard</code> fonksiyonu mutlaka <code>:=</code> ile birlikte kullanılmalıdır. Aksi halde genişletilmez.</p>
+<div class="language-make highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">thing_right</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">$(</span>wildcard<span class="w"> </span>*.o<span class="k">)</span>
+</span></code></pre></div>
 
 
 

@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../avr/">
+        <link rel="prev" href="../compiler/">
       
       
-        <link rel="next" href="../gstreamer/">
+        <link rel="next" href="../make/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>IPC - Dokümantasyon</title>
+        <title>CMake - Dokümantasyon</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inter-process-communication-ipc" class="md-skip">
+        <a href="#cmake-kullanm" class="md-skip">
           Ana içeriğe geç
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IPC
+              CMake
             
           </span>
         </div>
@@ -203,11 +203,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../core_tools/compiler/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../compiler/" class="md-tabs__link">
           
   
   
@@ -243,13 +245,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../stm/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../embedded/stm/" class="md-tabs__link">
           
   
   
@@ -340,28 +340,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -374,7 +377,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             Core Tools
@@ -388,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/compiler/" class="md-nav__link">
+      <a href="../compiler/" class="md-nav__link">
         
   
   
@@ -408,10 +411,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../core_tools/cmake/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -422,6 +447,71 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#temel-komutlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Komutlar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projeyi-derleme-yontemleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projeyi Derleme Yöntemleri
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake-dosya-yaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      CMake Dosya Yapısı
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#degiskenler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Değişkenler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temel-komutlar-ve-kullanmlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Komutlar ve Kullanımları
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -434,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/make/" class="md-nav__link">
+      <a href="../make/" class="md-nav__link">
         
   
   
@@ -457,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/menuconfig/" class="md-nav__link">
+      <a href="../menuconfig/" class="md-nav__link">
         
   
   
@@ -480,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/git/" class="md-nav__link">
+      <a href="../git/" class="md-nav__link">
         
   
   
@@ -503,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core_tools/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   
@@ -697,31 +787,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -734,7 +821,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Embedded & Hardware
@@ -748,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stm/" class="md-nav__link">
+      <a href="../../embedded/stm/" class="md-nav__link">
         
   
   
@@ -771,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../avr/" class="md-nav__link">
+      <a href="../../embedded/avr/" class="md-nav__link">
         
   
   
@@ -791,32 +878,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    IPC
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../embedded/ipc/" class="md-nav__link">
         
   
   
@@ -827,95 +892,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      İçindekiler
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#uygulama-turleri" class="md-nav__link">
-    <span class="md-ellipsis">
-      Uygulama Türleri
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Uygulama Türleri">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-pipes" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Pipes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-sockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-message-queues" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Message Queues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-shared-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Shared Memory
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-semaphores" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Semaphores
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Signals
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -928,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../gstreamer/" class="md-nav__link">
+      <a href="../../embedded/gstreamer/" class="md-nav__link">
         
   
   
@@ -951,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../px4_mavlink/" class="md-nav__link">
+      <a href="../../embedded/px4_mavlink/" class="md-nav__link">
         
   
   
@@ -1255,97 +1231,176 @@
 
 
 
-<h1 id="inter-process-communication-ipc">Inter-Process Communication (IPC)</h1>
-<p>Farklı süreçler (process) arasında veri, bilgi ve komut alışverişi yapmayı sağlayan mekanizmalardır. İşletim sisteminde paralel veya dağıtık çalışan uygulamaların birbirleriyle etkileşim kurmasını mümkün kılar.</p>
-<h2 id="uygulama-turleri">Uygulama Türleri</h2>
-<ul>
-<li>
-<p><strong>Multi-Process Application:</strong> Birden fazla sürecin aynı anda bağımsız biçimde çalışıp birbirleriyle etkileşimde bulunduğu yazılımlardır.</p>
-</li>
-<li>
-<p><strong>Parallel Programming:</strong> Karmaşık problemleri daha küçük alt görevlere bölüp birden fazla işlemci veya çekirdekte eş zamanlı çalıştırarak performansı artırma tekniğidir.</p>
-</li>
-<li>
-<p><strong>Client‑Server Applications:</strong> İstemciler (client) sunucuya (server) istek gönderir, sunucu bu istekleri işler ve yanıt döner. Dağıtık iş yükü paylaşımı sağlar.</p>
-</li>
-</ul>
-<h3 id="1-pipes">1. Pipes</h3>
-<ul>
-<li>Tek yönlü (unidirectional) veri kanalıdır; bir ucu yazma, diğer ucu okuma içindir.</li>
-<li>Unnamed Pipes<ul>
-<li>Ebeveyn ve alt süreç (child) arasında geçici, adsız kanal oluşturur.</li>
-<li>Genellikle <code>pipe()</code> sistem çağrısıyla yaratılır.</li>
-</ul>
-</li>
-<li>Named Pipes (FIFOs)<ul>
-<li>Dosya sisteminde özel dosya (<code>/tmp/mypipe</code>) olarak var olur.</li>
-<li>Farklı süreçler ve oturumlar arasında kullanılabilir.</li>
-<li>mkfifo <code>/tmp/mypipe</code> ile oluşturulur.</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-sockets">2. Sockets</h3>
-<ul>
-<li>Hem aynı makine içi hem de ağ tabanlı iki yönlü (bidirectional) iletişim sağlar.<ul>
-<li><strong>Unix Domain Sockets:</strong> Aynı sistemde süreçler arası düşük gecikmeli iletişim.</li>
-<li><strong>TCP/IP Sockets:</strong> Farklı makineler arasında güvenilir bağlantı.</li>
-<li><strong>UDP Sockets</strong>: Bağlantısız, düşük gecikmeli iletişim.</li>
-</ul>
-</li>
-</ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Tipik TCP server pseudo-kodu</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">listen</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">accept</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">read</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">write</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="p">,</span><span class="w"> </span><span class="n">rlen</span><span class="p">);</span>
+<h1 id="cmake-kullanm">CMake Kullanım</h1>
+<p>CMake, yazılım projelerinin derleme sürecini yöneten, farklı derleyiciler ve işletim sistemleri arasında uyumluluk sağlayan güçlü bir araçtır. Projelerin derleme seçeneklerini, bağımlılıklarını tanımlayarak yapılandırma işlemlerini otomatikleştirir.</p>
+<h2 id="temel-komutlar">Temel Komutlar</h2>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">cmake</span><span class="w"> </span><span class="err">--help</span><span class="w">                     </span><span class="c"># CMake ve build yöntemleri hakkında genel bilgi.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">cmake</span><span class="w"> </span><span class="err">--help-variable-list</span><span class="w">       </span><span class="c"># Kullanılabilir değişkenleri listeler.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">cmake</span><span class="w"> </span><span class="err">--help-variable</span><span class="w"> </span><span class="err">[variable]</span><span class="w"> </span><span class="c"># Belirtilen değişken hakkında detaylı bilgi.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c"># Genel kullanım:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">cmake</span><span class="w"> </span><span class="err">-G</span><span class="w"> </span><span class="err">&quot;Ninja&quot;</span><span class="w"> </span><span class="err">-DCMAKE_BUILD_TYPE=Release</span><span class="w"> </span><span class="err">-S</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="err">-B</span><span class="w"> </span><span class="err">build</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">cmake</span><span class="w"> </span><span class="err">-P</span><span class="w"> </span><span class="err">CMakeLists.txt</span><span class="w">  </span><span class="c"># Build işlemi yapmadan CMake dosyasını çalıştırır.</span>
 </span></code></pre></div>
-<h3 id="3-message-queues">3. Message Queues</h3>
-<ul>
-<li>Mesajları FIFO kuyruğu içinde saklar; süreçler arasında sıralı mesajlaşma sağlar.<ul>
-<li>Adlandırılmış (POSIX): mq_open, mq_send, mq_receive.</li>
-<li>Unamed (System V): msgget, msgsnd, msgrcv.</li>
-<li>Mesaj boyutu ve izinleri tanımlanabilir; bir kuyruğu birden çok süreç kullanabilir.</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-shared-memory">4. Shared Memory</h3>
-<ul>
-<li>Birden çok sürecin aynı fiziksel bellek bölgesine erişmesini sağlar; en hızlı IPC yöntemlerinden biridir.<ul>
-<li>POSIX IPC: shm_open, mmap, shm_unlink.</li>
-<li>System V IPC: shmget, shmat, shmdt, shmctl.</li>
-</ul>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Dikkat</p>
-<p>Mutlak senkronizasyon (mutex, semafor) kullanılmalı, yoksa yarış durumları (race condition) oluşur.</p>
+<h2 id="projeyi-derleme-yontemleri">Projeyi Derleme Yöntemleri</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Yöntem 1</label><label for="__tabbed_1_2">Yöntem 2</label><label for="__tabbed_1_3">Yöntem 3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">mkdir</span><span class="w"> </span><span class="err">build</span><span class="w">  </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="err">cd</span><span class="w"> </span><span class="err">build</span><span class="w">  </span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="err">cmake</span><span class="w"> </span><span class="err">..</span><span class="w">  </span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="err">make</span>
+</span></code></pre></div>
 </div>
-<h3 id="5-semaphores">5. Semaphores</h3>
+<div class="tabbed-block">
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">cmake</span><span class="w"> </span><span class="err">-S</span><span class="w"> </span><span class="err">.</span><span class="w"> </span><span class="err">-B</span><span class="w"> </span><span class="err">build</span><span class="w">  </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">cd</span><span class="w"> </span><span class="err">build</span><span class="w">  </span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="err">make</span><span class="w"> </span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">cmake</span><span class="w"> </span><span class="err">-B</span><span class="w"> </span><span class="err">build</span><span class="w">  </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">cmake</span><span class="w"> </span><span class="err">--build</span><span class="w"> </span><span class="err">build</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="cmake-dosya-yaps">CMake Dosya Yapısı</h2>
 <ul>
-<li>Bir veya daha fazla sürecin paylaşılan kaynaklara erişimini senkronize etmek için kullanılır.<ul>
-<li><strong>POSIX:</strong> sem_open, sem_wait, sem_post, sem_close</li>
-<li><strong>System V:</strong> semget, semop, semctl.</li>
-<li>Shared memory ile birlikte sıkça tercih edilir.</li>
+<li>
+<p>CMakeLists.txt ana dizinlerde kullanılır.</p>
+</li>
+<li>
+<p><code>.cmake</code> uzantılı dosyalar script veya modül olarak kullanılır:</p>
+<ul>
+<li>Directories (CMakeLists.txt)</li>
+<li>Scripts (<code>&lt;script&gt;.cmake</code>)</li>
+<li>Modules (<code>&lt;module&gt;.cmake</code>)</li>
 </ul>
 </li>
+<li><code>if - elseif - else</code>: Mantıksal işlemler.</li>
+<li><code>foreach</code> ve <code>while</code> döngüleri: Yinelemeli işlemler için.</li>
+<li><code>function</code>: Lokal kapsam.</li>
+<li><code>macro</code>: Global kapsam.</li>
 </ul>
-<h3 id="6-signals">6. Signals</h3>
+<h2 id="degiskenler">Değişkenler</h2>
+<table>
+<thead>
+<tr>
+<th>Değişken</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROJECT_NAME</code></td>
+<td>project() komutunda belirtilen proje adı</td>
+</tr>
+<tr>
+<td><code>CMAKE_PROJECT_NAME</code></td>
+<td>En üst dizindeki project() adı</td>
+</tr>
+<tr>
+<td><code>CMAKE_VERSION</code></td>
+<td>CMake sürümü (örn: 3.16.1)</td>
+</tr>
+<tr>
+<td><code>CMAKE_GENERATOR</code></td>
+<td>Yapı oluşturucuyu belirtir (Ninja, Unix Makefiles)</td>
+</tr>
+<tr>
+<td><code>CMAKE_SOURCE_DIR</code></td>
+<td>Ana proje dizini</td>
+</tr>
+<tr>
+<td><code>CMAKE_CURRENT_SOURCE_DIR</code></td>
+<td>Bulunulan dizin</td>
+</tr>
+<tr>
+<td><code>PROJECT_SOURCE_DIR</code></td>
+<td>En son çağrılan project() dizini</td>
+</tr>
+<tr>
+<td><code>CMAKE_BINARY_DIR</code></td>
+<td>Build dizini</td>
+</tr>
+<tr>
+<td><code>CMAKE_HOME_DIRECTORY</code></td>
+<td>En üst dizin yolu</td>
+</tr>
+<tr>
+<td><code>CMAKE_SYSTEM</code></td>
+<td>İşletim sisteminin tam adı</td>
+</tr>
+<tr>
+<td><code>CMAKE_SYSTEM_NAME</code></td>
+<td>İşletim sistemi adı (Linux, Windows)</td>
+</tr>
+<tr>
+<td><code>CMAKE_INSTALL_PREFIX</code></td>
+<td>Kurulum dizini</td>
+</tr>
+<tr>
+<td><code>CMAKE_MODULE_PATH</code></td>
+<td>Ek CMake modüllerinin yolu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="temel-komutlar-ve-kullanmlar">Temel Komutlar ve Kullanımları</h2>
 <ul>
-<li>Süreçlere asenkron bildirim (interrupt) göndermek için kullanılır.</li>
-<li>Standart sinyaller: <code>kill(pid, SIGTERM);</code><ul>
-<li><strong>SIGINT</strong>  → Ctrl+C</li>
-<li><strong>SIGTERM</strong> → Nazik sonlandırma</li>
-<li><strong>SIGKILL</strong> → Zorla sonlandırma</li>
+<li><code>cmake_minimum_required</code>: Kullanılması gereken minimum CMake sürümünü belirtir.</li>
+<li><code>project</code>: Projeyi isimlendirir, kullanılacak dilleri ve versiyonları belirtir.</li>
+<li><code>add_executable</code>: Yürütülebilir dosya oluşturur.</li>
+<li><code>add_library</code>: Kütüphane hedefleri oluşturur.</li>
+<li><code>add_subdirectory</code>: Alt dizindeki CMake dosyasını çalıştırır.</li>
+<li><code>target_include_directories</code>: Hedefe özel header dizinlerini tanımlar.<ul>
+<li><strong>PUBLIC:</strong> Hem hedef hem tüketiciler</li>
+<li><strong>PRIVATE:</strong> Sadece hedef</li>
+<li><strong>INTERFACE:</strong> Sadece tüketiciler</li>
 </ul>
 </li>
-<li>Bir süreç, signal(SIGINT, handler) ile sinyal alındığında çalıştırılacak fonksiyonu tanımlayabilir.</li>
+<li><code>install</code>: Dosyaların belirli dizinlere kurulmasını sağlar</li>
+<li><code>find_package</code>: CMake modüllerini bulur ve kullanıma hazırlar.</li>
+<li><code>add_definitions</code>: Derleme zamanı tanımlar ekler.</li>
+<li><code>option</code>: Derleme seçenekleri sunar.</li>
+<li><code>add_compile_options</code>: Derleyici parametreleri ekler.</li>
+<li><code>file(GLOB)</code> ve <code>file(GLOB_RECURSE)</code>: Dosya listeleri oluşturur.</li>
+<li><code>execute_process</code>: Terminal komutlarını çalıştırır.</li>
+<li><code>set_property</code>: Nesnelere özellik atar.</li>
+<li><code>set_target_properties</code>: Hedef özelliklerini belirler.</li>
+<li><code>cmake_policy</code>: Uyumluluk davranışlarını yönetir.</li>
+<li><code>add_custom_command</code> ve add_custom_target: Özel build komutları oluşturur.</li>
 </ul>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.10</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">project</span><span class="p">(</span><span class="s">myProject</span><span class="w"> </span><span class="s">LANGUAGES</span><span class="w"> </span><span class="s">C</span><span class="w"> </span><span class="s">CXX</span><span class="w"> </span><span class="s">VERSION</span><span class="w"> </span><span class="s">1.0</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">my_log</span><span class="w"> </span><span class="s">CONFIG</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">option</span><span class="p">(</span><span class="s">ENABLE_FEATURE</span><span class="w"> </span><span class="s2">&quot;Enable feature X&quot;</span><span class="w"> </span><span class="s">OFF</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">file</span><span class="p">(</span><span class="s">GLOB_RECURSE</span><span class="w"> </span><span class="s">SRC_FILES</span><span class="w"> </span><span class="o">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="o">}</span><span class="s">/src/*.cpp</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">execute_process</span><span class="p">(</span><span class="s">COMMAND</span><span class="w"> </span><span class="s">git</span><span class="w"> </span><span class="s">pull</span><span class="w"> </span><span class="s">WORKING_DIRECTORY</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="o">}</span><span class="s">/inc</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">my_add</span><span class="w"> </span><span class="s">add.cpp</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">my_project</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">my_project</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">my_add</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">add_dir</span><span class="p">)</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nb">set_target_properties</span><span class="p">(</span><span class="s">myTarget</span><span class="w"> </span><span class="s">PROPERTIES</span><span class="w"> </span><span class="s">COMPILE_FLAGS</span><span class="w"> </span><span class="s2">&quot;-O3 -Wall&quot;</span><span class="p">)</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="nb">target_include_directories</span><span class="p">(</span><span class="s">my_add</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="o">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="o">}</span><span class="s">/inc</span><span class="p">)</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="nb">install</span><span class="p">(</span><span class="s">FILES</span><span class="w"> </span><span class="s">include/log.hpp</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">include</span><span class="p">)</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">myLib</span><span class="w"> </span><span class="s">EXPORT</span><span class="w"> </span><span class="s">my_export</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib</span><span class="p">)</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p>Bu IPC mekanizmaları, gereksinimlerinize göre performans, güvenilirlik ve karmaşıklık açısından farklı avantajlar sunar. En hızlısı shared memory, en yaygın kullanılanı ise sockets’tir; pipes ve message queue’lar ise basit veri akışlarında idealdir.</p>
+<p>Cache Değişkenleri, belleğe alınan değişkenler, tekrar hesaplanmayı önler ve hızlı erişim sağlar.
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">set</span><span class="p">(</span><span class="s">VAR</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="w"> </span><span class="s">CACHE</span><span class="w"> </span><span class="s">STRING</span><span class="w"> </span><span class="s2">&quot;Açıklama&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
 </div>
+<p>Bu rehber, CMake'in temel ve gelişmiş özelliklerini tanıtmakta olup, projelerinizi etkili şekilde yönetmeniz için gerekli bilgileri sunar.</p>
 
 
 

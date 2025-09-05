@@ -1,0 +1,3085 @@
+
+<!doctype html>
+<html lang="tr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../raspberry/">
+      
+      
+        <link rel="next" href="../../robotics_ai/ros2/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Linux - Dokümantasyon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Ana içeriğe geç
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Başlık">
+    <a href="../.." title="Dokümantasyon" class="md-header__button md-logo" aria-label="Dokümantasyon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dokümantasyon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Koyu moda geç"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Koyu moda geç" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Açık moda geç"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Açık moda geç" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Ara" placeholder="Ara" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Ara">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Temizle" aria-label="Temizle" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Arama başlatılıyor
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Sekmeler" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core_tools/compiler/" class="md-tabs__link">
+          
+  
+  
+  Core Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/c/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../embedded/stm/" class="md-tabs__link">
+          
+  
+  
+  Embedded & Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../jetson/" class="md-tabs__link">
+          
+  
+  
+  Systems & OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../robotics_ai/ros2/" class="md-tabs__link">
+          
+  
+  
+  Robotics & AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigasyon" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Dokümantasyon" class="md-nav__button md-logo" aria-label="Dokümantasyon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.41 4 16 6.41v.18L18.41 9H22v2h-4.41L16 9.41V12h-1a2 2 0 0 1-2-2V7.5H9.86c-.09.37-.24.72-.44 1.05L15.18 19H20a2 2 0 0 1 2 2v1H2v-1a2 2 0 0 1 2-2h6.61l-4.69-8.5a4.006 4.006 0 0 1-3.81-3A4 4 0 0 1 5 2.63c2.13-.55 4.31.73 4.86 2.87H13V3a2 2 0 0 1 2-2h1v2.59L17.59 2H22v2zM6 4.5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    Dokümantasyon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Core Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/compiler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compiler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/cmake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/make/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Make
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/menuconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Menuconfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git & GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core_tools/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker & Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C++
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/qml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/xml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Embedded & Hardware
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Embedded & Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embedded/stm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STM Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embedded/avr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AVR Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embedded/ipc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IPC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embedded/gstreamer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GStreamer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../embedded/px4_mavlink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PX4 & MAVLink
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Systems & OS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Systems & OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jetson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NVIDIA Jetson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raspberry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="İçindekiler">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      İçindekiler
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#temel-bilgiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temel Bilgiler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operatorler-ve-yonlendirmeler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operatörler ve Yönlendirmeler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-dizin-yaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Dizin Yapısı
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paket-kurulumu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paket Kurulumu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistem-gunlukleri-system-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistem Günlükleri (System Logs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#komutlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Komutlar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Komutlar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dizin-ve-dosya-gezinme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dizin ve Dosya Gezinme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dosya-ve-dizin-islemleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dosya ve Dizin İşlemleri
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metin-goruntuleme-isleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metin Görüntüleme &amp; İşleme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surec-kaynak-yonetimi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Süreç &amp; Kaynak Yönetimi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistem-bilgisi-istatistik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistem Bilgisi &amp; İstatistik
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ag-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ağ &amp; İnternet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kullanc-izinler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kullanıcı &amp; İzinler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zaman-planlama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zaman &amp; Planlama
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arsivleme-skstrma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arşivleme &amp; Sıkıştırma
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kabuk-yardm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kabuk &amp; Yardım
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acl-access-control-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACL (Access Control List)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Levels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#driver-surucu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Driver (Sürücü)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shell Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ağ
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ağ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-adresleri-ve-snflar" class="md-nav__link">
+    <span class="md-ellipsis">
+      IP Adresleri ve Sınıfları
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subnet-mask-alt-ag-maskesi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subnet Mask (Alt Ağ Maskesi)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-varsaylan-ag-gecidi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gateway (Varsayılan Ağ Geçidi)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mac-adresi" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAC Adresi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-domain-name-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS (Domain Name System)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nic-network-interface-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      NIC (Network Interface Card)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftp-file-transfer-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      FTP (File Transfer Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rsync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scp-secure-copy-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCP (Secure Copy Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-secure-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH (Secure Shell)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cockpit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cockpit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-dynamic-host-configuration-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      DHCP (Dynamic Host Configuration Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#netlink-soketleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Netlink Soketleri
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioctl-inputoutput-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      ioctl (Input/Output Control)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aygt-dosyalar-device-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aygıt Dosyaları (Device Files)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistem-cagrlar-system-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistem Çağrıları (System Calls)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Systemd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemctl-komutlar" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemctl Komutları
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#birim-unit-turleri" class="md-nav__link">
+    <span class="md-ellipsis">
+      Birim (Unit) Türleri
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Robotics & AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Robotics & AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics_ai/ros2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ROS2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics_ai/gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gazebo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics_ai/ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AI & Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../robotics_ai/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCV & Image Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux">Linux</h1>
+<h2 id="temel-bilgiler">Temel Bilgiler</h2>
+<ul>
+<li><strong>root:</strong> Sistem yöneticisi, en yetkili kullanıcı. Komut satırı istemi <code>#</code> ile gösterilir.</li>
+<li><strong>Normal kullanıcı:</strong> Standart yetkili kullanıcı. Komut satırı istemi <code>$</code> ile gösterilir.</li>
+<li><strong>Yorum satırı:</strong> Satır başında <code>#</code> karakteri yer alırsa, kabuk (shell) bu satırı yorum olarak atlar.</li>
+<li>Dosya veya dizin isminin başında <code>.</code> olursa, Linux tarafından gizli kabul edilir. Örnek: <code>.config/</code></li>
+<li><strong>Bağlantılar (Links):</strong><ul>
+<li><strong>Soft link (sembolik):</strong> Başka bir dosyaya referans oluşturur. Gerçek dosyanın kopyası değildir.</li>
+<li><strong>Hard link (sert):</strong> Dosyanın tam içeriğine işaret eder; silinirse bile diğer link üzerinden erişilebilir.</li>
+</ul>
+</li>
+<li><strong>Servisler ve İşlemler:</strong><ul>
+<li><strong>daemon:</strong> Genellikle sistem başlatıldığında arka planda çalışan uzun ömürlü süreçlerdir. Örnek: sshd, cron</li>
+<li><strong>process (işlem):</strong> Bir uygulama veya komut çalıştırıldığında oluşan yürütülebilir birimdir. Kısa ömürlü olabilir.</li>
+</ul>
+</li>
+<li><strong>Dosya Türleri ve İzinleri</strong><ul>
+<li><code>d</code> : Dizin (directory)</li>
+<li><code>l</code> : Sembolik bağlantı (symbolic link)</li>
+<li><code>-</code> : Normal dosya</li>
+<li><code>c</code> : Karakter aygıtı (örneğin /dev/ttyUSB0)</li>
+<li><code>b</code> : Blok aygıtı (örneğin disk bölümü)</li>
+<li><code>s</code> : Socket</li>
+<li><code>p</code> : FIFO (named pipe)</li>
+<li><code>(rwx)</code>: Okuma (r=4), yazma (w=2), çalıştırma (x=1).</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">örnek</p>
+<p><code>drwxr-xr--</code> dizin, sahibi tüm izinlere, grup okuma ve çalıştırma iznine, diğerleri sadece okuma iznine sahip.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Terminal Kısayolları</th>
+<th>İşlevi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alt + F2</code></td>
+<td>Komut çalıştırma penceresini açar (grafik ortam).</td>
+</tr>
+<tr>
+<td><code>Ctrl + C</code></td>
+<td>Çalışan komutu sonlandırır.</td>
+</tr>
+<tr>
+<td><code>Ctrl + R</code></td>
+<td>Önceki komutlarda arama yapar.</td>
+</tr>
+<tr>
+<td><code>Ctrl + S</code></td>
+<td>Terminal akışını durdurur (komut yürütme durmaz).</td>
+</tr>
+<tr>
+<td><code>Ctrl + Q</code></td>
+<td>Terminal akışını sürdürür.</td>
+</tr>
+<tr>
+<td><code>Ctrl + U</code></td>
+<td>İmlecin solundaki tüm metni siler.</td>
+</tr>
+<tr>
+<td><code>Ctrl + Z</code></td>
+<td>Çalışan komutu arka plana alır (durdurur).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="operatorler-ve-yonlendirmeler">Operatörler ve Yönlendirmeler</h2>
+<table>
+<thead>
+<tr>
+<th>Operatör</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>;</code></td>
+<td>Komut ayracı. Birden fazla komutu sırayla çalıştırır: <code>komut1; komut2</code>.</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Komutu arka planda çalıştırır: <code>sleep 10 &amp;</code>.</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>Bir komutun çıktısını başka bir komutun girdisine (pipe) yönlendirir.</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Sıfır veya daha fazla karakterle eşleşir (her şeyi temsil eder).</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Tam olarak bir karakterle eşleşir.</td>
+</tr>
+<tr>
+<td><code>[...]</code></td>
+<td>Köşeli parantez içindeki karakterlerden herhangi biriyle eşleşir. Örneğin, <code>[ab]</code> sadece ‘a’ veya ‘b’ ile başlayan dosyaları listeler</td>
+</tr>
+<tr>
+<td><code>{x..y}</code></td>
+<td>Belirli bir aralıktaki sayıları veya karakterleri üretir. <code>file{1..5}.txt</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Düzenli ifadelerde satır başını ifade eder.</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Standart çıktıyı (stdout) belirtilen dosyaya yazar, önceki içerik silinir.</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>Standart çıktıyı dosyanın sonuna ekler.</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Standart girdiyi (stdin) bir dosyadan alır.</td>
+</tr>
+<tr>
+<td><code>2&gt;</code></td>
+<td>Standart hata çıktısını (stderr) belirtilen dosyaya yönlendirir.</td>
+</tr>
+<tr>
+<td><code>&amp;&gt;</code></td>
+<td>Hem stdout hem stderr’i aynı anda yönlendirir.</td>
+</tr>
+<tr>
+<td><code>tee</code></td>
+<td>Standart çıktıyı hem ekrana basar hem de dosyaya yazar. <code>-a</code> ile eklemeli yazma yapılır.</td>
+</tr>
+<tr>
+<td>``</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Arka planda 10 saniye uyur</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sleep<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 1&#39;den 7&#39;ye kadar dosyalar oluşturur</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>touch<span class="w"> </span>a<span class="o">{</span><span class="m">1</span>..7<span class="o">}</span>.txt
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># &#39;a&#39; veya &#39;b&#39; ile başlayan dosyaları listeler</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ls<span class="w"> </span><span class="o">[</span>ab<span class="o">]</span>*
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># a&#39;dan z&#39;ye kadar tek karakterli isimleri listeler</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>ls<span class="w"> </span><span class="o">[</span>a-z<span class="o">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Yönlendirme örnekleri:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>file_name.txt
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>ls<span class="w"> </span>&gt;&gt;<span class="w"> </span>file.txt
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>cat<span class="w"> </span>&lt;<span class="w"> </span>file.txt
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>errorfile.txt
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>file.txt
+</span></code></pre></div>
+<h2 id="linux-dizin-yaps">Linux Dizin Yapısı</h2>
+<table>
+<thead>
+<tr>
+<th>Dizin</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/ (root)</code></td>
+<td>Tüm dosya sisteminin kök noktasıdır.</td>
+</tr>
+<tr>
+<td><code>/boot</code></td>
+<td>Önyükleme (boot) ile ilgili çekirdek ve başlangıç dosyaları.</td>
+</tr>
+<tr>
+<td><code>/dev</code></td>
+<td>Donanım aygıtlarını temsil eden özel dosyalar.</td>
+</tr>
+<tr>
+<td><code>/etc</code></td>
+<td>Sistem yapılandırma dosyaları.</td>
+</tr>
+<tr>
+<td><code>/bin, /sbin</code></td>
+<td>Temel kullanıcı ve sistem ikili dosyaları.</td>
+</tr>
+<tr>
+<td><code>/usr</code></td>
+<td>İkincil hiyerarşi: uygulamalar, kütüphaneler, belgeler.</td>
+</tr>
+<tr>
+<td><code>/opt</code></td>
+<td>Üçüncü taraf yazılımlar için isteğe bağlı paketler.</td>
+</tr>
+<tr>
+<td><code>/lib, /lib64</code></td>
+<td>Temel sistem kütüphaneleri.</td>
+</tr>
+<tr>
+<td><code>/tmp</code></td>
+<td>Geçici dosyalar.</td>
+</tr>
+<tr>
+<td><code>/home</code></td>
+<td>Kullanıcıların ev dizinleri.</td>
+</tr>
+<tr>
+<td><code>/var</code></td>
+<td>Değişken veri dosyaları (loglar, posta, spool dosyaları).</td>
+</tr>
+<tr>
+<td><code>/run</code></td>
+<td>Geçici çalışma süresi bilgisi (PID dosyaları, kilitler).</td>
+</tr>
+<tr>
+<td><code>/mnt, /media</code></td>
+<td>Harici medya ve dosya sistemleri bu noktalara bağlanır.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Linux dosya sisteminde büyük/küçük harf duyarlılığı olduğunu unutmayın.</p>
+</div>
+<h2 id="paket-kurulumu">Paket Kurulumu</h2>
+<p>Linux dağıtımlarında paket yönetimi için yaygın olarak <strong>APT (Advanced Packaging Tool)</strong> ve <strong>DPKG</strong> araçları kullanılır.</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">apt paketleri</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Paket listelerini günceller (depo bilgilerini yeniler)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>apt<span class="w"> </span>update
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Yüklü paketleri en son sürümlere günceller (yeni paket kurmaz)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>apt<span class="w"> </span>upgrade
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Yüklü paketleri ve gerektiğinde yeni paketleri de kurarak sistemin tamamını günceller</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>apt<span class="w"> </span>full-upgrade<span class="w">    </span><span class="c1"># Debian/Ubuntu&#39;da dist-upgrade eşdeğeri</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Yeni paket kurar</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>apt<span class="w"> </span>install<span class="w"> </span>&lt;paket_adı&gt;
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># Paket kaldırır (ayar dosyaları korunur)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>apt<span class="w"> </span>remove<span class="w"> </span>&lt;paket_adı&gt;
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="c1"># Paket ve ilişkili yapılandırma dosyalarını siler</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>apt<span class="w"> </span>purge<span class="w"> </span>&lt;paket_adı&gt;
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="c1"># Kullanılmayan bağımlılıkları kaldırır</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20"></a>apt<span class="w"> </span>autoremove
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="c1"># İndirilmiş ve kullanılmayan .deb dosyalarını temizler</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23"></a>apt<span class="w"> </span>autoclean
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="c1"># Kurulu tüm paketleri listeler</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26"></a>apt<span class="w"> </span>list<span class="w"> </span>--installed
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="c1"># Hatalı bağımlılıkları düzeltir ve eksik paketleri kurar.</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29"></a>apt<span class="w"> </span>install<span class="w"> </span>-f
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30"></a>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="c1"># Mevcut paket sürümünü yeniden yükler.</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32"></a>apt<span class="w"> </span>--reinstall<span class="w"> </span>install<span class="w"> </span>&lt;paket_adı&gt;
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="c1"># Depo veritabanında paket araması yapar.</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35"></a>apt<span class="w"> </span>search<span class="w"> </span>&lt;anahtar_kelime&gt;
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36"></a>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="c1"># Paket hakkında ayrıntılı bilgi görüntüler</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38"></a>apt<span class="w"> </span>show<span class="w"> </span>&lt;paket_adı&gt;<span class="w"> </span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39"></a>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="c1"># Depo listelerini düzenlemeye yarar (örn. sudo nano /etc/apt/sources.list).</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41"></a>apt<span class="w"> </span>edit-sources<span class="w"> </span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dpkg</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Kurulu tüm paketleri listeler</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>dpkg<span class="w"> </span>-l
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Yerel .deb dosyasını kurar (paketin .deb dosyasını belirtir)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>dpkg<span class="w"> </span>-i<span class="w"> </span>&lt;paket.deb&gt;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Yapılandırma adımı tamamlanmamış paketleri onarır</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>dpkg<span class="w"> </span>--configure<span class="w"> </span>-a
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Paket ve yapılandırma dosyalarıyla birlikte siler</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>dpkg<span class="w"> </span>-P<span class="w"> </span>&lt;paket_adı&gt;
+</span></code></pre></div></td></tr></table></div>
+<h2 id="sistem-gunlukleri-system-logs">Sistem Günlükleri (System Logs)</h2>
+<p>Linux'ta sistem olayları, hata mesajları ve uyarılar genellikle <code>/var/log</code> dizininde depolanır. Ayrıca systemd kullanan sistemlerde <code>journalctl</code> ile günlüğe erişim mümkündür.</p>
+<table>
+<thead>
+<tr>
+<th>Dosya / Komut</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/var/log/boot.log</code></td>
+<td>Önyükleme sırasında oluşan mesajlar (init, kernel, servis bilgileri).</td>
+</tr>
+<tr>
+<td><code>dmesg</code></td>
+<td>Çekirdek (kernel) ring buffer’ını gösterir.</td>
+</tr>
+<tr>
+<td><code>/var/log/auth.log</code></td>
+<td>Kimlik doğrulama ve güvenlik olayları (giriş denemeleri, sudo kullanımı).</td>
+</tr>
+<tr>
+<td><code>/var/log/syslog</code></td>
+<td>Genel sistem ve uygulama mesajları (Debian/Ubuntu).</td>
+</tr>
+<tr>
+<td><code>/var/log/messages</code></td>
+<td>Genel sistem ve uygulama mesajları (Red Hat/CentOS gibi dağıtımlarda).</td>
+</tr>
+<tr>
+<td><code>/var/log/kern.log</code></td>
+<td>Kernel’e ait detaylı günlük kayıtları.</td>
+</tr>
+<tr>
+<td><code>journalctl</code></td>
+<td>systemd journal kayıtlarını okur</td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Son önyüklemeden itibaren tüm logları gösterir</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>journalctl<span class="w"> </span>-b<span class="w">  </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Belirli bir servisin günlüklerini filtreler</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>&lt;servis&gt;<span class="w"> </span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Yoğun log akışını filtrelemek için grep veya less ile birlikte kullanabilirsiniz:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>sshd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;failed&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</span></code></pre></div></p>
+</div>
+<ul>
+<li><code>/etc/motd</code> <strong>Message Of The Day</strong>, Kullanıcı oturumu açtığında gösterilen kısa bilgilendirme mesajıdır.</li>
+<li><code>/etc/motd</code> dosyasına yazdığın metin, her girişte terminale basılır.</li>
+<li>Dinamik içerik için <code>/etc/profile.d/</code> altına script ekleyebilirsin.</li>
+</ul>
+<h2 id="komutlar">Komutlar</h2>
+<h3 id="dizin-ve-dosya-gezinme">Dizin ve Dosya Gezinme</h3>
+<ul>
+<li>
+<p><code>cd</code>  Dizinler arasında geçiş yapar. (<code>.</code> bulunduğun dizin, <code>..</code> bir üst dizin, <code>-</code> bir önce ki dizin, <code>~</code> home)
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w">            </span><span class="c1"># Home dizini</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w">          </span><span class="c1"># Home dizini</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">cd</span><span class="w"> </span>../..<span class="w">      </span><span class="c1"># İki üst dizin</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>pwd</code>  Mevcut dizinin tam yolunu gösterir.</p>
+</li>
+<li><code>ls</code>  Dizin içeriğini listeler.</li>
+<li><code>tree</code>  Dizin yapısını ağaç formatında gösterir.</li>
+</ul>
+<h3 id="dosya-ve-dizin-islemleri">Dosya ve Dizin İşlemleri</h3>
+<ul>
+<li>
+<p><code>cp</code> Dosya veya dizini kopyalar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>&lt;dir&gt;<span class="w"> </span>&lt;copy&gt;<span class="w">  </span><span class="c1"># Dizinleri ve içinde bulunan her şeyi kopylamayı sağlar. </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cp<span class="w"> </span>-l<span class="w"> </span>&lt;file&gt;<span class="w"> </span>&lt;copy&gt;<span class="w"> </span><span class="c1"># Kopyalama işlemini link şeklinde yapar.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>mv</code> Dosyayı taşır veya yeniden adlandırır.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mv<span class="w"> </span>a.txt<span class="w"> </span>/home/<span class="w">       </span><span class="c1"># Dosya taşıma</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>mv<span class="w"> </span>a.txt<span class="w"> </span>/home/b.txt<span class="w">  </span><span class="c1"># Dosyayı taşırken isim değiştirme</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>mv<span class="w"> </span>a.txt<span class="w"> </span>b.txt<span class="w">        </span><span class="c1"># Dosyanın ismini değiştirme</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>mv<span class="w"> </span>dizin<span class="w"> </span>/home/<span class="w">       </span><span class="c1"># Dizinlerde taşınabilir.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>rm</code> Dosya veya dizini siler. <code>!</code> ile dışında tutulabilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rm<span class="w"> </span>-rf<span class="w">                     </span><span class="c1"># Belirtilen her şeyi siler</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>rm<span class="w"> </span>-i<span class="w">                      </span><span class="c1"># Dosyaları sorarak siler.</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>rm<span class="w"> </span>-rf<span class="w">  </span>!<span class="o">(</span>a.txt<span class="o">)</span><span class="w">           </span><span class="c1"># a.txt dışında dosyaları siler.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>mkdir</code> Yeni dizin oluşturur.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkldir<span class="w"> </span>-p<span class="w"> </span>dizin/dizin<span class="w">      </span><span class="c1"># İç içe dizin  oluşturur.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>rmdir</code> Boş dizini siler.</p>
+</li>
+<li><code>touch</code> Boş dosya oluşturur veya zaman damgasını günceller.</li>
+<li><code>ln</code> Hard veya sembolik link oluşturur. <code>-s</code> sembolink link, <code>-i</code> hard link</li>
+</ul>
+<h3 id="metin-goruntuleme-isleme">Metin Görüntüleme &amp; İşleme</h3>
+<ul>
+<li>
+<p><code>cat</code> Dosya içeriğini bir kerede gösterir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cat<span class="w"> </span>a.txt<span class="w">                      </span><span class="c1"># içeriği gösterir  </span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>a.txt<span class="w">                    </span><span class="c1"># a dosaysını oluşturup içine yazı yazmamızı sağlarla</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>a.txt<span class="w">                   </span><span class="c1"># a dosyası varsa üstüne yazmamızı sağlar.</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>cat<span class="w"> </span>a.txt<span class="w"> </span>&gt;<span class="w">  </span>b.txt<span class="w">             </span><span class="c1"># a dosaysını b dosyasına kopyalar.</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>cat<span class="w"> </span>a.txt<span class="w"> </span>&gt;&gt;<span class="w"> </span>b.txt<span class="w">             </span><span class="c1"># a dosaysını b dosyasının üstüne yazar.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>more</code> Sayfa sayfa görüntüler. (Ekrana sığacak şekilde)</p>
+</li>
+<li>
+<p><code>less</code> İleri/geri kaydırma ve arama imkânı sunar. <code>more</code> komutunun gelişmiş halidir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>less<span class="w"> </span>deneme.txt
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>__________
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-N<span class="w">   </span>:<span class="w"> </span>Her<span class="w"> </span>satırın<span class="w"> </span>başına<span class="w"> </span>numara<span class="w"> </span>koyar.
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>-i<span class="w">   </span>:<span class="w"> </span>Büyük<span class="w"> </span>küçük<span class="w"> </span>harf<span class="w"> </span>duyarlılığını<span class="w"> </span>devre<span class="w"> </span>dışı<span class="w"> </span>bırakır.
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>-S<span class="w">   </span>:<span class="w"> </span>Uzun<span class="w"> </span>satırları<span class="w"> </span>keserek<span class="w"> </span>,<span class="w"> </span>yatay<span class="w"> </span>kaydırma<span class="w"> </span>çıbuğu<span class="w"> </span>oluşturur.
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>-F<span class="w">   </span>:<span class="w"> </span>Dosya<span class="w"> </span>içeriğini<span class="w"> </span>gösterdikten<span class="w"> </span>sonra<span class="w"> </span>otamatik<span class="w"> </span>olarak<span class="w"> </span>kapanır.<span class="w"> </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>__________
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>space:<span class="w"> </span>Tuşu<span class="w"> </span>bir<span class="w"> </span>sonraki<span class="w"> </span>sayfayı<span class="w"> </span>gösterir.<span class="w"> </span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>b<span class="w">    </span>:<span class="w"> </span>Bir<span class="w"> </span>önceki<span class="w"> </span>sayfayı<span class="w"> </span>gösterir.<span class="w">   </span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>g<span class="w">    </span>:<span class="w"> </span>Dosyanın<span class="w"> </span>başına<span class="w"> </span>gitmek<span class="w"> </span>için<span class="w"> </span>kullanılır.
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>G<span class="w">    </span>:<span class="w"> </span>Dosyanın<span class="w"> </span>sonuna<span class="w"> </span>gitmek<span class="w"> </span>için<span class="w"> </span>kullanılır.
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>/<span class="w">    </span>:<span class="w"> </span>Arama<span class="w"> </span>yapmak<span class="w"> </span>için<span class="w"> </span>kullanılır.
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>n<span class="w">    </span>:<span class="w"> </span>Bir<span class="w"> </span>sonraki<span class="w"> </span>eşleşmeyi<span class="w"> </span>bulmak<span class="w"> </span>için<span class="w"> </span>kullanılır.
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>q<span class="w">    </span>:<span class="w"> </span>less<span class="w"> </span>komutunu<span class="w"> </span>kapatmak<span class="w"> </span>için<span class="w"> </span>kullanılır.
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>__________
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>head / tail</code> Dosyanın baştan / sonundan N satırını gösterir.</p>
+</li>
+<li>
+<p><code>grep - egrep</code> Metin içinde desen arar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>grep<span class="w"> </span>keyword<span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Belirtilen kelimeyi dosya içinde arar</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>grep<span class="w"> </span>-c<span class="w"> </span>keyword<span class="w"> </span>file.txt<span class="w"> </span><span class="c1">#Belirtilen kelimenin dosyada kaç tane olduğunu gösterir.</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>grep<span class="w"> </span>-i<span class="w"> </span>keyword<span class="w"> </span>file.txt<span class="w"> </span><span class="c1">#Belirtilen kelimeyi dosya içinde arar. Arama yaparken büyük küçük duyarlılığı kapatır.</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>grep<span class="w"> </span>-n<span class="w"> </span>keyword<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># Hnagi satırlarada bulunaduklarını    gösterir.</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>grep<span class="w"> </span>-v<span class="w"> </span>keyword<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># Belirtilen anahtar kelimesi dışındaki yerleri alır</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Desktop
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>egrep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;keyword1|keyword2&quot;</span><span class="w"> </span>file.txt<span class="w">  </span><span class="c1"># Arama yaparken keyword1 veya keyword2 birinin olması yeterli olur.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>cut</code> Belirtilen sütunları veya karakterleri keser.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>cut<span class="w"> </span>-c1<span class="w"> </span>file.txt<span class="w">  </span><span class="c1"># 1. sütünda bulunan karakterleri gösterir.</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>cut<span class="w"> </span>-c1,3,4,5<span class="w"> </span>file.txt<span class="w">  </span><span class="c1"># 1., 3., 4., 5. sütünda bulunan karakterleri gösterir.</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>cut<span class="w"> </span>-c1-4<span class="w"> </span>file.txt<span class="w">  </span><span class="c1"># 1. sütündan 4. sütüna kadar bulunan karakterleri gösterir.</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>cut<span class="w"> </span>-c1-4,<span class="w"> </span><span class="m">6</span>-8<span class="w"> </span>file.txt
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>cut<span class="w"> </span>-b1-3<span class="w"> </span>file.txt<span class="w">   </span><span class="c1"># 1. sütündan başlayıp 3 byte veri al</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c2-4
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>awk</code> Alan bazlı metin işleme sağlar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Dosyanın içinde bulunan her satırda bulunan ilkkelimeyi gösterir.</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>awk<span class="w"> </span><span class="s1">&#39;{print $2, $4}&#39;</span><span class="w"> </span>file.txt<span class="w"> </span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>awk<span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span>file.txt<span class="w"> </span><span class="c1">#Her satırın son kelimesini gösterir. </span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>awk<span class="w"> </span><span class="s1">&#39;/jer/ {print}&#39;</span><span class="w"> </span>file.txt<span class="w"> </span><span class="c1">#Dosyanın içinde jey arar ve varsa ekranda gösterir. </span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>cat<span class="w"> </span>file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{$2=&quot;hi&quot;; print $0}  #Bu dosaynın içinde bulunan her satırda 2. kelimesini &quot;hi&quot; ile değiştirir.</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="s1">awk &#39;</span>lenght<span class="o">(</span><span class="nv">$0</span><span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">20</span><span class="s1">&#39; file.txt  #İlk karakteri 20 bytetan fazla olan satırları gösterir.</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="s1">ls -l | awk &#39;</span><span class="o">{</span><span class="k">if</span><span class="o">(</span><span class="nv">$9</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Des&quot;</span><span class="o">)</span><span class="w"> </span>print<span class="w"> </span><span class="nv">$0</span><span class="p">;</span><span class="o">}</span><span class="err">&#39;</span><span class="w">  </span><span class="c1">#Şartı sağlayan satırı gösterir.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>sed</code> Satır içi metin değiştirmeye yarar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/[kelime]/[yeni_kelime]/g&#39;</span><span class="w"> </span>dosya.txt<span class="w">   </span><span class="c1"># kelime olan kısımlar  yeni_kelime ile değiştirilir.</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/[kelime]/[yeni_kelime]/g&#39;</span><span class="w"> </span>dosya.txt<span class="w">   </span><span class="c1">#  -i parametresi sayesinde dosyanın içinde yapılır değişiklik</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/[kelime]/d&#39;</span><span class="w"> </span>dosya.txt<span class="w">   </span><span class="c1">#  kelime siler</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>sort</code> Satırları belirli kritere göre sıralar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sort<span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Alfabetik sıraya göre sıralar</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>sort<span class="w"> </span>-r<span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Alfabetik sıranın tersine  göre sıralar</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>sort<span class="w"> </span>-k2<span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Alfabetik sıraya göre sıralar (2. kelimeye bakarak sıralam yapılır)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>uniq</code> Birbirini izleyen tekrarları filtreler.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uniq<span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#Aynı olan satıorların sadece birini gösterir</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>uniq<span class="w"> </span>-c<span class="w">  </span>file.txt<span class="w">  </span><span class="c1">#Her satırın kaç kez geçtiğini gösterir.</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>sort<span class="w"> </span>file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>sort<span class="w"> </span>file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>sort<span class="w"> </span>file.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-d<span class="w">   </span><span class="c1">#Sadece tekrarlanan kısmı gösterir.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>tr</code> Karakter dönüşümleri yapar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cat<span class="w"> </span>a.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>‘a-z’<span class="w">  </span>‘A-Z’<span class="w">              </span><span class="c1"># Bütün harfleri büyük yazar</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>wc</code> Satır, kelime ve byte sayar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>wc<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># satır kelime byte çıktısı verir</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>wc<span class="w"> </span>-l<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># satır sayısını verir.</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>wc<span class="w"> </span>-w<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># kelime sayısını verir.</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>wc<span class="w"> </span>-c<span class="w"> </span>file.txt<span class="w"> </span><span class="c1"># byte sayısını verir.</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>grep<span class="w">  </span>keyword<span class="w"> </span>file<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">   </span><span class="c1">#belirtilen keyword kaç kez geçtiğini bulmuş oluruz</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>diff</code> Dosyalar arasındaki satır farklılıklarını gösterir. (line by line)</p>
+</li>
+<li><code>cmp</code> Dosyaları byte byte karşılaştırır. (byte by byte)</li>
+<li>
+<p><code>truncate</code> kesme işlemi yapar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>truncate<span class="w"> </span>-s<span class="w"> </span><span class="m">40</span><span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#dosyayı 40 byte olarak keser fazlalık olan kısmı siler. Sıkıştırma işlemi yapmaz.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>file</code> Dosya hakkında bilgi verir. <code>file a.txt</code></p>
+</li>
+<li><code>find - locate</code> Dosya araması yapar.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>find ile locate komutları aralarında ki fark <strong>locate</strong> komutunun bir veri tabanı vardır. Bu yüzden aramaları daha hızlı yapar. Fakat bu veri tabanı güncellenmez ise yeni oluşturulan dosyaları bulamayız.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>find<span class="w"> </span>.<span class="w"> </span>-size<span class="w"> </span>+100M<span class="w">        </span><span class="c1"># 100mb büyük dosyaları arar</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-perm<span class="w"> </span><span class="m">0777</span><span class="w"> </span><span class="c1"># Belirtilen izinlere sahip dosyaları bulur.</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>find<span class="w"> </span>.<span class="w"> </span>--name<span class="w"> </span>*.gz<span class="w">        </span><span class="c1"># gz uzantılı dosyaları bulur.</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>find<span class="w"> </span>.<span class="w"> </span>-mtime<span class="w"> </span><span class="m">3</span><span class="w">           </span><span class="c1"># 3 gün içinde değişiklik yapılan dosyaları bulur.</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>locate<span class="w"> </span>a.txt
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>updatedb<span class="w">                  </span><span class="c1"># locate komutunun datebase günceller.</span>
+</span></code></pre></div>
+<ul>
+<li><code>readlink</code>  Bu komut sayesinde link edilmiş bir dosyanın gerçek konumunu gösterir.</li>
+</ul>
+<h3 id="surec-kaynak-yonetimi">Süreç &amp; Kaynak Yönetimi</h3>
+<ul>
+<li><code>ps</code> Çalışan süreçleri listeler.<ul>
+<li>TTY sütunu, işlemin hangi terminalde yürütüldüğünü,</li>
+<li>TIME sütunu, o işlemin ne kadar süredir çalıştığını,</li>
+<li>CMD sütunu ise hangi komutun çalıştırıldığını gösterir.</li>
+<li><code>ps aux</code> çıktısındaki STAT sütununda yer alan harflerin anlamları ise şunlardır:<ul>
+<li><strong>D:</strong> uyku modu (disk I/O için bekliyor)</li>
+<li><strong>R:</strong> çalışıyor</li>
+<li><strong>T:</strong> duraklatılmış</li>
+<li><strong>X:</strong> zorla durdurulmuş</li>
+<li><strong>Z:</strong> zombi işlem</li>
+<li><strong>S:</strong> işlem için kaynak (örneğin CPU) bekliyor</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>pstree</code> ise bu işlemleri adeta bir aile ağacı gibi detaylı şekilde görselleştirir—kim kimin çocuğu, kim kimin ebeveyni, hepsini tek bakışta anlarsınız!
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ps<span class="w"> </span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>ps<span class="w"> </span>-a
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>ps<span class="w"> </span>-ef
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>pstree
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1"># En fazla CPU tüketen 5 uygulamayı listeler</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>ps<span class="w"> </span>H<span class="w"> </span>-eo<span class="w"> </span>pid,pcpu<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-nk2<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="c1"># PID karşılık Gelen uygulamanın hangisi olduğu anlaşılır.</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="c1"># ll ilede gösterilebilir.</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>fgrep<span class="w"> </span><span class="o">[</span>PID<span class="o">]</span><span class="w"> </span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>ll<span class="w"> </span>/proc/<span class="o">[</span>PID<span class="o">]</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>top</code> Canlı sistem kaynak kullanımını gösterir. PID, USER, PR(öncelik seviyesi), RES(RAM miktarı) gibi durumlar gözlenebilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>top<span class="w"> </span>-u<span class="w"> </span><span class="o">[</span>user_name<span class="o">]</span><span class="w">   </span><span class="c1"># Belirli bir kullanıcının detaylı gösterilmesini sağlar.</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>_____________________________
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>k<span class="w"> </span>:<span class="w"> </span>ile<span class="w"> </span>belirli<span class="w"> </span>bir<span class="w"> </span>görevi<span class="w"> </span>direkt<span class="w"> </span>top<span class="w"> </span>komutu<span class="w"> </span>üzerinden<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>yapılması<span class="w"> </span>sağlanır.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>kill</code> Süreci sonlandırmak için sinyal gönderir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ps<span class="w"> </span>-a<span class="w">                  </span><span class="c1"># Tüm işlemler</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>ps<span class="w"> </span>aux
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ps<span class="w"> </span>-e<span class="w">                  </span><span class="c1"># O kullanıcı tarafından yapılan tüm işlemler</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>ps<span class="w"> </span>-u<span class="w"> </span><span class="o">[</span>user_name<span class="o">]</span><span class="w">      </span><span class="c1"># Belirli bir kullanıcının yaptıklarını gösterir.</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="nb">kill</span><span class="w"> </span>-l<span class="w">                </span><span class="c1"># Sinyallari sitler.</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>PID_number<span class="w">     </span><span class="c1"># İşlemi sonlandırır.</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="nb">kill</span><span class="w"> </span>-1<span class="w"> </span>PID_number<span class="w">     </span><span class="c1"># İşlemi yeniden başlatır.</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>killall<span class="w">       </span>top<span class="w">      </span><span class="c1"># PID numarası yerine direkt işlemin adı verilir.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>nohup</code> Komutu oturumdan bağımsız çalıştırır. Yani terminal kapansa dahi komut yürütülmeye devam eder.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># nohup process &amp;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># nohup process &gt; /dev/null 2&gt;&amp;1 &amp;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>nohup<span class="w"> </span>sleep<span class="w"> </span><span class="m">75</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>nohup<span class="w"> </span>sleep<span class="w"> </span><span class="m">70</span><span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>bg</code> Durdurulan işlemi arka plana alır.</p>
+</li>
+<li><code>fg</code> Arka plandaki işlemi ön plana getirir.</li>
+<li><code>jobs</code> O anki kabuk işlerinin durumunu listeler.</li>
+<li>
+<p><code>nice - renice</code> Komuta öncelik (niceness) atar. / Çalışan sürecin önceliğini değiştirir.</p>
+</li>
+<li>
+<p><code>script</code> Terminal oturumunu kaydeder.</p>
+</li>
+<li>
+<p><code>timeout</code> Komutun çalışmasını süre ile sınırlar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>timeout<span class="w"> </span>10s<span class="w"> </span>ping<span class="w"> </span>google.com
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>timeout<span class="w"> </span>1m<span class="w"> </span>ping<span class="w"> </span>google.com
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>timeout<span class="w"> </span>1h<span class="w"> </span>ping<span class="w"> </span>google.com
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>dd</code> “Disk Dump” kısaltmasıyla bilinir. Unix/Linux’ta dosya, disk ve blok düzeyinde kopyalama yapmanızı sağlar. Veri bloklarını farklı biçimlerde işleyerek yedekleme, klonlama veya sıfırlama (örneğin <code>/dev/zero</code> kullanarak) gibi işlemlerde kullanılabilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/sda<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/mnt/backup/sda.img<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>64K<span class="w"> </span><span class="nv">conv</span><span class="o">=</span>noerror,sync
+</span></code></pre></div></p>
+</li>
+</ul>
+<h3 id="sistem-bilgisi-istatistik">Sistem Bilgisi &amp; İstatistik</h3>
+<ul>
+<li>
+<p><code>uname</code> Sistem bilgilerini görüntüler.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>uname<span class="w"> </span>-a<span class="w">    </span><span class="c1"># Tüm sistem bilgileri</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>uname<span class="w"> </span>-s<span class="w">    </span><span class="c1"># İşletim sisteminin adı</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>uname<span class="w"> </span>-r<span class="w">    </span><span class="c1"># İşletim sisteminin sürümünü gösterir.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>arch</code> İşletim sistemi mimarisini gösterir. (64 / 32)</p>
+</li>
+<li><code>df</code> Dosya sistemi kullanım özetini verir.</li>
+<li>
+<p><code>du</code> Dizin veya dosya boyutunu hesaplar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>du<span class="w"> </span>dosya_yolu
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>du<span class="w"> </span>-h<span class="w"> </span>dosya_yolu<span class="w">    </span><span class="c1"># Boyutları okunabilirliğini artırır.</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>du<span class="w"> </span>-sh<span class="w"> </span>dosya_yolu<span class="w">   </span><span class="c1"># Alt dizinleri almaz</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>free</code> Bellek (RAM) kullanımını gösterir.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>free 
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>cat /proc/cpuinfo   # Tüm sistem bilgilerinin bulunduğu dosyadır.
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>cat /proc/meminfo   # RAM hakkında bilgi verir.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>dmesg</code> Kernel mesajlarını okur.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>dmesg
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>dmesg<span class="w"> </span>-H<span class="w">  </span><span class="c1">#Anlaşılır</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>dmesg<span class="w"> </span>-c<span class="w">  </span><span class="c1">#Günlüğü temizler</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>dmesg<span class="w"> </span>-l<span class="w">  </span><span class="c1">#Günlükleri filtrelemek için kullanılı (-l err sadece hataları gösterir)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>lsmod</code> Yüklü çekirdek modüllerini listeler.</p>
+</li>
+<li><code>lsblk</code> Blok aygıtlarını ağaç yapısında gösterir.</li>
+<li><code>fdisk</code> Disk bölüm bilgilerini yönetir.</li>
+<li><code>blkid</code> Blok aygıtlarının UUID ve tür bilgilerini listeler.</li>
+<li><code>badblocks</code> Bozuk disk bloklarını tarar.</li>
+<li><code>fsck</code> Dosya sistemini onarır.</li>
+</ul>
+<h3 id="ag-internet">Ağ &amp; İnternet</h3>
+<ul>
+<li><code>ping</code> Ağ bağlantısını test eder. <code>-c</code> ile kaç kez atılacağı ayarlanır.</li>
+<li><code>ifconfig</code>p addr — Ağ arayüzü yapılandırmasını gösterir.</li>
+<li><code>netstat - ss</code> Aktif bağlantıları listeler.</li>
+<li><code>curl</code> URL’lerden veri transferi yapar.</li>
+<li>
+<p><code>wget</code> Dosya indirir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>wget<span class="w"> </span>https:/...../.....tar.gz
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>curl<span class="w"> </span>-o<span class="w"> </span>putty<span class="w"> </span>httğs:/..../...tar.gz
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>dig - nslookup</code> Komutları, belirli bir alan adı veya IP adresi hakkında bilgi almak için DNS (Domain Name System) sunucularına sorgu yapmak için kullanılan komut satırı araçlarıdır.</p>
+</li>
+<li><code>iptables</code> Paket filtreleme ve NAT kurallarını yönetir.</li>
+<li><code>arp</code> ARP tablosunu gösterir.</li>
+<li><code>hostname</code> Sistem adı ve IP adresini verir. Sistemin ağ üzerindeki adını (hostname) <code>/etc/hostname</code> dosyasından okur ve değiştirir <code>sudo hostnamectl set-hostname yeni_hostname</code></li>
+<li>
+<p><code>netdiscover</code> Ağ taraması yapar.</p>
+</li>
+<li>
+<p><code>nmcli</code> NetworkManager’ı komut satırı üzerinden yönetmenizi sağlayan güçlü bir araçtır. Ağ bağlantıları oluşturabilir, düzenleyebilir, silebilir ve mevcut durum hakkında ayrıntılı bilgi alabilirsiniz.</p>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>nmcli<span class="w">               </span><span class="c1"># Genel durum bilgisi</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>show<span class="w">   </span><span class="c1"># Tüm bağlantıları listeler</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>nmcli<span class="w"> </span>device<span class="w"> </span>status<span class="w">     </span><span class="c1"># Ağ arayüzlerinin durumunu gösterir</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>nmtui
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>nmcli’nin<span class="w"> </span>metin<span class="w"> </span>tabanlı,<span class="w"> </span>kullanıcı<span class="w"> </span>dostu<span class="w"> </span>arayüzüdür.<span class="w"> </span>CLI<span class="w"> </span>yerine<span class="w"> </span>basit<span class="w"> </span>menülerle<span class="w"> </span>ağ<span class="w"> </span>ayarlarını<span class="w"> </span>yönetmek<span class="w"> </span>isterseniz<span class="w"> </span>tercih<span class="w"> </span>edebilirsiniz.
+</span></code></pre></div>
+<ul>
+<li><code>nm-connection-editor</code> NetworkManager bağlantılarını grafiksel (GUI) ortamda düzenlemenizi sağlar. Masaüstü kullanıcıları için idealdir.</li>
+</ul>
+<h3 id="kullanc-izinler">Kullanıcı &amp; İzinler</h3>
+<ul>
+<li><code>chmod</code> Dosya/dizin izinlerini değiştirir. (u = user, g = groups, o = or)</li>
+<li><code>chown</code> Sahiplik bilgilerini değiştirir.</li>
+<li>
+<p><code>chgrp</code> Grup bilgisini değiştirir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>file
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>chmod<span class="w"> </span>ugo+rwx<span class="w"> </span>file
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>chmod<span class="w"> </span>g-x<span class="w"> </span>file
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span>file
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>chown<span class="w"> </span>root<span class="w"> </span>file
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>chgrp<span class="w"> </span>root<span class="w"> </span>file
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>chown<span class="w"> </span>yeni_kullanıcı<span class="w"> </span>a.txt
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>chgrp<span class="w"> </span>grupadi<span class="w"> </span>dosyaadi
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>useradd</code> Yeni kullanıcı ekler.</p>
+</li>
+<li><code>usermod</code> Mevcut kullanıcıyı düzenler.</li>
+<li>
+<p><code>userdel</code> Kullanıcı siler.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>userdel<span class="w"> </span>-r<span class="w"> </span>user_1<span class="w">  </span><span class="c1"># Kullanıcıyı home dizini ile beraber siler</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>usermod<span class="w"> </span>-U<span class="w"> </span>user_1<span class="w">  </span><span class="c1"># Aktif </span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>usermod<span class="w"> </span>-L<span class="w"> </span>user_1<span class="w">  </span><span class="c1"># Pasif</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>groupadd</code> Yeni grup oluşturur.</p>
+</li>
+<li><code>groupdel</code> Grup siler.</li>
+<li><code>passwd</code> Kullanıcı şifresi ayarlar.</li>
+<li><code>chfn</code> Kullanıcı bilgilerini değiştirir.</li>
+<li><code>getfacl</code>etfacl — ACL bazlı izinleri yönetir.</li>
+<li>
+<p><code>id</code> Kullanıcının bağlı olduğu ID gösterir.</p>
+</li>
+<li>
+<p><code>w</code> Sistemde çevrim içi kullanıcı sayısını gösterir.</p>
+</li>
+<li><code>lastb - last</code> lastb Sisteme başarısız girişleri gösterir. last bütün girişleri gösterir</li>
+<li><code>users</code>  Sistemde aktif kullanıcıları gösterir.</li>
+<li><code>whoami</code>  O an ki kullanıcı adını verir.</li>
+</ul>
+<h3 id="zaman-planlama">Zaman &amp; Planlama</h3>
+<ul>
+<li>
+<p><code>date</code> Tarih ve saati gösterir veya ayarlar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>date<span class="w">                                </span><span class="c1"># Tarih ve saati gösterir</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sudo<span class="w"> </span>date<span class="w"> </span>--set<span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">&quot;</span><span class="w">           </span><span class="c1"># Tarih ve saati düzenler</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>sudo<span class="w"> </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;10 MAR 2023 10:19:23&quot;</span><span class="w"> </span><span class="c1"># Tarih ve saati düzenler</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>sudo<span class="w"> </span>date<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;2023-12-16 09:16:00&quot;</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>sudo<span class="w"> </span>date<span class="w"> </span>+%T<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;13:30:00&quot;</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="c1"># Ya da </span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>timedatectl<span class="w"> </span>set-time<span class="w"> </span><span class="s1">&#39;2015-11-20 22:13:20&#39;</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>sleep</code> Belirtilen süre bekler. <code>sleep 10</code></p>
+</li>
+<li><code>watch</code> Komutu belirli aralıklarla tekrarlar.</li>
+<li><code>crontab</code> Zamanlanmış görevler oluşturur.</li>
+<li><code>at</code> Tek seferlik zamanlanmış iş başlatır.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Linux sisteminde belirli zaman aralıklarında veya zamanlamalar da tekrarlanması gereken görevleri otomatikleştirmek için kullanılır. crontab komutu belirli günlerde belirli haftalarda belirli zaman aralıklarında tekrarlamasını istediğimiz komutlar için kullanılır. Oluşan dosyalar <code>etc/cron.[]</code> konumunda bulunur. <code>crontab -e</code>  crontab dosyasını düzenlemek için kullanılır. Açılan dosyananın içine dakika saat gün ay ve haftanın günü son olarakda yapılacak komut yazılır.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>crontab<span class="w"> </span>-e
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>a.txt<span class="w">   </span><span class="c1"># Bu kısımda * işareti o kabsadığı alanın her zaman dilimini alır.</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>at<span class="w"> </span>now<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="w"> </span>hour<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="w">   </span><span class="c1"># ctrl + D işlemi tamamlanır.</span>
+</span></code></pre></div></p>
+</div>
+<ul>
+<li><code>uptime</code> Çalışma süresi ve kullanıcı sayısını gösterir.</li>
+</ul>
+<h3 id="arsivleme-skstrma">Arşivleme &amp; Sıkıştırma</h3>
+<ul>
+<li><code>tar</code> Arşiv oluşturur veya açar.</li>
+<li><code>gzip - unzip</code> Dosya sıkıştırır veya açar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>tar<span class="w"> </span>-cvf<span class="w"> </span>a.tar<span class="w"> </span>.<span class="w">  </span><span class="c1"># O anki dizini a.tar içine kopyalar.</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>gzip<span class="w"> </span>a.tar<span class="w">        </span><span class="c1"># a.tar dosaysını a.tar.gz olarak sıkıştırır.</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>gzip<span class="w"> </span>-d<span class="w"> </span>a.tar.gz<span class="w">  </span><span class="c1"># dosyayı açar </span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>gunzip<span class="w">  </span>a.tar.gz<span class="w">  </span><span class="c1"># dosyayı açar</span>
+</span></code></pre></div></li>
+<li><code>zip</code>nzip — Zip arşivleriyle çalışır.</li>
+<li><code>truncate</code> Dosyayı belirtilen boyuta keser.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>truncate<span class="w"> </span>-s<span class="w"> </span><span class="m">40</span><span class="w"> </span>file.txt<span class="w">  </span><span class="c1">#dosyayı 40 byte olarak keser fazlalık olan kısmı siler. Sıkıştırma işlemi yapmaz.</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="kabuk-yardm">Kabuk &amp; Yardım</h3>
+<ul>
+<li><code>reboot</code> Sistemi yeniden başlatır.</li>
+<li><code>poweroff</code> Sistemi anında kapatır.</li>
+<li><code>shutdown</code>  Sistemi kapatırken seçenekler sunar.</li>
+<li><code>exit</code> Açık olan kullanıcıdan çıkar.</li>
+<li>
+<p><code>env - printenv</code> Sistemde bulunan evrensel değişkenleri gösterir. Ortam değişkenini kullanmak için <code>$</code> kullanılır
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>env
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>printenv
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$PATH</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>su</code> Kullanıcı değiştirmeyi sağlar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>su<span class="w"> </span>user_1<span class="w">   </span><span class="c1"># user_1 kullanıcısına geçer</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>sudo<span class="w"> </span>su<span class="w">     </span><span class="c1"># root kullanıcısına geçer</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>sudo<span class="w"> </span>-i<span class="w">     </span><span class="c1"># root kullanıcısı olarak yeni bir kulanıcı kabugu açılmış gibi davranır.</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>sudo<span class="w"> </span>-s<span class="w">     </span><span class="c1"># o an ki kabugun root gibi davranmasını sağlar.</span>
+</span></code></pre></div></p>
+</li>
+<li><code>bash</code> Yeni bir kabuk başlatır.</li>
+<li><code>source</code> Betik dosyasını mevcut kabuğa yükler.</li>
+<li><code>clear</code> Terminali temizler</li>
+<li>
+<p><code>history</code> Kabuk komut geçmişini listeler.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">history</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">2000</span><span class="w">      </span><span class="c1"># history komutunda en fazla kaç komut tutulacağını ayarlar.</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>!124<span class="w">               </span><span class="c1"># history komutunda 124 sırada komut çalışır.</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>!!<span class="w">                 </span><span class="c1"># Bir önceki komut çalışır</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>!-3<span class="w">                </span><span class="c1"># Üç önceki komut çalışır.</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>man</code> Komut kılavuz sayfasını açar.</p>
+</li>
+<li><code>info</code> GNU bilgi sayfasını gösterir.</li>
+<li><code>--help</code> Komut yardımını ekrana basar.</li>
+<li><code>alias - unalias</code> Takma ad oluşturur veya siler.</li>
+<li>
+<p><code>apropos</code> Belirtilen anahtar kelimeye göre kılavuz sayfalarını arar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>apropos<span class="w"> </span><span class="s2">&quot;list directory contents&quot;</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>export</code> Ortam değişkeni tanımlar.</p>
+</li>
+<li><code>lsb_realease</code>  Kullanılan sürüm hakkında bilgi verir.</li>
+<li><code>who</code>  Sisteme giriş yapmış kullanıcıları gösterir.</li>
+<li><code>whatis</code>  Komut hakkında kısa bilgi verir.</li>
+<li><code>whereis / which</code>  Komutun konumunu gösterir.</li>
+<li>
+<p><code>wall</code> Tüm kayıtlı kullanıcılara terminal üzerinden mesaj iletmenizi sağlar. Yalnızca yetkili kullanıcılar tarafından çalıştırılabilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>wall<span class="w"> </span><span class="s2">&quot;Sistem bakımı yapılacaktır. Lütfen oturumunuzu kaydedin ve bekleyin.&quot;</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>write</code> Belirli bir kullanıcıya doğrudan mesaj göndermek için kullanılır. İleti girdisini tamamlamak için Ctrl +D tuşuna basmanız yeterlidir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>write<span class="w"> </span>user_1
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="c1"># Mesajınızı yazın, ardından Ctrl + D ile gönderin</span>
+</span></code></pre></div></p>
+</li>
+</ul>
+<h3 id="acl-access-control-list">ACL (Access Control List)</h3>
+<p>Standart Unix izinlerinin ötesinde, her dosya veya dizine kullanıcı ve grup bazlı ayrıntılı erişim hakları tanımlamanıza imkân verir. Böylece belirli bir kullanıcının veya grubun okuma, yazma, çalıştırma gibi izinlerini hassas biçimde ayarlayabilirsiniz.</p>
+<ul>
+<li><code>getfacl</code> Dosya/dizin üzerindeki ACL girişlerini ve temel izinleri gösterir.</li>
+<li><code>setfacl</code> ACL üzerinden izin ekleme, düzenleme veya silme işlemleri yapar.</li>
+</ul>
+<h2 id="run-levels">Run Levels</h2>
+<p>Linux’un geleneksel SysV init sistemi, farklı işletim durumu “seviyelerini” (run levels) rakamlarla tanımlar. Her run level, hangi servislerin ve işlevlerin aktif olacağını belirler:</p>
+<table>
+<thead>
+<tr>
+<th>Run Level</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Kapatma (shutdown).</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Tek kullanıcı modu (sistem bakım/onarım).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Çoklu kullanıcı modu, ağ hizmeti kapalı (dağıtıma göre değişir).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Çoklu kullanıcı modu, ağ hizmeti aktif.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tanımlanmamış / Kullanılmaz.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Çoklu kullanıcı + grafik arayüzlü (X11/Wayland) + ağ hizmeti.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Yeniden başlatma (reboot).</td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># Run level değiştirme (örnek: seviye 3)</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>sudo<span class="w"> </span>init<span class="w"> </span><span class="m">3</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Modern dağıtımlarda Systemd kullanılıyorsa systemctl isolate multi-user.target veya graphical.target komutlarını tercih etmek daha güncel bir yöntemdir.</p>
+</div>
+<h2 id="device-tree">Device Tree</h2>
+<p>Gömülü Linux sistemlerinde (örn. ARM tabanlı kartlar), donanımı çekirdeğe tanıtmak için Device Tree kullanılır.
+- <code>.dts</code> (Device Tree Source): İnsan tarafından okunabilir metin formatı.
+- <code>.dtb</code> (Device Tree Blob): Derlenmiş, ikili format.
+1. Bir sensör, kontrolcü veya başka bir aygıt için özellikler .dts dosyasında tanımlanır.
+2. Kernel açılırken bu veriyi okur, uygun sürücüyü yükler ve donanımı yapılandırır.
+3. Cihazını Linux’e “tanıştırmanın” en düzenli yolu: Device Tree!</p>
+<h2 id="driver-surucu">Driver (Sürücü)</h2>
+<p>Linux çekirdeği ile donanım arasında köprü kuran yazılım bileşenidir. Donanımı algılar, kontrol eder ve veri akışını yönetir. Yeni bir cihaz eklediğinde, ilgili sürücüyü kernel modülü (ör. *.ko) olarak yüklersin.</p>
+<h2 id="shell-script">Shell Script</h2>
+<ul>
+<li>Linux’ta yaygın olarak Bash kullanılır; yüklü tüm shell’leri görmek için: <code>cat /etc/shells</code></li>
+<li>Script’in hangi shell ile çalışacağını en başta belirtmek için <strong>shebang</strong> kullanılır: <code>#!/bin/bash</code></li>
+<li>Satır başına # koyarak o satırı yorum (açıklama) haline getirirsiniz.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p>Shebang <code>(#!/bin/bash)</code> da aslında yorum satırı gibi davranır ama kernel’e hangi yorumlayıcıyı yükleyeceğini söyler.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="ch">#!/bin/bash </span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="c1"># read, echo, değişkenler    </span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="nv">my_host</span><span class="o">=</span><span class="sb">`</span>hostname<span class="sb">`</span><span class="w">   </span><span class="c1"># Bilgisayarın hostname verisini alır</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="nv">name</span><span class="o">=</span><span class="s2">&quot;Arif&quot;</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="nv">name2</span><span class="o">=</span>arif<span class="w">           </span><span class="c1"># İki değişken atamasıda doğrudur.</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;server name: </span><span class="nv">$my_host</span><span class="s2">&quot;</span><span class="w">   </span><span class="c1"># Ekrana çıktı vermeyi sağlar.</span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;My name is </span><span class="nv">$name</span><span class="s2">.&quot;</span><span class="w">       </span><span class="c1"># Bir değişkene erişmek için $ kullanılır.   </span>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="nb">echo</span><span class="w"> </span>what<span class="w"> </span>is<span class="w"> </span>your<span class="w"> </span>name?
+</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="nb">read</span><span class="w"> </span>new_name<span class="w">                 </span><span class="c1"># Kullanıcdan veri alınması sağlanır.</span>
+</span><span id="__span-47-11"><a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a><span class="nb">read</span><span class="w"> </span>new_surname<span class="w">              </span><span class="c1"># Bu olay read name surname olarak tek seferde</span>
+</span><span id="__span-47-12"><a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a><span class="w">                              </span><span class="c1"># alınabilir. Bir bolukla değişkenler doldurulur.</span>
+</span><span id="__span-47-13"><a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a><span class="nb">echo</span><span class="w"> </span>hello<span class="w"> </span><span class="nv">$new_name</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Operatör</th>
+<th>Anlamı</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>eşit</td>
+<td><code>[ $a -eq 5 ]</code></td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>eşit değil</td>
+<td><code>[ $a -ne 0 ]</code></td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>küçük</td>
+<td><code>[ $a -lt 10 ]</code></td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>büyük</td>
+<td><code>[ $a -gt 100 ]</code></td>
+</tr>
+<tr>
+<td>-le</td>
+<td>küçük veya eşit</td>
+<td><code>[ $a -le 20 ]</code></td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>büyük veya eşit</td>
+<td><code>[ $a -ge 1 ]</code></td>
+</tr>
+<tr>
+<td>-e</td>
+<td>dosya veya dizin var mı</td>
+<td><code>[ -e /path/to/file ]</code></td>
+</tr>
+<tr>
+<td>-f</td>
+<td>normal dosya mu?</td>
+<td><code>[ -f /etc/passwd ]</code></td>
+</tr>
+<tr>
+<td>-d</td>
+<td>dizin mi?</td>
+<td><code>[ -d /home/user ]</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="nv">gun</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%a<span class="k">)</span><span class="w">  </span><span class="c1"># Mon, Tue, …</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$gun</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Mon&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Bugün Pazartesi.&quot;</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$gun</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Tue&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Bugün Salı.&quot;</span>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="k">else</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hafta içi başka bir gün.&quot;</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="k">fi</span>
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sayaç: </span><span class="nv">$i</span><span class="s2">&quot;</span>
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="k">done</span>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>
+</span><span id="__span-48-16"><a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a><span class="k">for</span><span class="w"> </span>num<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..10<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-48-17"><a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Numara = </span><span class="nv">$num</span><span class="s2">&quot;</span>
+</span><span id="__span-48-18"><a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a><span class="w">  </span>sleep<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-48-19"><a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a><span class="k">done</span>
+</span><span id="__span-48-20"><a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a>
+</span><span id="__span-48-21"><a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a><span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+</span><span id="__span-48-22"><a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$count</span><span class="s2">&quot;</span><span class="w"> </span>-lt<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-48-23"><a id="__codelineno-48-23" name="__codelineno-48-23" href="#__codelineno-48-23"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Merhaba Dünya (</span><span class="nv">$count</span><span class="s2">)&quot;</span>
+</span><span id="__span-48-24"><a id="__codelineno-48-24" name="__codelineno-48-24" href="#__codelineno-48-24"></a><span class="w">  </span><span class="o">((</span>count++<span class="o">))</span>
+</span><span id="__span-48-25"><a id="__codelineno-48-25" name="__codelineno-48-25" href="#__codelineno-48-25"></a><span class="w">  </span>sleep<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-48-26"><a id="__codelineno-48-26" name="__codelineno-48-26" href="#__codelineno-48-26"></a><span class="k">done</span>
+</span><span id="__span-48-27"><a id="__codelineno-48-27" name="__codelineno-48-27" href="#__codelineno-48-27"></a>
+</span><span id="__span-48-28"><a id="__codelineno-48-28" name="__codelineno-48-28" href="#__codelineno-48-28"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Seçiminiz (a: ls, b: cd ~, c: echo):&quot;</span>
+</span><span id="__span-48-29"><a id="__codelineno-48-29" name="__codelineno-48-29" href="#__codelineno-48-29"></a><span class="nb">read</span><span class="w"> </span>choice
+</span><span id="__span-48-30"><a id="__codelineno-48-30" name="__codelineno-48-30" href="#__codelineno-48-30"></a>
+</span><span id="__span-48-31"><a id="__codelineno-48-31" name="__codelineno-48-31" href="#__codelineno-48-31"></a><span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$choice</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-48-32"><a id="__codelineno-48-32" name="__codelineno-48-32" href="#__codelineno-48-32"></a><span class="w">  </span>a<span class="o">)</span><span class="w"> </span>ls<span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-48-33"><a id="__codelineno-48-33" name="__codelineno-48-33" href="#__codelineno-48-33"></a><span class="w">  </span>b<span class="o">)</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~<span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-48-34"><a id="__codelineno-48-34" name="__codelineno-48-34" href="#__codelineno-48-34"></a><span class="w">  </span>c<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, world!&quot;</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-48-35"><a id="__codelineno-48-35" name="__codelineno-48-35" href="#__codelineno-48-35"></a><span class="w">  </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Geçersiz seçim!&quot;</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-48-36"><a id="__codelineno-48-36" name="__codelineno-48-36" href="#__codelineno-48-36"></a><span class="k">esac</span>
+</span></code></pre></div>
+<h2 id="ag">Ağ</h2>
+<h3 id="ip-adresleri-ve-snflar">IP Adresleri ve Sınıfları</h3>
+<p>Ağ üzerinde iletişim kuran her cihaza atanan benzersiz 32‑bit (IPv4) veya 128‑bit (IPv6) sayıdır. IPv4’te dört ondalık bölümle <strong><em>(ör. 192.168.1.10)</em></strong>, IPv6’da ise sekiz grup onaltılık sayıyla <strong>(2001:0db8:85a3::8a2e:0370:7334)</strong> gösterilir.
+- <strong>IP (Internet Protocol):</strong> İnternetteki her cihazın benzersiz kimliğidir. Trafiğin doğru hedefe yönlendirilmesini sağlar.
+- <strong>Sınıflar:</strong> Eskiden her ip adresi 5 sınıfa ayrılırdı. Günümüzde CIDR yaygın olsa da temel fikir halen öğretici:</p>
+<table>
+<thead>
+<tr>
+<th>Sınıf</th>
+<th>Aralık</th>
+<th>Kullanım Alanı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>0.0.0.0   - 127.255.255.255</td>
+<td>Çok büyük ağlar</td>
+</tr>
+<tr>
+<td>B</td>
+<td>128.0.0.0 - 191.255.255.255</td>
+<td>Orta boy ağlar</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192.0.0.0 - 223.255.255.255</td>
+<td>Küçük ağlar</td>
+</tr>
+<tr>
+<td>D</td>
+<td>224.0.0.0 - 239.255.255.255</td>
+<td>Multicast yayınlar</td>
+</tr>
+<tr>
+<td>E</td>
+<td>240.0.0.0 - 255.255.255.255</td>
+<td>Deneysel / rezerve</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Loopback:</strong> 127.0.0.1 “kendi kendinle konuşman” için. Yerel sistem testi ve geliştirme için vazgeçilmez.</li>
+</ul>
+<h3 id="subnet-mask-alt-ag-maskesi">Subnet Mask (Alt Ağ Maskesi)</h3>
+<ul>
+<li>IP adresini <strong>“ağ kısmı”</strong> ve <strong>“cihaz kısmı”</strong> olarak ikiye bölen 32‑bit değer. Genellikle dört ondalık bölümle gösterilir (ör. 255.255.255.0). <strong>255</strong> olan bitler → ağ adresini, <strong>0</strong> olan bitler → host (cihaz) adresini temsil eder</li>
+<li>Örnek: 255.255.255.0 → ilk 24 bit ağ, son 8 bit host.</li>
+<li>CIDR karşılığı: /24</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="c1"># Çıktıda &quot;inet 192.168.1.10/24&quot; görürseniz:</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="c1">#   - IP: 192.168.1.10</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="c1">#   - Alt ağ masking: /24 (255.255.255.0)</span>
+</span></code></pre></div>
+<h3 id="gateway-varsaylan-ag-gecidi">Gateway (Varsayılan Ağ Geçidi)</h3>
+<ul>
+<li>Yerel ağdan çıkış noktasıdır. Genellikle bir router veya firewall cihazı.</li>
+<li>Farklı ağları birbirine bağlar.</li>
+<li>Bir cihaz başka ağdaki IP’lere paket gönderdiğinde kullanılır.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>ip<span class="w"> </span>route
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="c1"># default via 192.168.1.1 dev eth0 (Burada 192.168.1.1 sizin gateway’inizdir.)</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="mac-adresi">MAC Adresi</h3>
+<ul>
+<li>Her NIC (Network Interface Card) için üretici tarafından atanan 48‑bit benzersiz donanım adresi. Genellikle altı çift onaltılık sayı ile gösterilir (00:1A:2B:3C:4D:5E).</li>
+<li>Veri Bağlantı Katmanı (OSI Katman 2).</li>
+<li>Donanıma gömülü, normalde değiştirilemez (ancak ip link set dev eth0 address ile yazılımla da değiştirilebilir).</li>
+<li>IP adresi katmanından bağımsız çalışır; LAN içi iletişimde kullanılır.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>eth0
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="c1"># link/ether 00:1a:2b:3c:4d:5e brd ff:ff:ff:ff:ff:ff</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="dns-domain-name-system">DNS (Domain Name System)</h3>
+<ul>
+<li>Alan adlarını (ör. chat.openai.com) IP adreslerine çeviren hiyerarşik dağıtık bir sistem.</li>
+<li>“İnsan-dostu” isimlerle internette gezinmeyi mümkün kılar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>example.com
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="c1"># ya da</span>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>nslookup<span class="w"> </span>example.com
+</span></code></pre></div></li>
+</ul>
+<h3 id="nic-network-interface-card">NIC (Network Interface Card)</h3>
+<ul>
+<li>Ağa bağlı cihazlar ve bilgisayarlar arasındaki veri iletişimini yönetmek için kullanılan bir donanım bileşenidir. NIC, bir bilgisayarın ağa bağlanabilmesi için gereken fiziksel bağlantıyı sağlar ve verilerin kablosuz veya kablolu ağlar üzerinden transfer edilmesini sağlar</li>
+<li>Fiziksel veya sanal ağ adaptörü.</li>
+<li>Ethernet, Wi‑Fi, Bluetooth vs. gibi farklı türleri vardır.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Not</p>
+<p><code>/etc/hosts</code> Küçük ölçekli isim‑adres eşleştirmelerini içerir. </p>
+</div>
+<h3 id="ftp-file-transfer-protocol">FTP (File Transfer Protocol)</h3>
+<ul>
+<li>Port 21 üzerinden çalışan eski işlevsel dosya aktarım protokolü. Şifrelenmemiştir, bu yüzden güvensiz kabul edilir.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>ftp<span class="w"> </span>ftp.example.com
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="c1"># kullanıcı ve şifre ile oturum açarsınız</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="rsync">Rsync</h3>
+<ul>
+<li>Dosya ve dizinleri hem yerelde hem de uzak sistemlerde senkronize eden, delta-transfer (sadece değişen blokları) destekli araç.<ul>
+<li><code>-a</code> Arşiv modu (izinler, tarih, vs.)</li>
+<li><code>-v</code> Ayrıntılı çıktı</li>
+<li><code>-z</code> Sıkıştırma</li>
+<li><code>--progress</code> Aktarım durumu</li>
+<li><code>--delete</code> ile hedefde olmayan dosyaları siler.</li>
+<li><code>--dry-run</code> ile neler yapılacağını test edersiniz.</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>rsync<span class="w"> </span>-avz<span class="w"> </span>--progress<span class="w"> </span>/local/dir/<span class="w"> </span>user@remote:/backup/dir/
+</span></code></pre></div>
+<h3 id="scp-secure-copy-protocol">SCP (Secure Copy Protocol)</h3>
+<ul>
+<li>SSH tüneli üzerinden dosya transferi yapan, verileri otomatik olarak şifreleyen araç.</li>
+<li><code>-r:</code> Dizinleri recursive kopyalar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>scp<span class="w"> </span>-r<span class="w"> </span>./project<span class="w"> </span>user@192.168.1.100:/var/www/html/
+</span></code></pre></div></li>
+</ul>
+<h3 id="ssh-secure-shell">SSH (Secure Shell)</h3>
+<ul>
+<li>Uzak makinaya şifreli bağlantı kuran, komut satırı ve port yönlendirme gibi özellikler sunan protokol. <code>ssh user@remote_host</code></li>
+<li>Önemli Ayarlar (/etc/ssh/sshd_config):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Ayar</th>
+<th>Açıklama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port</td>
+<td>SSH dinleme portu (varsayılan 22).</td>
+</tr>
+<tr>
+<td>PermitRootLogin no</td>
+<td>Direkt root girişini engeller.</td>
+</tr>
+<tr>
+<td>PermitEmptyPasswords</td>
+<td>Boş parola kullanımını yasaklar.</td>
+</tr>
+<tr>
+<td>AllowUsers serkan</td>
+<td>Sadece belirtilen kullanıcı(lar) giriş yapabilir.</td>
+</tr>
+<tr>
+<td>ClientAliveInterval</td>
+<td>Boşta kalındığında sunucudan istemciye ping gönderme aralığı (s).</td>
+</tr>
+<tr>
+<td>ClientAliveCountMax</td>
+<td>Kaç ping sonrası bağlantıyı keser (0 = sınırsız).</td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><span class="filename">Anahtar Tabanlı Kimlik Doğrulama</span><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w">     </span><span class="c1"># Anahtar çifti oluşturur</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>ssh-copy-id<span class="w"> </span>user@host<span class="w">     </span><span class="c1"># Public anahtarı uzak sunucuya kopyalar</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>ssh<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_ed25519<span class="w"> </span>user@host<span class="w">  </span><span class="c1"># Belirli anahtar ile bağlanma</span>
+</span></code></pre></div>
+<h3 id="cockpit">Cockpit</h3>
+<ul>
+<li>Web tabanlı, interaktif sunucu yönetim konsolu. Sistem durumu, servisler, konteynerler ve kullanıcı yönetimi gibi işlemleri tarayıcıda yapmanızı sağlar.</li>
+</ul>
+<h3 id="dhcp-dynamic-host-configuration-protocol">DHCP (Dynamic Host Configuration Protocol)</h3>
+<ul>
+<li>LAN’a katılan cihazlara otomatik IP, subnet mask, gateway ve DNS bilgisi atayan protokol.</li>
+</ul>
+<h2 id="communication">Communication</h2>
+<h3 id="netlink-soketleri">Netlink Soketleri</h3>
+<ul>
+<li>Linux çekirdeği ile kullanıcı alanı (user‐space) uygulamaları arasında iletişim sağlar.</li>
+<li><strong>AF_NETLINK</strong> (veya <strong>PF_NETLINK</strong>) adres ailesini kullanır.</li>
+<li>Yaygın mesaj tipleri: <strong>NETLINK_ROUTE</strong> (ağ yönlendirme), <strong>NETLINK_NETFILTER</strong> (iptables), <strong>NETLINK_KOBJECT_UEVENT</strong> (udev olayları) vb.</li>
+<li>Mesaj yapısı:
+<div class="language-c highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">nlmsghdr</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">    </span><span class="n">__u32</span><span class="w"> </span><span class="n">nlmsg_len</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Başlık + veri uzunluğu */</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">nlmsg_type</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Mesaj tipi */</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">nlmsg_flags</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Bayraklar (örn. NLM_F_REQUEST) */</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">    </span><span class="n">__u32</span><span class="w"> </span><span class="n">nlmsg_seq</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Sıra numarası */</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="w">    </span><span class="n">__u32</span><span class="w"> </span><span class="n">nlmsg_pid</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Kaynak PID */</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="p">};</span>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="kt">int</span><span class="w"> </span><span class="n">sock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_NETLINK</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_RAW</span><span class="p">,</span><span class="w"> </span><span class="n">NETLINK_ROUTE</span><span class="p">);</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="ioctl-inputoutput-control">ioctl (Input/Output Control)</h3>
+<ul>
+<li>Cihaz sürücüleriyle veya özel dosya tabanlı arayüzlerle kontrol komutları göndermek için kullanılan bir sistem çağrısıdır.</li>
+</ul>
+<h3 id="aygt-dosyalar-device-files">Aygıt Dosyaları (Device Files)</h3>
+<ul>
+<li><code>/dev</code> altında bulunan, fiziksel veya sanal donanım aygıtlarını temsil eden özel dosyalardır.</li>
+<li>Her bir aygıt dosyası, major (sürücü) ve minor (aygıt) numaralarıyla eşlenir.</li>
+</ul>
+<h3 id="sistem-cagrlar-system-calls">Sistem Çağrıları (System Calls)</h3>
+<ul>
+<li>Kullanıcı alanındaki uygulamaların çekirdek (kernel) fonksiyonlarını çalıştırmasını sağlayan temel arayüzdür.</li>
+<li>Örnekler:<ul>
+<li>Dosya işlemleri: <code>open(), read(), write(), close()</code></li>
+<li>Süreç kontrolü: <code>fork(), execve(), waitpid()</code></li>
+<li>Bellek yönetimi: <code>mmap(), brk()</code></li>
+<li>Ağ iletişimi: <code>socket(), bind(), connect(), send(), recv()</code></li>
+</ul>
+</li>
+<li>Uygulamalar genellikle glibc gibi kütüphaneler üzerinden dolaylı çağrı yapar; nihai iş syscall talebiyle çekirdeğe düşer.</li>
+<li><strong>POSIX</strong> uyumluluğu sayesinde, farklı Unix türevi sistemlerde benzer arayüzler kullanılır.</li>
+</ul>
+<h2 id="systemd">Systemd</h2>
+<ul>
+<li>Systemd, modern Linux dağıtımlarında “init” sisteminin yerini alan bir sistem ve hizmet yöneticisidir.</li>
+<li>Amaçları:<ul>
+<li>Paralel başlatma ile açılış süresini kısaltmak.</li>
+<li>Bağımlılık grafiği kullanarak servisler arası doğru sırayı garantilemek.</li>
+<li>Journald ile merkezi günlük kaydı (log) tutmak.</li>
+<li>Socket, D-Bus, timer, mount ve daha pek çok birimi yönetmek.
+-Genel Konumlar</li>
+<li>Sistem geneli: <code>/etc/systemd/system/</code></li>
+<li>Dağıtım birincil: <code>/lib/systemd/system/</code> veya <code>/usr/lib/systemd/system/</code></li>
+<li>Kullanıcı bazlı: <code>~/.config/systemd/user/</code></li>
+</ul>
+</li>
+<li>
+<p>Her <code>.service</code> dosyası üç ana başlığa sahiptir:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>[Unit]
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>Description=Kısa ve öz açıklama
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>After=network.target
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>Wants=postgresql.service
+</span><span id="__span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>
+</span><span id="__span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>[Service]
+</span><span id="__span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>Type=simple
+</span><span id="__span-58-8"><a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>ExecStart=/usr/bin/my-daemon --option
+</span><span id="__span-58-9"><a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a>ExecReload=/bin/kill -HUP $MAINPID
+</span><span id="__span-58-10"><a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a>Restart=on-failure
+</span><span id="__span-58-11"><a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a>RestartSec=5s
+</span><span id="__span-58-12"><a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a>User=myuser
+</span><span id="__span-58-13"><a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a>Environment=ENV_VAR=value
+</span><span id="__span-58-14"><a id="__codelineno-58-14" name="__codelineno-58-14" href="#__codelineno-58-14"></a>
+</span><span id="__span-58-15"><a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a>[Install]
+</span><span id="__span-58-16"><a id="__codelineno-58-16" name="__codelineno-58-16" href="#__codelineno-58-16"></a>WantedBy=multi-user.target
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>[Unit]</code></p>
+<ul>
+<li><strong>Description:</strong> Hizmetin ne yaptığını özetler.</li>
+<li><strong>After / Before:</strong> Başlama sırasını ayarlar. Örneğin <strong>After=network.target → ağ</strong> hazır olmadan başlamaz.</li>
+<li><strong>Wants / Requires:</strong> Zayıf / güçlü bağımlılık ilişkileri kurar.</li>
+</ul>
+</li>
+<li>
+<p><code>[Service]</code></p>
+<ul>
+<li><strong>Type:</strong> Başlatma davranışını belirler.<ul>
+<li><strong>simple (default):</strong> ExecStart arka planda ayrılmadan çalışır.</li>
+<li><strong>forking:</strong> Daemon arka plana fork ettiğinde kabul edilir.</li>
+<li><strong>oneshot:</strong> Tek seferlik kısa işler için.</li>
+<li><code>notify, dbus, idle vb.</code> gelişmiş tipler de var.</li>
+</ul>
+</li>
+<li><strong>ExecStart, ExecReload, ExecStop:</strong> Başlatma, yeniden yükleme ve durdurma komutları.</li>
+<li><strong>Restart:</strong> Yeniden başlatma koşulları (no, on-success, on-failure, always vb.).</li>
+<li><strong>RestartSec:</strong> Yeniden başlatma öncesi bekleme süresi.</li>
+<li><strong>User / Group:</strong> Hizmeti hangi kullanıcı/grup altında çalıştıracağını belirler.</li>
+<li><strong>Environment:</strong> Çevresel değişkenleri tanımlar.</li>
+<li><strong>WorkingDirectory:</strong> Çalışma dizinini ayarlar.</li>
+</ul>
+</li>
+<li>
+<p><code>[Install]</code></p>
+<ul>
+<li><strong>WantedBy:</strong> Hangi target’a “enable” edildiğinde ekleneceğini tanımlar. Örneğin <code>multi-user.target → systemctl enable my.service ile /etc/systemd/system/multi-user.target.wants/my.service</code> bağlantısı oluşturulur.</li>
+<li><strong>RequiredBy:</strong> Zorunlu alt birim ilişkisi oluşturur</li>
+</ul>
+</li>
+</ul>
+<h3 id="systemctl-komutlar">systemctl Komutları</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w">   </span>my.service<span class="w">   </span><span class="c1"># Başlatır</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w">    </span>my.service<span class="w">   </span><span class="c1"># Durdurur</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>my.service<span class="w">   </span><span class="c1"># Yeniden başlatır</span>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w">  </span>my.service<span class="w">   </span><span class="c1"># Durum bilgisini gösterir</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w">  </span>my.service<span class="w">   </span><span class="c1"># Boot’ta otomatik başlayacak şekilde işaretler</span>
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>my.service<span class="w">   </span><span class="c1"># Artık otomatik başlamaz</span>
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>is-enabled<span class="w"> </span>my.service<span class="w">  </span><span class="c1"># Etkin mi diye kontrol eder</span>
+</span><span id="__span-59-9"><a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>
+</span><span id="__span-59-10"><a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span><span class="c1"># Yeni veya güncellenmiş birim dosyalarını tanıtmak</span>
+</span><span id="__span-59-11"><a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a>
+</span><span id="__span-59-12"><a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a>systemctl<span class="w"> </span>list-units<span class="w"> </span>--all<span class="w"> </span><span class="c1"># Tüm birimleri listeler</span>
+</span><span id="__span-59-13"><a id="__codelineno-59-13" name="__codelineno-59-13" href="#__codelineno-59-13"></a>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>target<span class="w">  </span><span class="c1"># Sadece target’ları gör</span>
+</span><span id="__span-59-14"><a id="__codelineno-59-14" name="__codelineno-59-14" href="#__codelineno-59-14"></a>
+</span><span id="__span-59-15"><a id="__codelineno-59-15" name="__codelineno-59-15" href="#__codelineno-59-15"></a><span class="c1"># Sistemi kapat / yeniden başlat / uyku moduna al</span>
+</span><span id="__span-59-16"><a id="__codelineno-59-16" name="__codelineno-59-16" href="#__codelineno-59-16"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>poweroff
+</span><span id="__span-59-17"><a id="__codelineno-59-17" name="__codelineno-59-17" href="#__codelineno-59-17"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>reboot
+</span><span id="__span-59-18"><a id="__codelineno-59-18" name="__codelineno-59-18" href="#__codelineno-59-18"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">suspend</span>
+</span><span id="__span-59-19"><a id="__codelineno-59-19" name="__codelineno-59-19" href="#__codelineno-59-19"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>hibernate
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>[Unit]
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>Description=ROS 2 Startup Service
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>After=network.target
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>
+</span><span id="__span-60-5"><a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>[Service]
+</span><span id="__span-60-6"><a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>Type=simple
+</span><span id="__span-60-7"><a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>User=rosuser
+</span><span id="__span-60-8"><a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>Environment=HOME=/home/rosuser
+</span><span id="__span-60-9"><a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>ExecStart=/home/rosuser/start_ros2.sh
+</span><span id="__span-60-10"><a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a>Restart=on-failure
+</span><span id="__span-60-11"><a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a>RestartSec=10s
+</span><span id="__span-60-12"><a id="__codelineno-60-12" name="__codelineno-60-12" href="#__codelineno-60-12"></a>
+</span><span id="__span-60-13"><a id="__codelineno-60-13" name="__codelineno-60-13" href="#__codelineno-60-13"></a>[Install]
+</span><span id="__span-60-14"><a id="__codelineno-60-14" name="__codelineno-60-14" href="#__codelineno-60-14"></a>WantedBy=multi-user.target
+</span></code></pre></div>
+<ul>
+<li>Bu dosyayı <code>/etc/systemd/system/ros2-start.service</code> olarak kaydedin.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w">  </span>ros2-start.service
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w">   </span>ros2-start.service
+</span></code></pre></div>
+<h3 id="birim-unit-turleri">Birim (Unit) Türleri</h3>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Uzantı</th>
+<th>Ne İşe Yarar?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service</td>
+<td>.service</td>
+<td>Arka plan hizmetlerini (daemon) tanımlar.</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>.target</td>
+<td>Çeşitli birimleri gruplar, run level yerine geçer.</td>
+</tr>
+<tr>
+<td>Socket</td>
+<td>.socket</td>
+<td>Socket-activated servisler tanımlar.</td>
+</tr>
+<tr>
+<td>Timer</td>
+<td>.timer</td>
+<td>Zamanlanmış görevler (cron alternatifi).</td>
+</tr>
+<tr>
+<td>Mount</td>
+<td>.mount</td>
+<td>Dosya sistemleri otomatik monteler.</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>.path</td>
+<td>Dosya/dizin değişikliklerini tetikleyici yapar.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand", "navigation.instant", "navigation.sections", "toc.integrate", "content.tabs.linked", "header.autohide", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Kopyaland\u0131", "clipboard.copy": "Kopyala", "search.result.more.one": "Bu sayfada 1 tane daha", "search.result.more.other": "Bu sayfada # tane daha", "search.result.none": "E\u015fle\u015fen dok\u00fcman bulunamad\u0131", "search.result.one": "1 dok\u00fcman bulundu", "search.result.other": "# dok\u00fcman bulundu", "search.result.placeholder": "Aramaya ba\u015flamak i\u00e7in yaz\u0131n", "search.result.term.missing": "Eksik", "select.version": "Versiyon se\u00e7"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
