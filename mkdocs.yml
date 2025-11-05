@@ -65,6 +65,7 @@ nav:
       - Python: programming/python.md
       - QML: programming/qml.md
       - XML: programming/xml.md
+      - Design Pattern: programming/design_pattern.md
 
   - Embedded:
       - Embedded Programming: embedded/embedded_programming.md
