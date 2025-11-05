@@ -1,7 +1,7 @@
 site_name: Dokümantasyon
 
 # theme:
-#   name: material
+#   name: readthedocs
 #   features:
 #     - navigation.tabs
 #     - navigation.expand       
@@ -53,11 +53,13 @@ theme:
     logo: material/robot-industrial
   
 nav:
-  - Build & Tooling:
-      - Compiler: build_tooling/compiler.md
-      - CMake: build_tooling/cmake.md
-      - Make: build_tooling/make.md
-      - Menuconfig: build_tooling/menuconfig.md
+  - Core Tools:
+      - Compiler: core_tools/compiler.md
+      - CMake: core_tools/cmake.md
+      - Make: core_tools/make.md
+      - Menuconfig: core_tools/menuconfig.md
+      - Git & GitHub: core_tools/git.md
+      - Docker & Containers: core_tools/docker.md
 
   - Programming:
       - C: programming/c.md
@@ -67,27 +69,23 @@ nav:
       - XML: programming/xml.md
       - Design Pattern: programming/design_pattern.md
 
-  - Embedded:
-      - Embedded Programming: embedded/embedded_programming.md
+  - Embedded & Hardware:
+      - STM Programming: embedded/stm.md
       - AVR Programming: embedded/avr.md
       - IPC: embedded/ipc.md
       - GStreamer: embedded/gstreamer.md
+      - PX4 & MAVLink: embedded/px4_mavlink.md
 
-  - Robotics & Autonomy:
-      - PX4: robotics/px4.md
-      - ROS2: robotics/ros2.md
-      - Gazebo: robotics/gazebo.md
+  - Systems & OS:
+      - NVIDIA Jetson: systems/jetson.md
+      - Raspberry Pi: systems/raspberry.md
+      - Linux: systems/linux.md
 
-  - OS & Hardware:
-      - Git & GitHub: devops/git.md
-      - Docker & Containers: devops/docker.md
-      - Linux: devops/linux.md
-      # - Raspberry Pi: devops/raspberry.md
-      # - NVIDIA Jetson: devops/jetson.md
-
-  - Perception & AI:
-      - AI & Machine Learning: perception_ai/ai.md
-      - OpenCV & Image Processing: perception_ai/opencv.md
+  - Robotics & AI:
+      - ROS2: robotics_ai/ros2.md
+      - Gazebo: robotics_ai/gazebo.md
+      - AI & Machine Learning: robotics_ai/ai.md
+      - OpenCV & Image Processing: robotics_ai/opencv.md
 
 markdown_extensions:
   - attr_list
@@ -109,4 +107,4 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
-     
+    
